@@ -15,12 +15,12 @@
 | Source Name | Data Domain | Data Format | Update Frequency | Geographic Scope | Access Protocol | Verification Status | Licensing & Terms | MVP Role |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :---: |
 | **OpenAQ API** | Air Quality (CAAQMS) | JSON (REST API) | Hourly / Real-time | Global (India nodes: Delhi, Bengaluru, Mumbai) | HTTP GET / API Key (free tier) | **VERIFIED** | Open Data (CC-BY 4.0) | **REQUIRED** |
-| **CPCB Central Data Portal** | Air Quality (Official) | HTML / PDF / Scraping | Hourly / Daily | National (All Indian States) | Web Portal / Captcha-protected | **CANDIDATE — TO BE VERIFIED** | Government Open Data / Proprietary terms | **OPTIONAL** |
+| **CPCB Central Data Portal** | Air Quality (Official) | HTML / PDF / Scraping | Hourly / Daily | National (All Indian States) | Web Portal / Captcha-protected | **REJECTED (Use OpenAQ)** | Government Open Data / Proprietary terms | **EXCLUDED** |
 | **Community IoT Networks** *(PurpleAir / Atmos)* | Air Quality (Micro-sensors) | JSON / CSV | 2–10 Minutes | Select Indian Urban Clusters | REST API / Public Community Feeds | **CANDIDATE — TO BE VERIFIED** | Community / Commercial Terms | **OPTIONAL** |
 | **Open-Meteo API** | Weather & Dispersion | JSON (REST API) | Hourly + 7-Day Forecast | Global ($1\text{km} - 11\text{km}$ grid resolution) | HTTP GET (No API key required for non-commercial) | **VERIFIED** | Open Data (CC-BY 4.0) | **REQUIRED** |
 | **India Meteorological Dept (IMD)** | Weather & Weather Warnings | Gridded NetCDF / XML | 3–6 Hours | National (India) | Government FTP / Open Data Portals | **CANDIDATE — TO BE VERIFIED** | National Government Open Data | **OPTIONAL** |
 | **Copernicus Sentinel-5P TROPOMI** | Satellite (NO2, Aerosol) | GeoTIFF / Raster | Daily overpass ($\approx 13:30$ local solar time) | Global ($3.5 \times 5.5\,\text{km}$ pixel resolution) | Google Earth Engine (GEE) Python API | **VERIFIED** | Copernicus Open Access / Free for research | **REQUIRED (Cached)** |
-| **NASA FIRMS (MODIS / VIIRS)** | Active Fire & Thermal Anomalies | CSV / GeoJSON (REST) | 3–6 Hours | Global ($375\text{m}$ VIIRS / $1\text{km}$ MODIS) | HTTP GET / Map Key (Free registration) | **VERIFIED** | NASA Open Data Policy (Public Domain) | **REQUIRED** |
+| **NASA FIRMS (MODIS / VIIRS)** | Active Fire & Thermal Anomalies | CSV / GeoJSON (REST) | 3–6 Hours | Global ($375\text{m}$ VIIRS / $1\text{km}$ MODIS) | Open South Asia NRT Stream / Map Key API | **VERIFIED** | NASA Open Data Policy (Public Domain) | **REQUIRED** |
 | **OpenStreetMap (OSM)** | Geographic & Land-Use | GeoJSON / Vector XML | Static / Live Overpass | Global (Complete Indian cities) | Overpass QL / Geofabrik Extracts | **VERIFIED** | Open Database License (ODbL) | **REQUIRED** |
 | **Municipal Ward Boundaries** *(DataMeet)* | Administrative Boundaries | GeoJSON / Shapefile | Static (Census / ULB revisions) | Delhi MCD, Bengaluru BBMP wards | GitHub Open Data Repository | **VERIFIED** | Open Community Data (CC-BY-SA) | **REQUIRED** |
 | **VayuDrishti Citizen PWA** | Crowdsourced Ground Evidence | Multipart Form / JSON | Event-driven (Real-time) | Pilot corridors (Delhi, Bengaluru) | Native HTTPS API (`/api/v1/evidence/upload`) | **VERIFIED (Internal)** | User Content Agreement / Privacy Consent | **REQUIRED** |
@@ -94,7 +94,7 @@
 
 ### 5.2 Municipal Administrative Ward Boundaries
 - **Source:** DataMeet Open Spatial Data Repository for Indian Municipalities.
-- **Coverage:** Municipal Corporation of Delhi (MCD) 250 wards; Bruhat Bengaluru Mahanagara Palike (BBMP) 198 wards.
+- **Coverage:** Municipal Corporation of Delhi (MCD) 250 wards (Delhi_Wards.geojson); Bruhat Bengaluru Mahanagara Palike (BBMP) 198 wards (BBMP.geojson).
 - **Data Format:** Standard GeoJSON polygons.
 - **Role:** Maps detected hotspot bounding centroids to specific municipal ward offices and responsible flying squad inspection units.
 
