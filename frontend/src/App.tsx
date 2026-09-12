@@ -1,46 +1,47 @@
 import React, { useEffect, useState } from 'react';
-
-interface HealthResponse {
-  status: string;
-  service?: string;
-  phase?: string;
-}
+import { apiClient, ApiError } from './api/client';
+import { ApiStatusResponse, HealthResponse } from './types/api';
 
 const App: React.FC = () => {
   const [healthData, setHealthData] = useState<HealthResponse | null>(null);
+  const [v1Data, setV1Data] = useState<ApiStatusResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
-
-  const checkHealth = async () => {
+  const checkConnectivity = async () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`${apiBaseUrl}/api/health`);
-      if (!response.ok) {
-        throw new Error(`HTTP error ${response.status}: ${response.statusText}`);
-      }
-      const data: HealthResponse = await response.json();
-      setHealthData(data);
+      const [healthRes, v1Res] = await Promise.all([
+        apiClient.getHealth(),
+        apiClient.getV1Status(),
+      ]);
+      setHealthData(healthRes);
+      setV1Data(v1Res);
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Unknown error';
-      setError(message);
+      if (err instanceof ApiError) {
+        setError(`[${err.code}] ${err.message}`);
+      } else if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('Unknown communication failure');
+      }
       setHealthData(null);
+      setV1Data(null);
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    checkHealth();
+    checkConnectivity();
   }, []);
 
   return (
     <div className="card">
       <div className="header">
         <h1 className="title">VayuDrishti</h1>
-        <p className="subtitle">Phase 1A: Foundation & Development Skeleton</p>
+        <p className="subtitle">Phase 1B: Architecture Contract & API Skeleton</p>
       </div>
 
       <div className="status-group">
@@ -53,7 +54,7 @@ const App: React.FC = () => {
         </div>
 
         <div className="status-item">
-          <span>Backend API ({apiBaseUrl}/api/health)</span>
+          <span>Legacy Health Check (/api/health)</span>
           {loading ? (
             <span className="badge-warning">
               <span className="dot"></span>
@@ -71,26 +72,46 @@ const App: React.FC = () => {
             </span>
           )}
         </div>
+
+        <div className="status-item">
+          <span>Versioned API Skeleton (/api/v1/status)</span>
+          {loading ? (
+            <span className="badge-warning">
+              <span className="dot"></span>
+              Checking...
+            </span>
+          ) : error ? (
+            <span className="badge-error">
+              <span className="dot"></span>
+              Unreachable
+            </span>
+          ) : (
+            <span className="badge-success">
+              <span className="dot"></span>
+              Active ({v1Data?.version})
+            </span>
+          )}
+        </div>
       </div>
 
-      {healthData && (
+      {v1Data && healthData && (
         <div className="response-box">
-          <pre>{JSON.stringify(healthData, null, 2)}</pre>
+          <pre>{JSON.stringify({ health: healthData, v1_status: v1Data }, null, 2)}</pre>
         </div>
       )}
 
       {error && (
         <div className="response-box" style={{ color: '#991b1b', backgroundColor: '#fef2f2' }}>
-          Backend connection check failed: {error}
+          API Connection Error: {error}
         </div>
       )}
 
-      <button className="action-btn" onClick={checkHealth} disabled={loading}>
-        {loading ? 'Testing Connection...' : 'Re-check Connection'}
+      <button className="action-btn" onClick={checkConnectivity} disabled={loading}>
+        {loading ? 'Validating Contracts...' : 'Re-verify API Contracts'}
       </button>
 
       <p className="footer-note">
-        Minimal development placeholder to verify frontend ↔ backend connectivity.
+        Phase 1B Typed Contract Validation — Frontend & Backend Skeleton Verified.
       </p>
     </div>
   );

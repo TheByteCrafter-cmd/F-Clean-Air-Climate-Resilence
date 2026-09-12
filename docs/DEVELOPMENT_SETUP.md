@@ -1,5 +1,5 @@
 # Development Setup Guide
-## VayuDrishti — Phase 1A Foundation
+## VayuDrishti — Phase 1B Foundation & Contracts
 
 This document covers the local development setup for the VayuDrishti foundation skeleton.
 
@@ -46,21 +46,36 @@ source .venv/bin/activate
 pip install -r backend/requirements.txt
 ```
 
-### 3.3 Start the Backend Development Server
+### 3.3 Run Contract Test Suite
+```bash
+pytest
+```
+
+### 3.4 Start the Backend Development Server
 From the project root:
 ```bash
 python -m uvicorn main:app --app-dir backend --port 8000 --reload
 ```
 The backend API will be available at:
-- **Root / Swagger UI:** `http://localhost:8000/docs`
+- **Interactive Swagger Docs:** `http://localhost:8000/docs`
 - **Health Check Endpoint:** `http://localhost:8000/api/health`
+- **Versioned API Status Endpoint:** `http://localhost:8000/api/v1/status`
 
-Expected response:
+Expected health response:
 ```json
 {
   "status": "ok",
   "service": "VayuDrishti API",
-  "phase": "1a"
+  "phase": "1b"
+}
+```
+
+Expected v1 status response:
+```json
+{
+  "status": "ok",
+  "version": "v1",
+  "message": "VayuDrishti API v1 skeleton is operational."
 }
 ```
 
