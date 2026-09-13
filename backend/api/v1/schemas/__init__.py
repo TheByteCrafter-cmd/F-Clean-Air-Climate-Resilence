@@ -9,6 +9,16 @@ from backend.api.v1.schemas.common import (
 from backend.api.v1.schemas.observation import EnvironmentalObservation
 from backend.api.v1.schemas.weather import WeatherObservation
 from backend.api.v1.schemas.satellite import SatelliteSignal, FireSignal, Sentinel5PNO2Signal
+from backend.api.v1.schemas.geospatial import (
+    GeospatialFeature,
+    RoadContextFeature,
+    IndustrialContextFeature,
+    SensitiveReceptorFeature,
+    WardBoundaryFeature,
+    GeoJSONFeature,
+    GeoJSONFeatureCollection,
+    GeospatialMetadata,
+)
 from backend.api.v1.schemas.evidence import CitizenEvidenceMetadata
 from backend.api.v1.schemas.hotspot import HotspotSummary
 from backend.api.v1.schemas.forecast import ForecastSummary
@@ -27,6 +37,14 @@ __all__ = [
     "SatelliteSignal",
     "FireSignal",
     "Sentinel5PNO2Signal",
+    "GeospatialFeature",
+    "RoadContextFeature",
+    "IndustrialContextFeature",
+    "SensitiveReceptorFeature",
+    "WardBoundaryFeature",
+    "GeoJSONFeature",
+    "GeoJSONFeatureCollection",
+    "GeospatialMetadata",
     "CitizenEvidenceMetadata",
     "HotspotSummary",
     "ForecastSummary",

@@ -1,0 +1,31 @@
+{
+  "source": "OPENSTREETMAP_OVERPASS",
+  "request_url": "https://overpass-api.de/api/interpreter",
+  "query_scope": "[out:json][timeout:25];\n(\n  way[\"highway\"=\"trunk\"](28.6000,77.0800,28.7200,77.2200);\n  way[\"highway\"=\"primary\"](28.6000,77.0800,28.7200,77.2200);\n  way[\"highway\"=\"secondary\"](28.6000,77.0800,28.7200,7",
+  "retrieval_timestamp": "2026-09-13T18:58:37.021968+00:00",
+  "response_latency_ms": 29238,
+  "raw_object_count": 125,
+  "valid_feature_count": 125,
+  "rejected_feature_count": 0,
+  "duplicate_count": 0,
+  "rejection_breakdown": {},
+  "geometry_distribution": {
+    "LineString": 50,
+    "Polygon": 25,
+    "Point": 50
+  },
+  "category_distribution": {
+    "road": 50,
+    "industrial": 25,
+    "sensitive_receptor": 50
+  },
+  "bounding_box": {
+    "lat_min": 28.596662,
+    "lat_max": 28.717637,
+    "lon_min": 77.077616,
+    "lon_max": 77.224698
+  },
+  "coordinate_reference_system": "EPSG:4326 (WGS84)",
+  "license": "ODbL",
+  "attribution": "? OpenStreetMap contributors"
+}

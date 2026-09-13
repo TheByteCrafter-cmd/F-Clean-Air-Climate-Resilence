@@ -1,0 +1,3652 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_153965563",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.123351,
+              28.684538
+            ],
+            [
+              77.123527,
+              28.684331
+            ],
+            [
+              77.124094,
+              28.684128
+            ],
+            [
+              77.127462,
+              28.683828
+            ],
+            [
+              77.127231,
+              28.681473
+            ],
+            [
+              77.124614,
+              28.682547
+            ],
+            [
+              77.124396,
+              28.682136
+            ],
+            [
+              77.122426,
+              28.682235
+            ],
+            [
+              77.122433,
+              28.682474
+            ],
+            [
+              77.115624,
+              28.682999
+            ],
+            [
+              77.115469,
+              28.682863
+            ],
+            [
+              77.114,
+              28.682974
+            ],
+            [
+              77.113957,
+              28.681763
+            ],
+            [
+              77.101982,
+              28.683006
+            ],
+            [
+              77.102589,
+              28.686099
+            ],
+            [
+              77.102619,
+              28.688458
+            ],
+            [
+              77.111179,
+              28.688117
+            ],
+            [
+              77.122658,
+              28.686424
+            ],
+            [
+              77.123242,
+              28.685809
+            ],
+            [
+              77.123226,
+              28.684751
+            ],
+            [
+              77.123351,
+              28.684538
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_153965563",
+        "feature_type": "industrial",
+        "name": null,
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.123351,
+                28.684538
+              ],
+              [
+                77.123527,
+                28.684331
+              ],
+              [
+                77.124094,
+                28.684128
+              ],
+              [
+                77.127462,
+                28.683828
+              ],
+              [
+                77.127231,
+                28.681473
+              ],
+              [
+                77.124614,
+                28.682547
+              ],
+              [
+                77.124396,
+                28.682136
+              ],
+              [
+                77.122426,
+                28.682235
+              ],
+              [
+                77.122433,
+                28.682474
+              ],
+              [
+                77.115624,
+                28.682999
+              ],
+              [
+                77.115469,
+                28.682863
+              ],
+              [
+                77.114,
+                28.682974
+              ],
+              [
+                77.113957,
+                28.681763
+              ],
+              [
+                77.101982,
+                28.683006
+              ],
+              [
+                77.102589,
+                28.686099
+              ],
+              [
+                77.102619,
+                28.688458
+              ],
+              [
+                77.111179,
+                28.688117
+              ],
+              [
+                77.122658,
+                28.686424
+              ],
+              [
+                77.123242,
+                28.685809
+              ],
+              [
+                77.123226,
+                28.684751
+              ],
+              [
+                77.123351,
+                28.684538
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 153965563,
+          "landuse": "industrial",
+          "industrial_type": null,
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 153965563,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "landuse": "industrial"
+          }
+        },
+        "osm_id": 153965563,
+        "landuse": "industrial",
+        "industrial_type": null,
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_153965565",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.117447,
+              28.680447
+            ],
+            [
+              77.117231,
+              28.680486
+            ],
+            [
+              77.118121,
+              28.678694
+            ],
+            [
+              77.118869,
+              28.678047
+            ],
+            [
+              77.119034,
+              28.677981
+            ],
+            [
+              77.118808,
+              28.676904
+            ],
+            [
+              77.118769,
+              28.676721
+            ],
+            [
+              77.118874,
+              28.676707
+            ],
+            [
+              77.119481,
+              28.676669
+            ],
+            [
+              77.121098,
+              28.676406
+            ],
+            [
+              77.13495,
+              28.674529
+            ],
+            [
+              77.137016,
+              28.674517
+            ],
+            [
+              77.13722,
+              28.675985
+            ],
+            [
+              77.138524,
+              28.675859
+            ],
+            [
+              77.138529,
+              28.676038
+            ],
+            [
+              77.139487,
+              28.675966
+            ],
+            [
+              77.139424,
+              28.676299
+            ],
+            [
+              77.132646,
+              28.676948
+            ],
+            [
+              77.132646,
+              28.677084
+            ],
+            [
+              77.134335,
+              28.67748
+            ],
+            [
+              77.13579,
+              28.678129
+            ],
+            [
+              77.136179,
+              28.678907
+            ],
+            [
+              77.132436,
+              28.677337
+            ],
+            [
+              77.13193,
+              28.677296
+            ],
+            [
+              77.122806,
+              28.678091
+            ],
+            [
+              77.120768,
+              28.678249
+            ],
+            [
+              77.117447,
+              28.680447
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_153965565",
+        "feature_type": "industrial",
+        "name": null,
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.117447,
+                28.680447
+              ],
+              [
+                77.117231,
+                28.680486
+              ],
+              [
+                77.118121,
+                28.678694
+              ],
+              [
+                77.118869,
+                28.678047
+              ],
+              [
+                77.119034,
+                28.677981
+              ],
+              [
+                77.118808,
+                28.676904
+              ],
+              [
+                77.118769,
+                28.676721
+              ],
+              [
+                77.118874,
+                28.676707
+              ],
+              [
+                77.119481,
+                28.676669
+              ],
+              [
+                77.121098,
+                28.676406
+              ],
+              [
+                77.13495,
+                28.674529
+              ],
+              [
+                77.137016,
+                28.674517
+              ],
+              [
+                77.13722,
+                28.675985
+              ],
+              [
+                77.138524,
+                28.675859
+              ],
+              [
+                77.138529,
+                28.676038
+              ],
+              [
+                77.139487,
+                28.675966
+              ],
+              [
+                77.139424,
+                28.676299
+              ],
+              [
+                77.132646,
+                28.676948
+              ],
+              [
+                77.132646,
+                28.677084
+              ],
+              [
+                77.134335,
+                28.67748
+              ],
+              [
+                77.13579,
+                28.678129
+              ],
+              [
+                77.136179,
+                28.678907
+              ],
+              [
+                77.132436,
+                28.677337
+              ],
+              [
+                77.13193,
+                28.677296
+              ],
+              [
+                77.122806,
+                28.678091
+              ],
+              [
+                77.120768,
+                28.678249
+              ],
+              [
+                77.117447,
+                28.680447
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 153965565,
+          "landuse": "industrial",
+          "industrial_type": null,
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 153965565,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "landuse": "industrial"
+          }
+        },
+        "osm_id": 153965565,
+        "landuse": "industrial",
+        "industrial_type": null,
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_171500938",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.101918,
+              28.683009
+            ],
+            [
+              77.102543,
+              28.686088
+            ],
+            [
+              77.102559,
+              28.688462
+            ],
+            [
+              77.101894,
+              28.688396
+            ],
+            [
+              77.101692,
+              28.68824
+            ],
+            [
+              77.097629,
+              28.688389
+            ],
+            [
+              77.096786,
+              28.688493
+            ],
+            [
+              77.09656,
+              28.68841
+            ],
+            [
+              77.096386,
+              28.688185
+            ],
+            [
+              77.096299,
+              28.687768
+            ],
+            [
+              77.095852,
+              28.68555
+            ],
+            [
+              77.095492,
+              28.683543
+            ],
+            [
+              77.097906,
+              28.683373
+            ],
+            [
+              77.101918,
+              28.683009
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_171500938",
+        "feature_type": "industrial",
+        "name": null,
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.101918,
+                28.683009
+              ],
+              [
+                77.102543,
+                28.686088
+              ],
+              [
+                77.102559,
+                28.688462
+              ],
+              [
+                77.101894,
+                28.688396
+              ],
+              [
+                77.101692,
+                28.68824
+              ],
+              [
+                77.097629,
+                28.688389
+              ],
+              [
+                77.096786,
+                28.688493
+              ],
+              [
+                77.09656,
+                28.68841
+              ],
+              [
+                77.096386,
+                28.688185
+              ],
+              [
+                77.096299,
+                28.687768
+              ],
+              [
+                77.095852,
+                28.68555
+              ],
+              [
+                77.095492,
+                28.683543
+              ],
+              [
+                77.097906,
+                28.683373
+              ],
+              [
+                77.101918,
+                28.683009
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 171500938,
+          "landuse": "industrial",
+          "industrial_type": null,
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 171500938,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "landuse": "industrial"
+          }
+        },
+        "osm_id": 171500938,
+        "landuse": "industrial",
+        "industrial_type": null,
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_171606293",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.146766,
+              28.683112
+            ],
+            [
+              77.148433,
+              28.684223
+            ],
+            [
+              77.150193,
+              28.685409
+            ],
+            [
+              77.150571,
+              28.685676
+            ],
+            [
+              77.151016,
+              28.685163
+            ],
+            [
+              77.151167,
+              28.684967
+            ],
+            [
+              77.15197,
+              28.685146
+            ],
+            [
+              77.151724,
+              28.684402
+            ],
+            [
+              77.151889,
+              28.684331
+            ],
+            [
+              77.151122,
+              28.682301
+            ],
+            [
+              77.150627,
+              28.681059
+            ],
+            [
+              77.150436,
+              28.680799
+            ],
+            [
+              77.150219,
+              28.6801
+            ],
+            [
+              77.150013,
+              28.68014
+            ],
+            [
+              77.149943,
+              28.679772
+            ],
+            [
+              77.14989,
+              28.679136
+            ],
+            [
+              77.149875,
+              28.678562
+            ],
+            [
+              77.150027,
+              28.677914
+            ],
+            [
+              77.150304,
+              28.677219
+            ],
+            [
+              77.15074,
+              28.676346
+            ],
+            [
+              77.150306,
+              28.676196
+            ],
+            [
+              77.148026,
+              28.67705
+            ],
+            [
+              77.145299,
+              28.678088
+            ],
+            [
+              77.143654,
+              28.678641
+            ],
+            [
+              77.142041,
+              28.679119
+            ],
+            [
+              77.142352,
+              28.679862
+            ],
+            [
+              77.142758,
+              28.680388
+            ],
+            [
+              77.143116,
+              28.680734
+            ],
+            [
+              77.143726,
+              28.68118
+            ],
+            [
+              77.146338,
+              28.68284
+            ],
+            [
+              77.146766,
+              28.683112
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_171606293",
+        "feature_type": "industrial",
+        "name": null,
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.146766,
+                28.683112
+              ],
+              [
+                77.148433,
+                28.684223
+              ],
+              [
+                77.150193,
+                28.685409
+              ],
+              [
+                77.150571,
+                28.685676
+              ],
+              [
+                77.151016,
+                28.685163
+              ],
+              [
+                77.151167,
+                28.684967
+              ],
+              [
+                77.15197,
+                28.685146
+              ],
+              [
+                77.151724,
+                28.684402
+              ],
+              [
+                77.151889,
+                28.684331
+              ],
+              [
+                77.151122,
+                28.682301
+              ],
+              [
+                77.150627,
+                28.681059
+              ],
+              [
+                77.150436,
+                28.680799
+              ],
+              [
+                77.150219,
+                28.6801
+              ],
+              [
+                77.150013,
+                28.68014
+              ],
+              [
+                77.149943,
+                28.679772
+              ],
+              [
+                77.14989,
+                28.679136
+              ],
+              [
+                77.149875,
+                28.678562
+              ],
+              [
+                77.150027,
+                28.677914
+              ],
+              [
+                77.150304,
+                28.677219
+              ],
+              [
+                77.15074,
+                28.676346
+              ],
+              [
+                77.150306,
+                28.676196
+              ],
+              [
+                77.148026,
+                28.67705
+              ],
+              [
+                77.145299,
+                28.678088
+              ],
+              [
+                77.143654,
+                28.678641
+              ],
+              [
+                77.142041,
+                28.679119
+              ],
+              [
+                77.142352,
+                28.679862
+              ],
+              [
+                77.142758,
+                28.680388
+              ],
+              [
+                77.143116,
+                28.680734
+              ],
+              [
+                77.143726,
+                28.68118
+              ],
+              [
+                77.146338,
+                28.68284
+              ],
+              [
+                77.146766,
+                28.683112
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 171606293,
+          "landuse": "industrial",
+          "industrial_type": null,
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 171606293,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "landuse": "industrial"
+          }
+        },
+        "osm_id": 171606293,
+        "landuse": "industrial",
+        "industrial_type": null,
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_171606321",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.155664,
+              28.693232
+            ],
+            [
+              77.155212,
+              28.692716
+            ],
+            [
+              77.154764,
+              28.692035
+            ],
+            [
+              77.154049,
+              28.692309
+            ],
+            [
+              77.154074,
+              28.692359
+            ],
+            [
+              77.154962,
+              28.694108
+            ],
+            [
+              77.155128,
+              28.694145
+            ],
+            [
+              77.15531,
+              28.694132
+            ],
+            [
+              77.155503,
+              28.694036
+            ],
+            [
+              77.155599,
+              28.693928
+            ],
+            [
+              77.155734,
+              28.694125
+            ],
+            [
+              77.155491,
+              28.69434
+            ],
+            [
+              77.155367,
+              28.694543
+            ],
+            [
+              77.155324,
+              28.694693
+            ],
+            [
+              77.155343,
+              28.694888
+            ],
+            [
+              77.155704,
+              28.695547
+            ],
+            [
+              77.155795,
+              28.695706
+            ],
+            [
+              77.15798,
+              28.694865
+            ],
+            [
+              77.157807,
+              28.69452
+            ],
+            [
+              77.156485,
+              28.693911
+            ],
+            [
+              77.155664,
+              28.693232
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_171606321",
+        "feature_type": "industrial",
+        "name": "Wazirpur Depot",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.155664,
+                28.693232
+              ],
+              [
+                77.155212,
+                28.692716
+              ],
+              [
+                77.154764,
+                28.692035
+              ],
+              [
+                77.154049,
+                28.692309
+              ],
+              [
+                77.154074,
+                28.692359
+              ],
+              [
+                77.154962,
+                28.694108
+              ],
+              [
+                77.155128,
+                28.694145
+              ],
+              [
+                77.15531,
+                28.694132
+              ],
+              [
+                77.155503,
+                28.694036
+              ],
+              [
+                77.155599,
+                28.693928
+              ],
+              [
+                77.155734,
+                28.694125
+              ],
+              [
+                77.155491,
+                28.69434
+              ],
+              [
+                77.155367,
+                28.694543
+              ],
+              [
+                77.155324,
+                28.694693
+              ],
+              [
+                77.155343,
+                28.694888
+              ],
+              [
+                77.155704,
+                28.695547
+              ],
+              [
+                77.155795,
+                28.695706
+              ],
+              [
+                77.15798,
+                28.694865
+              ],
+              [
+                77.157807,
+                28.69452
+              ],
+              [
+                77.156485,
+                28.693911
+              ],
+              [
+                77.155664,
+                28.693232
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 171606321,
+          "landuse": "industrial",
+          "industrial_type": "depot",
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 171606321,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "industrial": "depot",
+            "landuse": "industrial",
+            "name": "Wazirpur Depot"
+          }
+        },
+        "osm_id": 171606321,
+        "landuse": "industrial",
+        "industrial_type": "depot",
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_171640519",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.082717,
+              28.687891
+            ],
+            [
+              77.094092,
+              28.687625
+            ],
+            [
+              77.094649,
+              28.687788
+            ],
+            [
+              77.09527,
+              28.68809
+            ],
+            [
+              77.09554,
+              28.688156
+            ],
+            [
+              77.095721,
+              28.688052
+            ],
+            [
+              77.095389,
+              28.686032
+            ],
+            [
+              77.094954,
+              28.683585
+            ],
+            [
+              77.087666,
+              28.684178
+            ],
+            [
+              77.082598,
+              28.684666
+            ],
+            [
+              77.082717,
+              28.687891
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_171640519",
+        "feature_type": "industrial",
+        "name": null,
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.082717,
+                28.687891
+              ],
+              [
+                77.094092,
+                28.687625
+              ],
+              [
+                77.094649,
+                28.687788
+              ],
+              [
+                77.09527,
+                28.68809
+              ],
+              [
+                77.09554,
+                28.688156
+              ],
+              [
+                77.095721,
+                28.688052
+              ],
+              [
+                77.095389,
+                28.686032
+              ],
+              [
+                77.094954,
+                28.683585
+              ],
+              [
+                77.087666,
+                28.684178
+              ],
+              [
+                77.082598,
+                28.684666
+              ],
+              [
+                77.082717,
+                28.687891
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 171640519,
+          "landuse": "industrial",
+          "industrial_type": null,
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 171640519,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "landuse": "industrial"
+          }
+        },
+        "osm_id": 171640519,
+        "landuse": "industrial",
+        "industrial_type": null,
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_206564484",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.181034,
+              28.643589
+            ],
+            [
+              77.1821,
+              28.643746
+            ],
+            [
+              77.182184,
+              28.643256
+            ],
+            [
+              77.180983,
+              28.643077
+            ],
+            [
+              77.181034,
+              28.643589
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_206564484",
+        "feature_type": "industrial",
+        "name": null,
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.181034,
+                28.643589
+              ],
+              [
+                77.1821,
+                28.643746
+              ],
+              [
+                77.182184,
+                28.643256
+              ],
+              [
+                77.180983,
+                28.643077
+              ],
+              [
+                77.181034,
+                28.643589
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 206564484,
+          "landuse": "industrial",
+          "industrial_type": null,
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 206564484,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "landuse": "industrial"
+          }
+        },
+        "osm_id": 206564484,
+        "landuse": "industrial",
+        "industrial_type": null,
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_262501903",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.149024,
+              28.656555
+            ],
+            [
+              77.147736,
+              28.654904
+            ],
+            [
+              77.146745,
+              28.655806
+            ],
+            [
+              77.147801,
+              28.657284
+            ],
+            [
+              77.149024,
+              28.656555
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_262501903",
+        "feature_type": "industrial",
+        "name": null,
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.149024,
+                28.656555
+              ],
+              [
+                77.147736,
+                28.654904
+              ],
+              [
+                77.146745,
+                28.655806
+              ],
+              [
+                77.147801,
+                28.657284
+              ],
+              [
+                77.149024,
+                28.656555
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 262501903,
+          "landuse": "industrial",
+          "industrial_type": null,
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 262501903,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "landuse": "industrial"
+          }
+        },
+        "osm_id": 262501903,
+        "landuse": "industrial",
+        "industrial_type": null,
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_262501904",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.149649,
+              28.654008
+            ],
+            [
+              77.151097,
+              28.655213
+            ],
+            [
+              77.150132,
+              28.655811
+            ],
+            [
+              77.149853,
+              28.65614
+            ],
+            [
+              77.149279,
+              28.656498
+            ],
+            [
+              77.147988,
+              28.65487
+            ],
+            [
+              77.148388,
+              28.654512
+            ],
+            [
+              77.148909,
+              28.654766
+            ],
+            [
+              77.149649,
+              28.654008
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_262501904",
+        "feature_type": "industrial",
+        "name": "Scooters India Ltd",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.149649,
+                28.654008
+              ],
+              [
+                77.151097,
+                28.655213
+              ],
+              [
+                77.150132,
+                28.655811
+              ],
+              [
+                77.149853,
+                28.65614
+              ],
+              [
+                77.149279,
+                28.656498
+              ],
+              [
+                77.147988,
+                28.65487
+              ],
+              [
+                77.148388,
+                28.654512
+              ],
+              [
+                77.148909,
+                28.654766
+              ],
+              [
+                77.149649,
+                28.654008
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 262501904,
+          "landuse": "industrial",
+          "industrial_type": null,
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 262501904,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "landuse": "industrial",
+            "name": "Scooters India Ltd"
+          }
+        },
+        "osm_id": 262501904,
+        "landuse": "industrial",
+        "industrial_type": null,
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_262501905",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.146623,
+              28.658228
+            ],
+            [
+              77.146124,
+              28.65843
+            ],
+            [
+              77.145735,
+              28.657845
+            ],
+            [
+              77.14567,
+              28.657886
+            ],
+            [
+              77.145601,
+              28.65781
+            ],
+            [
+              77.145683,
+              28.657742
+            ],
+            [
+              77.145483,
+              28.657477
+            ],
+            [
+              77.145407,
+              28.657521
+            ],
+            [
+              77.145138,
+              28.657281
+            ],
+            [
+              77.14572,
+              28.656743
+            ],
+            [
+              77.146715,
+              28.658035
+            ],
+            [
+              77.146567,
+              28.658116
+            ],
+            [
+              77.146623,
+              28.658228
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_262501905",
+        "feature_type": "industrial",
+        "name": null,
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.146623,
+                28.658228
+              ],
+              [
+                77.146124,
+                28.65843
+              ],
+              [
+                77.145735,
+                28.657845
+              ],
+              [
+                77.14567,
+                28.657886
+              ],
+              [
+                77.145601,
+                28.65781
+              ],
+              [
+                77.145683,
+                28.657742
+              ],
+              [
+                77.145483,
+                28.657477
+              ],
+              [
+                77.145407,
+                28.657521
+              ],
+              [
+                77.145138,
+                28.657281
+              ],
+              [
+                77.14572,
+                28.656743
+              ],
+              [
+                77.146715,
+                28.658035
+              ],
+              [
+                77.146567,
+                28.658116
+              ],
+              [
+                77.146623,
+                28.658228
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 262501905,
+          "landuse": "industrial",
+          "industrial_type": null,
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 262501905,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "landuse": "industrial"
+          }
+        },
+        "osm_id": 262501905,
+        "landuse": "industrial",
+        "industrial_type": null,
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_262647904",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.078271,
+              28.67005
+            ],
+            [
+              77.078651,
+              28.670012
+            ],
+            [
+              77.079584,
+              28.669927
+            ],
+            [
+              77.08003,
+              28.672991
+            ],
+            [
+              77.077616,
+              28.673223
+            ],
+            [
+              77.077771,
+              28.672259
+            ],
+            [
+              77.078195,
+              28.670436
+            ],
+            [
+              77.078271,
+              28.67005
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_262647904",
+        "feature_type": "industrial",
+        "name": "Jwalapuri PVC Market",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.078271,
+                28.67005
+              ],
+              [
+                77.078651,
+                28.670012
+              ],
+              [
+                77.079584,
+                28.669927
+              ],
+              [
+                77.08003,
+                28.672991
+              ],
+              [
+                77.077616,
+                28.673223
+              ],
+              [
+                77.077771,
+                28.672259
+              ],
+              [
+                77.078195,
+                28.670436
+              ],
+              [
+                77.078271,
+                28.67005
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 262647904,
+          "landuse": "industrial",
+          "industrial_type": null,
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 262647904,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "landuse": "industrial",
+            "name": "Jwalapuri PVC Market"
+          }
+        },
+        "osm_id": 262647904,
+        "landuse": "industrial",
+        "industrial_type": null,
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_262673255",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.113684,
+              28.670604
+            ],
+            [
+              77.114089,
+              28.670538
+            ],
+            [
+              77.114212,
+              28.671099
+            ],
+            [
+              77.113761,
+              28.671146
+            ],
+            [
+              77.113684,
+              28.670604
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_262673255",
+        "feature_type": "industrial",
+        "name": null,
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.113684,
+                28.670604
+              ],
+              [
+                77.114089,
+                28.670538
+              ],
+              [
+                77.114212,
+                28.671099
+              ],
+              [
+                77.113761,
+                28.671146
+              ],
+              [
+                77.113684,
+                28.670604
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 262673255,
+          "landuse": "industrial",
+          "industrial_type": null,
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 262673255,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "landuse": "industrial"
+          }
+        },
+        "osm_id": 262673255,
+        "landuse": "industrial",
+        "industrial_type": null,
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_262717867",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.087909,
+              28.652601
+            ],
+            [
+              77.088663,
+              28.653648
+            ],
+            [
+              77.088924,
+              28.653467
+            ],
+            [
+              77.089027,
+              28.65361
+            ],
+            [
+              77.089939,
+              28.653065
+            ],
+            [
+              77.089319,
+              28.652227
+            ],
+            [
+              77.088479,
+              28.652299
+            ],
+            [
+              77.087909,
+              28.652601
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_262717867",
+        "feature_type": "industrial",
+        "name": "Keshavpur Depot",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.087909,
+                28.652601
+              ],
+              [
+                77.088663,
+                28.653648
+              ],
+              [
+                77.088924,
+                28.653467
+              ],
+              [
+                77.089027,
+                28.65361
+              ],
+              [
+                77.089939,
+                28.653065
+              ],
+              [
+                77.089319,
+                28.652227
+              ],
+              [
+                77.088479,
+                28.652299
+              ],
+              [
+                77.087909,
+                28.652601
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 262717867,
+          "landuse": "industrial",
+          "industrial_type": "depot",
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 262717867,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "industrial": "depot",
+            "landuse": "industrial",
+            "name": "Keshavpur Depot",
+            "operator": "Delhi Transport Corporation"
+          }
+        },
+        "osm_id": 262717867,
+        "landuse": "industrial",
+        "industrial_type": "depot",
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_264746031",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.132397,
+              28.688145
+            ],
+            [
+              77.133363,
+              28.68767
+            ],
+            [
+              77.133856,
+              28.68743
+            ],
+            [
+              77.134827,
+              28.68719
+            ],
+            [
+              77.135037,
+              28.687166
+            ],
+            [
+              77.135122,
+              28.68719
+            ],
+            [
+              77.135185,
+              28.687273
+            ],
+            [
+              77.135299,
+              28.690202
+            ],
+            [
+              77.133683,
+              28.690731
+            ],
+            [
+              77.132397,
+              28.688145
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_264746031",
+        "feature_type": "industrial",
+        "name": null,
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.132397,
+                28.688145
+              ],
+              [
+                77.133363,
+                28.68767
+              ],
+              [
+                77.133856,
+                28.68743
+              ],
+              [
+                77.134827,
+                28.68719
+              ],
+              [
+                77.135037,
+                28.687166
+              ],
+              [
+                77.135122,
+                28.68719
+              ],
+              [
+                77.135185,
+                28.687273
+              ],
+              [
+                77.135299,
+                28.690202
+              ],
+              [
+                77.133683,
+                28.690731
+              ],
+              [
+                77.132397,
+                28.688145
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 264746031,
+          "landuse": "industrial",
+          "industrial_type": null,
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 264746031,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "landuse": "industrial"
+          }
+        },
+        "osm_id": 264746031,
+        "landuse": "industrial",
+        "industrial_type": null,
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_265165726",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.120281,
+              28.652282
+            ],
+            [
+              77.119511,
+              28.651892
+            ],
+            [
+              77.119319,
+              28.652171
+            ],
+            [
+              77.121471,
+              28.653201
+            ],
+            [
+              77.121646,
+              28.652907
+            ],
+            [
+              77.120281,
+              28.652282
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_265165726",
+        "feature_type": "industrial",
+        "name": null,
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.120281,
+                28.652282
+              ],
+              [
+                77.119511,
+                28.651892
+              ],
+              [
+                77.119319,
+                28.652171
+              ],
+              [
+                77.121471,
+                28.653201
+              ],
+              [
+                77.121646,
+                28.652907
+              ],
+              [
+                77.120281,
+                28.652282
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 265165726,
+          "landuse": "industrial",
+          "industrial_type": null,
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 265165726,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "landuse": "industrial"
+          }
+        },
+        "osm_id": 265165726,
+        "landuse": "industrial",
+        "industrial_type": null,
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_277955572",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.202623,
+              28.676523
+            ],
+            [
+              77.203324,
+              28.676985
+            ],
+            [
+              77.204145,
+              28.677446
+            ],
+            [
+              77.203677,
+              28.677789
+            ],
+            [
+              77.20343,
+              28.67789
+            ],
+            [
+              77.203448,
+              28.678162
+            ],
+            [
+              77.20267,
+              28.678202
+            ],
+            [
+              77.202296,
+              28.67865
+            ],
+            [
+              77.202244,
+              28.678707
+            ],
+            [
+              77.201997,
+              28.678759
+            ],
+            [
+              77.201843,
+              28.678766
+            ],
+            [
+              77.201065,
+              28.678593
+            ],
+            [
+              77.201864,
+              28.677424
+            ],
+            [
+              77.202218,
+              28.676979
+            ],
+            [
+              77.202623,
+              28.676523
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_277955572",
+        "feature_type": "industrial",
+        "name": "British Era Textile Industry",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.202623,
+                28.676523
+              ],
+              [
+                77.203324,
+                28.676985
+              ],
+              [
+                77.204145,
+                28.677446
+              ],
+              [
+                77.203677,
+                28.677789
+              ],
+              [
+                77.20343,
+                28.67789
+              ],
+              [
+                77.203448,
+                28.678162
+              ],
+              [
+                77.20267,
+                28.678202
+              ],
+              [
+                77.202296,
+                28.67865
+              ],
+              [
+                77.202244,
+                28.678707
+              ],
+              [
+                77.201997,
+                28.678759
+              ],
+              [
+                77.201843,
+                28.678766
+              ],
+              [
+                77.201065,
+                28.678593
+              ],
+              [
+                77.201864,
+                28.677424
+              ],
+              [
+                77.202218,
+                28.676979
+              ],
+              [
+                77.202623,
+                28.676523
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 277955572,
+          "landuse": "industrial",
+          "industrial_type": null,
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 277955572,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "landuse": "industrial",
+            "name": "British Era Textile Industry"
+          }
+        },
+        "osm_id": 277955572,
+        "landuse": "industrial",
+        "industrial_type": null,
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_290620909",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.196882,
+              28.703299
+            ],
+            [
+              77.19731,
+              28.703533
+            ],
+            [
+              77.197329,
+              28.703547
+            ],
+            [
+              77.197348,
+              28.703572
+            ],
+            [
+              77.197462,
+              28.703778
+            ],
+            [
+              77.198162,
+              28.703519
+            ],
+            [
+              77.197882,
+              28.702909
+            ],
+            [
+              77.196882,
+              28.703299
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_290620909",
+        "feature_type": "industrial",
+        "name": "MCD Workshop",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.196882,
+                28.703299
+              ],
+              [
+                77.19731,
+                28.703533
+              ],
+              [
+                77.197329,
+                28.703547
+              ],
+              [
+                77.197348,
+                28.703572
+              ],
+              [
+                77.197462,
+                28.703778
+              ],
+              [
+                77.198162,
+                28.703519
+              ],
+              [
+                77.197882,
+                28.702909
+              ],
+              [
+                77.196882,
+                28.703299
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 290620909,
+          "landuse": "industrial",
+          "industrial_type": null,
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 290620909,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "landuse": "industrial",
+            "name": "MCD Workshop"
+          }
+        },
+        "osm_id": 290620909,
+        "landuse": "industrial",
+        "industrial_type": null,
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_290664335",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.204305,
+              28.710577
+            ],
+            [
+              77.203634,
+              28.710721
+            ],
+            [
+              77.203597,
+              28.711632
+            ],
+            [
+              77.202815,
+              28.711576
+            ],
+            [
+              77.202785,
+              28.712028
+            ],
+            [
+              77.200926,
+              28.711923
+            ],
+            [
+              77.200977,
+              28.710407
+            ],
+            [
+              77.200372,
+              28.710386
+            ],
+            [
+              77.200223,
+              28.707234
+            ],
+            [
+              77.198574,
+              28.708361
+            ],
+            [
+              77.197643,
+              28.706474
+            ],
+            [
+              77.195896,
+              28.707103
+            ],
+            [
+              77.195511,
+              28.707262
+            ],
+            [
+              77.19559,
+              28.709323
+            ],
+            [
+              77.195584,
+              28.709521
+            ],
+            [
+              77.195549,
+              28.709693
+            ],
+            [
+              77.194115,
+              28.712438
+            ],
+            [
+              77.19546,
+              28.712716
+            ],
+            [
+              77.195593,
+              28.712826
+            ],
+            [
+              77.195661,
+              28.712979
+            ],
+            [
+              77.195683,
+              28.713112
+            ],
+            [
+              77.195835,
+              28.717301
+            ],
+            [
+              77.195858,
+              28.717371
+            ],
+            [
+              77.195926,
+              28.7174
+            ],
+            [
+              77.200626,
+              28.717631
+            ],
+            [
+              77.200759,
+              28.717637
+            ],
+            [
+              77.200764,
+              28.717401
+            ],
+            [
+              77.200766,
+              28.717291
+            ],
+            [
+              77.200898,
+              28.715226
+            ],
+            [
+              77.20095,
+              28.715198
+            ],
+            [
+              77.200932,
+              28.713678
+            ],
+            [
+              77.203362,
+              28.713644
+            ],
+            [
+              77.203266,
+              28.712947
+            ],
+            [
+              77.204106,
+              28.712823
+            ],
+            [
+              77.204305,
+              28.710577
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_290664335",
+        "feature_type": "industrial",
+        "name": "All India Radio",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.204305,
+                28.710577
+              ],
+              [
+                77.203634,
+                28.710721
+              ],
+              [
+                77.203597,
+                28.711632
+              ],
+              [
+                77.202815,
+                28.711576
+              ],
+              [
+                77.202785,
+                28.712028
+              ],
+              [
+                77.200926,
+                28.711923
+              ],
+              [
+                77.200977,
+                28.710407
+              ],
+              [
+                77.200372,
+                28.710386
+              ],
+              [
+                77.200223,
+                28.707234
+              ],
+              [
+                77.198574,
+                28.708361
+              ],
+              [
+                77.197643,
+                28.706474
+              ],
+              [
+                77.195896,
+                28.707103
+              ],
+              [
+                77.195511,
+                28.707262
+              ],
+              [
+                77.19559,
+                28.709323
+              ],
+              [
+                77.195584,
+                28.709521
+              ],
+              [
+                77.195549,
+                28.709693
+              ],
+              [
+                77.194115,
+                28.712438
+              ],
+              [
+                77.19546,
+                28.712716
+              ],
+              [
+                77.195593,
+                28.712826
+              ],
+              [
+                77.195661,
+                28.712979
+              ],
+              [
+                77.195683,
+                28.713112
+              ],
+              [
+                77.195835,
+                28.717301
+              ],
+              [
+                77.195858,
+                28.717371
+              ],
+              [
+                77.195926,
+                28.7174
+              ],
+              [
+                77.200626,
+                28.717631
+              ],
+              [
+                77.200759,
+                28.717637
+              ],
+              [
+                77.200764,
+                28.717401
+              ],
+              [
+                77.200766,
+                28.717291
+              ],
+              [
+                77.200898,
+                28.715226
+              ],
+              [
+                77.20095,
+                28.715198
+              ],
+              [
+                77.200932,
+                28.713678
+              ],
+              [
+                77.203362,
+                28.713644
+              ],
+              [
+                77.203266,
+                28.712947
+              ],
+              [
+                77.204106,
+                28.712823
+              ],
+              [
+                77.204305,
+                28.710577
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 290664335,
+          "landuse": "industrial",
+          "industrial_type": "communication",
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 290664335,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "industrial": "communication",
+            "landuse": "industrial",
+            "name": "All India Radio"
+          }
+        },
+        "osm_id": 290664335,
+        "landuse": "industrial",
+        "industrial_type": "communication",
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_291408829",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.193206,
+              28.679293
+            ],
+            [
+              77.191933,
+              28.678974
+            ],
+            [
+              77.190944,
+              28.681041
+            ],
+            [
+              77.191491,
+              28.681366
+            ],
+            [
+              77.193206,
+              28.679293
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_291408829",
+        "feature_type": "industrial",
+        "name": null,
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.193206,
+                28.679293
+              ],
+              [
+                77.191933,
+                28.678974
+              ],
+              [
+                77.190944,
+                28.681041
+              ],
+              [
+                77.191491,
+                28.681366
+              ],
+              [
+                77.193206,
+                28.679293
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 291408829,
+          "landuse": "industrial",
+          "industrial_type": null,
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 291408829,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "landuse": "industrial"
+          }
+        },
+        "osm_id": 291408829,
+        "landuse": "industrial",
+        "industrial_type": null,
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_291408830",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.193342,
+              28.677198
+            ],
+            [
+              77.194322,
+              28.677812
+            ],
+            [
+              77.193456,
+              28.678951
+            ],
+            [
+              77.192203,
+              28.678625
+            ],
+            [
+              77.192594,
+              28.67784
+            ],
+            [
+              77.193342,
+              28.677198
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_291408830",
+        "feature_type": "industrial",
+        "name": null,
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.193342,
+                28.677198
+              ],
+              [
+                77.194322,
+                28.677812
+              ],
+              [
+                77.193456,
+                28.678951
+              ],
+              [
+                77.192203,
+                28.678625
+              ],
+              [
+                77.192594,
+                28.67784
+              ],
+              [
+                77.193342,
+                28.677198
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 291408830,
+          "landuse": "industrial",
+          "industrial_type": null,
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 291408830,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "landuse": "industrial"
+          }
+        },
+        "osm_id": 291408830,
+        "landuse": "industrial",
+        "industrial_type": null,
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_291654386",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.128963,
+              28.635185
+            ],
+            [
+              77.130794,
+              28.634097
+            ],
+            [
+              77.130004,
+              28.636482
+            ],
+            [
+              77.12914,
+              28.635406
+            ],
+            [
+              77.128963,
+              28.635185
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_291654386",
+        "feature_type": "industrial",
+        "name": "Delhi Transport Corporation Mayapuri Depot",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.128963,
+                28.635185
+              ],
+              [
+                77.130794,
+                28.634097
+              ],
+              [
+                77.130004,
+                28.636482
+              ],
+              [
+                77.12914,
+                28.635406
+              ],
+              [
+                77.128963,
+                28.635185
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 291654386,
+          "landuse": "industrial",
+          "industrial_type": "depot",
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 291654386,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "industrial": "depot",
+            "landuse": "industrial",
+            "name": "Delhi Transport Corporation Mayapuri Depot"
+          }
+        },
+        "osm_id": 291654386,
+        "landuse": "industrial",
+        "industrial_type": "depot",
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_291719141",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.154598,
+              28.654114
+            ],
+            [
+              77.152885,
+              28.65519
+            ],
+            [
+              77.15634,
+              28.659182
+            ],
+            [
+              77.156796,
+              28.659583
+            ],
+            [
+              77.15843,
+              28.657875
+            ],
+            [
+              77.156207,
+              28.655792
+            ],
+            [
+              77.155397,
+              28.655029
+            ],
+            [
+              77.154598,
+              28.654114
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_291719141",
+        "feature_type": "industrial",
+        "name": "Delhi Milk Scheme",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.154598,
+                28.654114
+              ],
+              [
+                77.152885,
+                28.65519
+              ],
+              [
+                77.15634,
+                28.659182
+              ],
+              [
+                77.156796,
+                28.659583
+              ],
+              [
+                77.15843,
+                28.657875
+              ],
+              [
+                77.156207,
+                28.655792
+              ],
+              [
+                77.155397,
+                28.655029
+              ],
+              [
+                77.154598,
+                28.654114
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 291719141,
+          "landuse": "industrial",
+          "industrial_type": null,
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 291719141,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "landuse": "industrial",
+            "name": "Delhi Milk Scheme"
+          }
+        },
+        "osm_id": 291719141,
+        "landuse": "industrial",
+        "industrial_type": null,
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_291719142",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.156408,
+              28.653024
+            ],
+            [
+              77.155961,
+              28.6533
+            ],
+            [
+              77.155249,
+              28.653743
+            ],
+            [
+              77.155935,
+              28.654592
+            ],
+            [
+              77.157093,
+              28.653871
+            ],
+            [
+              77.156408,
+              28.653024
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_291719142",
+        "feature_type": "industrial",
+        "name": "Shadipur DTC Depot",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.156408,
+                28.653024
+              ],
+              [
+                77.155961,
+                28.6533
+              ],
+              [
+                77.155249,
+                28.653743
+              ],
+              [
+                77.155935,
+                28.654592
+              ],
+              [
+                77.157093,
+                28.653871
+              ],
+              [
+                77.156408,
+                28.653024
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 291719142,
+          "landuse": "industrial",
+          "industrial_type": "depot",
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 291719142,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "industrial": "depot",
+            "landuse": "industrial",
+            "name": "Shadipur DTC Depot"
+          }
+        },
+        "osm_id": 291719142,
+        "landuse": "industrial",
+        "industrial_type": "depot",
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_300260618",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.112364,
+              28.716749
+            ],
+            [
+              77.111074,
+              28.715337
+            ],
+            [
+              77.111888,
+              28.714765
+            ],
+            [
+              77.113178,
+              28.716178
+            ],
+            [
+              77.112918,
+              28.71636
+            ],
+            [
+              77.112364,
+              28.716749
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_300260618",
+        "feature_type": "industrial",
+        "name": "Rohini - 1 DTC Depot",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.112364,
+                28.716749
+              ],
+              [
+                77.111074,
+                28.715337
+              ],
+              [
+                77.111888,
+                28.714765
+              ],
+              [
+                77.113178,
+                28.716178
+              ],
+              [
+                77.112918,
+                28.71636
+              ],
+              [
+                77.112364,
+                28.716749
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 300260618,
+          "landuse": "industrial",
+          "industrial_type": "depot",
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 300260618,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "industrial": "depot",
+            "landuse": "industrial",
+            "name": "Rohini - 1 DTC Depot",
+            "operator": "DTC"
+          }
+        },
+        "osm_id": 300260618,
+        "landuse": "industrial",
+        "industrial_type": "depot",
+        "zone_classification": "manufacturing_zone"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_industrial_way_501786872",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.141865,
+              28.678733
+            ],
+            [
+              77.143099,
+              28.678385
+            ],
+            [
+              77.144194,
+              28.677971
+            ],
+            [
+              77.145583,
+              28.677561
+            ],
+            [
+              77.14763,
+              28.676643
+            ],
+            [
+              77.147242,
+              28.674896
+            ],
+            [
+              77.146238,
+              28.67504
+            ],
+            [
+              77.146186,
+              28.674761
+            ],
+            [
+              77.1451,
+              28.674996
+            ],
+            [
+              77.144129,
+              28.675382
+            ],
+            [
+              77.143545,
+              28.676135
+            ],
+            [
+              77.143228,
+              28.676996
+            ],
+            [
+              77.142863,
+              28.677218
+            ],
+            [
+              77.142477,
+              28.677707
+            ],
+            [
+              77.141699,
+              28.677891
+            ],
+            [
+              77.141865,
+              28.678733
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_industrial_way_501786872",
+        "feature_type": "industrial",
+        "name": null,
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.141865,
+                28.678733
+              ],
+              [
+                77.143099,
+                28.678385
+              ],
+              [
+                77.144194,
+                28.677971
+              ],
+              [
+                77.145583,
+                28.677561
+              ],
+              [
+                77.14763,
+                28.676643
+              ],
+              [
+                77.147242,
+                28.674896
+              ],
+              [
+                77.146238,
+                28.67504
+              ],
+              [
+                77.146186,
+                28.674761
+              ],
+              [
+                77.1451,
+                28.674996
+              ],
+              [
+                77.144129,
+                28.675382
+              ],
+              [
+                77.143545,
+                28.676135
+              ],
+              [
+                77.143228,
+                28.676996
+              ],
+              [
+                77.142863,
+                28.677218
+              ],
+              [
+                77.142477,
+                28.677707
+              ],
+              [
+                77.141699,
+                28.677891
+              ],
+              [
+                77.141865,
+                28.678733
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "osm_id": 501786872,
+          "landuse": "industrial",
+          "industrial_type": null,
+          "zone_classification": "manufacturing_zone"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 501786872,
+          "osm_type": "way",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "landuse": "industrial"
+          }
+        },
+        "osm_id": 501786872,
+        "landuse": "industrial",
+        "industrial_type": null,
+        "zone_classification": "manufacturing_zone"
+      }
+    }
+  ],
+  "metadata": {
+    "source": "OPENSTREETMAP_OVERPASS",
+    "retrieval_timestamp": "2026-09-13T18:58:37.021968+00:00",
+    "crs": "EPSG:4326",
+    "geometry_types": [
+      "LineString",
+      "Point",
+      "Polygon"
+    ],
+    "feature_count": 125,
+    "bounding_box": {
+      "lat_min": 28.596662,
+      "lat_max": 28.717637,
+      "lon_min": 77.077616,
+      "lon_max": 77.224698
+    },
+    "normalization_version": "1.0.0",
+    "license": "ODbL",
+    "attribution": "? OpenStreetMap contributors",
+    "query_filter": "[out:json][timeout:25];\n(\n  way[\"highway\"=\"trunk\"](28.6000,77.0800,28.7200,77.2200);\n  way[\"highway\"=\"primary\"](28.6000,77.0800,28.7200,77.2200);\n  way[\"highway\"=\"secondary\"](28.6000,77.0800,28.7200,7"
+  }
+}

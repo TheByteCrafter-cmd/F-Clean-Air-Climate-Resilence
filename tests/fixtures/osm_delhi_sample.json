@@ -1,0 +1,181 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62",
+  "elements": [
+    {
+      "type": "way",
+      "id": 100101,
+      "tags": {
+        "highway": "trunk",
+        "name": "Ring Road (Mayapuri Section)",
+        "ref": "NH-48",
+        "surface": "asphalt"
+      },
+      "geometry": [
+        {
+          "lat": 28.625,
+          "lon": 77.115
+        },
+        {
+          "lat": 28.628,
+          "lon": 77.118
+        },
+        {
+          "lat": 28.631,
+          "lon": 77.121
+        }
+      ]
+    },
+    {
+      "type": "way",
+      "id": 100102,
+      "tags": {
+        "highway": "primary",
+        "name": "Jail Road",
+        "surface": "asphalt"
+      },
+      "geometry": [
+        {
+          "lat": 28.62,
+          "lon": 77.1
+        },
+        {
+          "lat": 28.623,
+          "lon": 77.105
+        },
+        {
+          "lat": 28.627,
+          "lon": 77.11
+        }
+      ]
+    },
+    {
+      "type": "way",
+      "id": 100103,
+      "tags": {
+        "highway": "secondary",
+        "name": "Mayapuri Marg"
+      },
+      "geometry": [
+        {
+          "lat": 28.632,
+          "lon": 77.122
+        },
+        {
+          "lat": 28.635,
+          "lon": 77.125
+        }
+      ]
+    },
+    {
+      "type": "way",
+      "id": 200201,
+      "tags": {
+        "landuse": "industrial",
+        "industrial": "scrap_metal",
+        "name": "Mayapuri Industrial Area Phase II"
+      },
+      "geometry": [
+        {
+          "lat": 28.63,
+          "lon": 77.12
+        },
+        {
+          "lat": 28.635,
+          "lon": 77.12
+        },
+        {
+          "lat": 28.635,
+          "lon": 77.126
+        },
+        {
+          "lat": 28.63,
+          "lon": 77.126
+        },
+        {
+          "lat": 28.63,
+          "lon": 77.12
+        }
+      ]
+    },
+    {
+      "type": "way",
+      "id": 200202,
+      "tags": {
+        "landuse": "industrial",
+        "name": "Wazirpur Metal Rolling Cluster"
+      },
+      "geometry": [
+        {
+          "lat": 28.69,
+          "lon": 77.16
+        },
+        {
+          "lat": 28.695,
+          "lon": 77.16
+        },
+        {
+          "lat": 28.695,
+          "lon": 77.168
+        },
+        {
+          "lat": 28.69,
+          "lon": 77.168
+        },
+        {
+          "lat": 28.69,
+          "lon": 77.16
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "id": 300301,
+      "lat": 28.6285,
+      "lon": 77.1125,
+      "tags": {
+        "amenity": "hospital",
+        "name": "ESI Hospital Mayapuri",
+        "operator": "Employees' State Insurance Corporation"
+      }
+    },
+    {
+      "type": "node",
+      "id": 300302,
+      "lat": 28.624,
+      "lon": 77.119,
+      "tags": {
+        "amenity": "school",
+        "name": "Government Boys Senior Secondary School Mayapuri"
+      }
+    },
+    {
+      "type": "way",
+      "id": 400401,
+      "tags": {
+        "highway": "footway",
+        "name": "Park Pedestrian Walk"
+      },
+      "geometry": [
+        {
+          "lat": 28.626,
+          "lon": 77.117
+        },
+        {
+          "lat": 28.627,
+          "lon": 77.118
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "id": 400402,
+      "lat": 28.629,
+      "lon": 77.114,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Chai Point"
+      }
+    }
+  ]
+}

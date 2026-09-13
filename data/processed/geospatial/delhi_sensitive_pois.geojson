@@ -1,0 +1,2427 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_632050626",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.136673,
+          28.60824
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_632050626",
+        "feature_type": "sensitive_receptor",
+        "name": "Base Hospital Delhi Cantt",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.136673,
+            28.60824
+          ]
+        },
+        "properties": {
+          "osm_id": 632050626,
+          "amenity": "hospital",
+          "receptor_type": "HEALTHCARE",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 632050626,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "hospital",
+            "name": "Base Hospital Delhi Cantt"
+          }
+        },
+        "osm_id": 632050626,
+        "amenity": "hospital",
+        "receptor_type": "HEALTHCARE",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_928491343",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.205268,
+          28.641678
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_928491343",
+        "feature_type": "sensitive_receptor",
+        "name": "Delhi Heart and Lung Institute Super Speciality Hospital",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.205268,
+            28.641678
+          ]
+        },
+        "properties": {
+          "osm_id": 928491343,
+          "amenity": "hospital",
+          "receptor_type": "HEALTHCARE",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 928491343,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "hospital",
+            "name": "Delhi Heart and Lung Institute Super Speciality Hospital"
+          }
+        },
+        "osm_id": 928491343,
+        "amenity": "hospital",
+        "receptor_type": "HEALTHCARE",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_1374470984",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.094011,
+          28.630097
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_1374470984",
+        "feature_type": "sensitive_receptor",
+        "name": "Sumermal Jain Public School",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.094011,
+            28.630097
+          ]
+        },
+        "properties": {
+          "osm_id": 1374470984,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 1374470984,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "Sumermal Jain Public School"
+          }
+        },
+        "osm_id": 1374470984,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_1827531816",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.157828,
+          28.682659
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_1827531816",
+        "feature_type": "sensitive_receptor",
+        "name": "Kendriya Vidhyalya",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.157828,
+            28.682659
+          ]
+        },
+        "properties": {
+          "osm_id": 1827531816,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 1827531816,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "Kendriya Vidhyalya"
+          }
+        },
+        "osm_id": 1827531816,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2429361211",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.134639,
+          28.673903
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2429361211",
+        "feature_type": "sensitive_receptor",
+        "name": "MGS Hospital",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.134639,
+            28.673903
+          ]
+        },
+        "properties": {
+          "osm_id": 2429361211,
+          "amenity": "hospital",
+          "receptor_type": "HEALTHCARE",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2429361211,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "hospital",
+            "name": "MGS Hospital"
+          }
+        },
+        "osm_id": 2429361211,
+        "amenity": "hospital",
+        "receptor_type": "HEALTHCARE",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2429361264",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.134057,
+          28.674059
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2429361264",
+        "feature_type": "sensitive_receptor",
+        "name": "Maharaja Agrasen Hospital",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.134057,
+            28.674059
+          ]
+        },
+        "properties": {
+          "osm_id": 2429361264,
+          "amenity": "hospital",
+          "receptor_type": "HEALTHCARE",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2429361264,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "hospital",
+            "name": "Maharaja Agrasen Hospital"
+          }
+        },
+        "osm_id": 2429361264,
+        "amenity": "hospital",
+        "receptor_type": "HEALTHCARE",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2440643098",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.132621,
+          28.669901
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2440643098",
+        "feature_type": "sensitive_receptor",
+        "name": "Guru Nanak Public School",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.132621,
+            28.669901
+          ]
+        },
+        "properties": {
+          "osm_id": 2440643098,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2440643098,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "Guru Nanak Public School"
+          }
+        },
+        "osm_id": 2440643098,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2440648765",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.133717,
+          28.672101
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2440648765",
+        "feature_type": "sensitive_receptor",
+        "name": "S M Arya Public School",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.133717,
+            28.672101
+          ]
+        },
+        "properties": {
+          "osm_id": 2440648765,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2440648765,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "S M Arya Public School"
+          }
+        },
+        "osm_id": 2440648765,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2443178755",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.139332,
+          28.667738
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2443178755",
+        "feature_type": "sensitive_receptor",
+        "name": "SD Public School",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.139332,
+            28.667738
+          ]
+        },
+        "properties": {
+          "osm_id": 2443178755,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2443178755,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "SD Public School"
+          }
+        },
+        "osm_id": 2443178755,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2445479220",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.098116,
+          28.67882
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2445479220",
+        "feature_type": "sensitive_receptor",
+        "name": "A One Hospital",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.098116,
+            28.67882
+          ]
+        },
+        "properties": {
+          "osm_id": 2445479220,
+          "amenity": "hospital",
+          "receptor_type": "HEALTHCARE",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2445479220,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "hospital",
+            "name": "A One Hospital"
+          }
+        },
+        "osm_id": 2445479220,
+        "amenity": "hospital",
+        "receptor_type": "HEALTHCARE",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2445809013",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.100223,
+          28.677607
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2445809013",
+        "feature_type": "sensitive_receptor",
+        "name": "Vishal Bharti Public School",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.100223,
+            28.677607
+          ]
+        },
+        "properties": {
+          "osm_id": 2445809013,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2445809013,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "Vishal Bharti Public School"
+          }
+        },
+        "osm_id": 2445809013,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2445867146",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.107272,
+          28.676031
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2445867146",
+        "feature_type": "sensitive_receptor",
+        "name": "St. Nirankari Public School",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.107272,
+            28.676031
+          ]
+        },
+        "properties": {
+          "osm_id": 2445867146,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2445867146,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "St. Nirankari Public School"
+          }
+        },
+        "osm_id": 2445867146,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2445867811",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.106665,
+          28.675741
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2445867811",
+        "feature_type": "sensitive_receptor",
+        "name": "Rajkiya Pratibha Vikas Vidyalaya",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.106665,
+            28.675741
+          ]
+        },
+        "properties": {
+          "osm_id": 2445867811,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2445867811,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "Rajkiya Pratibha Vikas Vidyalaya"
+          }
+        },
+        "osm_id": 2445867811,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2445868970",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.105871,
+          28.675
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2445868970",
+        "feature_type": "sensitive_receptor",
+        "name": "Sarvodaya Vidyalaya",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.105871,
+            28.675
+          ]
+        },
+        "properties": {
+          "osm_id": 2445868970,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2445868970,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "Sarvodaya Vidyalaya"
+          }
+        },
+        "osm_id": 2445868970,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2445913262",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.127129,
+          28.673996
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2445913262",
+        "feature_type": "sensitive_receptor",
+        "name": "Government Higher Secondary School",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.127129,
+            28.673996
+          ]
+        },
+        "properties": {
+          "osm_id": 2445913262,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2445913262,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "Government Higher Secondary School"
+          }
+        },
+        "osm_id": 2445913262,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2445937588",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.149767,
+          28.669232
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2445937588",
+        "feature_type": "sensitive_receptor",
+        "name": "Sarvodaya Co-Educational School",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.149767,
+            28.669232
+          ]
+        },
+        "properties": {
+          "osm_id": 2445937588,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2445937588,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "Sarvodaya Co-Educational School"
+          }
+        },
+        "osm_id": 2445937588,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2445989850",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.165865,
+          28.653544
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2445989850",
+        "feature_type": "sensitive_receptor",
+        "name": "Government Senior Secondary School",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.165865,
+            28.653544
+          ]
+        },
+        "properties": {
+          "osm_id": 2445989850,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2445989850,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "Government Senior Secondary School"
+          }
+        },
+        "osm_id": 2445989850,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2445989851",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.165597,
+          28.652348
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2445989851",
+        "feature_type": "sensitive_receptor",
+        "name": "Sarvodaya Kanya Vidyalaya",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.165597,
+            28.652348
+          ]
+        },
+        "properties": {
+          "osm_id": 2445989851,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2445989851,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "Sarvodaya Kanya Vidyalaya"
+          }
+        },
+        "osm_id": 2445989851,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2445991452",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.16608,
+          28.654179
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2445991452",
+        "feature_type": "sensitive_receptor",
+        "name": "Govt. Boys HB School",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.16608,
+            28.654179
+          ]
+        },
+        "properties": {
+          "osm_id": 2445991452,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2445991452,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "Govt. Boys HB School"
+          }
+        },
+        "osm_id": 2445991452,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2445992231",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.168006,
+          28.647122
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2445992231",
+        "feature_type": "sensitive_receptor",
+        "name": "DAV School",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.168006,
+            28.647122
+          ]
+        },
+        "properties": {
+          "osm_id": 2445992231,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2445992231,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "DAV School"
+          }
+        },
+        "osm_id": 2445992231,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2446000268",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.176369,
+          28.638728
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2446000268",
+        "feature_type": "sensitive_receptor",
+        "name": "Vidya Bhawan Senior Secondary School",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.176369,
+            28.638728
+          ]
+        },
+        "properties": {
+          "osm_id": 2446000268,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2446000268,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "Vidya Bhawan Senior Secondary School"
+          }
+        },
+        "osm_id": 2446000268,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2446002922",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.17786,
+          28.635762
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2446002922",
+        "feature_type": "sensitive_receptor",
+        "name": "Sindhi Higher Secondary School",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.17786,
+            28.635762
+          ]
+        },
+        "properties": {
+          "osm_id": 2446002922,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2446002922,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "Sindhi Higher Secondary School"
+          }
+        },
+        "osm_id": 2446002922,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2446006348",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.178247,
+          28.635277
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2446006348",
+        "feature_type": "sensitive_receptor",
+        "name": "Manav Sthali School",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.178247,
+            28.635277
+          ]
+        },
+        "properties": {
+          "osm_id": 2446006348,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2446006348,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "Manav Sthali School"
+          }
+        },
+        "osm_id": 2446006348,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2446006877",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.180312,
+          28.636831
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2446006877",
+        "feature_type": "sensitive_receptor",
+        "name": "Andh Kanya Vidyalaya",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.180312,
+            28.636831
+          ]
+        },
+        "properties": {
+          "osm_id": 2446006877,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2446006877,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "Andh Kanya Vidyalaya"
+          }
+        },
+        "osm_id": 2446006877,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2446009092",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.17955,
+          28.630762
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2446009092",
+        "feature_type": "sensitive_receptor",
+        "name": "DI Khan Bharati Sabha Higher Secondary School",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.17955,
+            28.630762
+          ]
+        },
+        "properties": {
+          "osm_id": 2446009092,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2446009092,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "DI Khan Bharati Sabha Higher Secondary School"
+          }
+        },
+        "osm_id": 2446009092,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2446009093",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.180468,
+          28.630639
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2446009093",
+        "feature_type": "sensitive_receptor",
+        "name": "Bapu Adarsh Vidyalaya",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.180468,
+            28.630639
+          ]
+        },
+        "properties": {
+          "osm_id": 2446009093,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2446009093,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "Bapu Adarsh Vidyalaya"
+          }
+        },
+        "osm_id": 2446009093,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2446010483",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.185615,
+          28.639795
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2446010483",
+        "feature_type": "sensitive_receptor",
+        "name": "Swami Dayanand Govt. Sarvodaya Vidyalaya",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.185615,
+            28.639795
+          ]
+        },
+        "properties": {
+          "osm_id": 2446010483,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2446010483,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "Swami Dayanand Govt. Sarvodaya Vidyalaya"
+          }
+        },
+        "osm_id": 2446010483,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2446010582",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.185868,
+          28.640313
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2446010582",
+        "feature_type": "sensitive_receptor",
+        "name": "GD Salwan Public School",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.185868,
+            28.640313
+          ]
+        },
+        "properties": {
+          "osm_id": 2446010582,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2446010582,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "GD Salwan Public School"
+          }
+        },
+        "osm_id": 2446010582,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2833952245",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.200276,
+          28.635012
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2833952245",
+        "feature_type": "sensitive_receptor",
+        "name": "M B Boys School",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.200276,
+            28.635012
+          ]
+        },
+        "properties": {
+          "osm_id": 2833952245,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2833952245,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "M B Boys School"
+          }
+        },
+        "osm_id": 2833952245,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_2922268001",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.15605,
+          28.689639
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_2922268001",
+        "feature_type": "sensitive_receptor",
+        "name": "Sarvodaya Kanya Senior Secondary School",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.15605,
+            28.689639
+          ]
+        },
+        "properties": {
+          "osm_id": 2922268001,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 2922268001,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "Sarvodaya Kanya Senior Secondary School"
+          }
+        },
+        "osm_id": 2922268001,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_3488315228",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.111456,
+          28.692713
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_3488315228",
+        "feature_type": "sensitive_receptor",
+        "name": null,
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.111456,
+            28.692713
+          ]
+        },
+        "properties": {
+          "osm_id": 3488315228,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 3488315228,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school"
+          }
+        },
+        "osm_id": 3488315228,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_3567789657",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.126518,
+          28.706944
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_3567789657",
+        "feature_type": "sensitive_receptor",
+        "name": "INDIRA IVF",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.126518,
+            28.706944
+          ]
+        },
+        "properties": {
+          "osm_id": 3567789657,
+          "amenity": "clinic",
+          "receptor_type": "HEALTHCARE",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 3567789657,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "clinic",
+            "name": "INDIRA IVF"
+          }
+        },
+        "osm_id": 3567789657,
+        "amenity": "clinic",
+        "receptor_type": "HEALTHCARE",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_3947460096",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.216442,
+          28.649135
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_3947460096",
+        "feature_type": "sensitive_receptor",
+        "name": "Surbhi hospital",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.216442,
+            28.649135
+          ]
+        },
+        "properties": {
+          "osm_id": 3947460096,
+          "amenity": "hospital",
+          "receptor_type": "HEALTHCARE",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 3947460096,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "hospital",
+            "name": "Surbhi hospital"
+          }
+        },
+        "osm_id": 3947460096,
+        "amenity": "hospital",
+        "receptor_type": "HEALTHCARE",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_3954631321",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.104541,
+          28.699593
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_3954631321",
+        "feature_type": "sensitive_receptor",
+        "name": "Tamish",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.104541,
+            28.699593
+          ]
+        },
+        "properties": {
+          "osm_id": 3954631321,
+          "amenity": "hospital",
+          "receptor_type": "HEALTHCARE",
+          "operator": "abc"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 3954631321,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "hospital",
+            "name": "Tamish",
+            "operator": "abc"
+          }
+        },
+        "osm_id": 3954631321,
+        "amenity": "hospital",
+        "receptor_type": "HEALTHCARE",
+        "operator": "abc"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_4076670789",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.212921,
+          28.646712
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_4076670789",
+        "feature_type": "sensitive_receptor",
+        "name": "Dr. Krishan Gola",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.212921,
+            28.646712
+          ]
+        },
+        "properties": {
+          "osm_id": 4076670789,
+          "amenity": "clinic",
+          "receptor_type": "HEALTHCARE",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 4076670789,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "clinic",
+            "name": "Dr. Krishan Gola"
+          }
+        },
+        "osm_id": 4076670789,
+        "amenity": "clinic",
+        "receptor_type": "HEALTHCARE",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_4180327825",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.11337,
+          28.625488
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_4180327825",
+        "feature_type": "sensitive_receptor",
+        "name": "deepak vaiyas home",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.11337,
+            28.625488
+          ]
+        },
+        "properties": {
+          "osm_id": 4180327825,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 4180327825,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "deepak vaiyas home"
+          }
+        },
+        "osm_id": 4180327825,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_4237012389",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.217058,
+          28.714461
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_4237012389",
+        "feature_type": "sensitive_receptor",
+        "name": "Sarvodaya Vidyalaya (GBSSS), Govt. School",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.217058,
+            28.714461
+          ]
+        },
+        "properties": {
+          "osm_id": 4237012389,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": "Delhi Government"
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 4237012389,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "Sarvodaya Vidyalaya (GBSSS), Govt. School",
+            "operator": "Delhi Government"
+          }
+        },
+        "osm_id": 4237012389,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": "Delhi Government"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_4269361827",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.108127,
+          28.693991
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_4269361827",
+        "feature_type": "sensitive_receptor",
+        "name": "DAV Public School Pushpanjali",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.108127,
+            28.693991
+          ]
+        },
+        "properties": {
+          "osm_id": 4269361827,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 4269361827,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "DAV Public School Pushpanjali"
+          }
+        },
+        "osm_id": 4269361827,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_4347487655",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.129534,
+          28.684951
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_4347487655",
+        "feature_type": "sensitive_receptor",
+        "name": "Mittal Clinic & Eye Specialist",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.129534,
+            28.684951
+          ]
+        },
+        "properties": {
+          "osm_id": 4347487655,
+          "amenity": "clinic",
+          "receptor_type": "HEALTHCARE",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 4347487655,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "clinic",
+            "name": "Mittal Clinic & Eye Specialist"
+          }
+        },
+        "osm_id": 4347487655,
+        "amenity": "clinic",
+        "receptor_type": "HEALTHCARE",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_4415894189",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.169391,
+          28.647389
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_4415894189",
+        "feature_type": "sensitive_receptor",
+        "name": "S.D. Public",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.169391,
+            28.647389
+          ]
+        },
+        "properties": {
+          "osm_id": 4415894189,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 4415894189,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "S.D. Public"
+          }
+        },
+        "osm_id": 4415894189,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_4472287192",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.156219,
+          28.671663
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_4472287192",
+        "feature_type": "sensitive_receptor",
+        "name": "CRL diagnostics",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.156219,
+            28.671663
+          ]
+        },
+        "properties": {
+          "osm_id": 4472287192,
+          "amenity": "clinic",
+          "receptor_type": "HEALTHCARE",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 4472287192,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "clinic",
+            "name": "CRL diagnostics"
+          }
+        },
+        "osm_id": 4472287192,
+        "amenity": "clinic",
+        "receptor_type": "HEALTHCARE",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_4475061192",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.122208,
+          28.688496
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_4475061192",
+        "feature_type": "sensitive_receptor",
+        "name": "Savera Hospital",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.122208,
+            28.688496
+          ]
+        },
+        "properties": {
+          "osm_id": 4475061192,
+          "amenity": "hospital",
+          "receptor_type": "HEALTHCARE",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 4475061192,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "hospital",
+            "name": "Savera Hospital"
+          }
+        },
+        "osm_id": 4475061192,
+        "amenity": "hospital",
+        "receptor_type": "HEALTHCARE",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_4475127990",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.121765,
+          28.68837
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_4475127990",
+        "feature_type": "sensitive_receptor",
+        "name": "Dr. Akash Juneja (ENT)",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.121765,
+            28.68837
+          ]
+        },
+        "properties": {
+          "osm_id": 4475127990,
+          "amenity": "clinic",
+          "receptor_type": "HEALTHCARE",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 4475127990,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "clinic",
+            "name": "Dr. Akash Juneja (ENT)"
+          }
+        },
+        "osm_id": 4475127990,
+        "amenity": "clinic",
+        "receptor_type": "HEALTHCARE",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_4475206689",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.122183,
+          28.688453
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_4475206689",
+        "feature_type": "sensitive_receptor",
+        "name": "Health touch medicine",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.122183,
+            28.688453
+          ]
+        },
+        "properties": {
+          "osm_id": 4475206689,
+          "amenity": "clinic",
+          "receptor_type": "HEALTHCARE",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 4475206689,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "clinic",
+            "name": "Health touch medicine"
+          }
+        },
+        "osm_id": 4475206689,
+        "amenity": "clinic",
+        "receptor_type": "HEALTHCARE",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_4483884793",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.115764,
+          28.692076
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_4483884793",
+        "feature_type": "sensitive_receptor",
+        "name": "Radha Krishna Medilink",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.115764,
+            28.692076
+          ]
+        },
+        "properties": {
+          "osm_id": 4483884793,
+          "amenity": "clinic",
+          "receptor_type": "HEALTHCARE",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 4483884793,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "clinic",
+            "name": "Radha Krishna Medilink"
+          }
+        },
+        "osm_id": 4483884793,
+        "amenity": "clinic",
+        "receptor_type": "HEALTHCARE",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_4483893392",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.116026,
+          28.692081
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_4483893392",
+        "feature_type": "sensitive_receptor",
+        "name": "Patanjali store",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.116026,
+            28.692081
+          ]
+        },
+        "properties": {
+          "osm_id": 4483893392,
+          "amenity": "clinic",
+          "receptor_type": "HEALTHCARE",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 4483893392,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "clinic",
+            "name": "Patanjali store"
+          }
+        },
+        "osm_id": 4483893392,
+        "amenity": "clinic",
+        "receptor_type": "HEALTHCARE",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_4483893393",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.116842,
+          28.691858
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_4483893393",
+        "feature_type": "sensitive_receptor",
+        "name": "St. Prayag school",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.116842,
+            28.691858
+          ]
+        },
+        "properties": {
+          "osm_id": 4483893393,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 4483893393,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "St. Prayag school"
+          }
+        },
+        "osm_id": 4483893393,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_4511556292",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.102392,
+          28.711797
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_4511556292",
+        "feature_type": "sensitive_receptor",
+        "name": "Mount abu junior branch school",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.102392,
+            28.711797
+          ]
+        },
+        "properties": {
+          "osm_id": 4511556292,
+          "amenity": "school",
+          "receptor_type": "EDUCATION",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 4511556292,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "school",
+            "name": "Mount abu junior branch school"
+          }
+        },
+        "osm_id": 4511556292,
+        "amenity": "school",
+        "receptor_type": "EDUCATION",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_4511567590",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.095886,
+          28.702813
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_4511567590",
+        "feature_type": "sensitive_receptor",
+        "name": "Asha kiran mental hospital",
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.095886,
+            28.702813
+          ]
+        },
+        "properties": {
+          "osm_id": 4511567590,
+          "amenity": "hospital",
+          "receptor_type": "HEALTHCARE",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 4511567590,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "hospital",
+            "name": "Asha kiran mental hospital"
+          }
+        },
+        "osm_id": 4511567590,
+        "amenity": "hospital",
+        "receptor_type": "HEALTHCARE",
+        "operator": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geo_sensitive_node_4574632989",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.138743,
+          28.643889
+        ]
+      },
+      "properties": {
+        "feature_id": "geo_sensitive_node_4574632989",
+        "feature_type": "sensitive_receptor",
+        "name": null,
+        "city_code": "DELHI",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.138743,
+            28.643889
+          ]
+        },
+        "properties": {
+          "osm_id": 4574632989,
+          "amenity": "hospital",
+          "receptor_type": "HEALTHCARE",
+          "operator": null
+        },
+        "source": "OPENSTREETMAP_OVERPASS",
+        "license": "ODbL",
+        "attribution": "? OpenStreetMap contributors",
+        "valid_from": null,
+        "valid_to": null,
+        "provenance": {
+          "osm_id": 4574632989,
+          "osm_type": "node",
+          "source": "OPENSTREETMAP_OVERPASS",
+          "tags_preserved": {
+            "amenity": "hospital",
+            "highway": "bus_stop"
+          }
+        },
+        "osm_id": 4574632989,
+        "amenity": "hospital",
+        "receptor_type": "HEALTHCARE",
+        "operator": null
+      }
+    }
+  ],
+  "metadata": {
+    "source": "OPENSTREETMAP_OVERPASS",
+    "retrieval_timestamp": "2026-09-13T18:58:37.021968+00:00",
+    "crs": "EPSG:4326",
+    "geometry_types": [
+      "LineString",
+      "Point",
+      "Polygon"
+    ],
+    "feature_count": 125,
+    "bounding_box": {
+      "lat_min": 28.596662,
+      "lat_max": 28.717637,
+      "lon_min": 77.077616,
+      "lon_max": 77.224698
+    },
+    "normalization_version": "1.0.0",
+    "license": "ODbL",
+    "attribution": "? OpenStreetMap contributors",
+    "query_filter": "[out:json][timeout:25];\n(\n  way[\"highway\"=\"trunk\"](28.6000,77.0800,28.7200,77.2200);\n  way[\"highway\"=\"primary\"](28.6000,77.0800,28.7200,77.2200);\n  way[\"highway\"=\"secondary\"](28.6000,77.0800,28.7200,7"
+  }
+}

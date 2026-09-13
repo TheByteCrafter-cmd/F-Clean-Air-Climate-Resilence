@@ -72,3 +72,36 @@ class GEEAuthenticationError(Sentinel5PError):
 class GEEExtractionError(Sentinel5PError):
     """Raised when GEE data extraction, filtering, or raster sampling fails."""
     pass
+
+
+class GeospatialError(IngestionError):
+    """Base exception for geospatial and administrative boundary operations."""
+    pass
+
+
+class OverpassAPIError(GeospatialError):
+    """Raised on HTTP failure or unexpected response from OpenStreetMap Overpass API."""
+    def __init__(self, message: str, status_code: int = None, response_body: str = None):
+        super().__init__(message)
+        self.status_code = status_code
+        self.response_body = response_body
+
+
+class OverpassRateLimitError(GeospatialError):
+    """Raised when OpenStreetMap Overpass rate limit or slot availability is exceeded (HTTP 429)."""
+    def __init__(self, message: str = "Overpass API rate limit reached (HTTP 429)", retry_after: int = None):
+        super().__init__(message)
+        self.retry_after = retry_after
+
+
+class BoundaryRetrievalError(GeospatialError):
+    """Raised when municipal boundary source retrieval fails or returns invalid HTTP status."""
+    def __init__(self, message: str, status_code: int = None):
+        super().__init__(message)
+        self.status_code = status_code
+
+
+class GeospatialValidationError(GeospatialError):
+    """Raised when geospatial geometry, coordinates, or GeoJSON structure fails validation."""
+    pass
+

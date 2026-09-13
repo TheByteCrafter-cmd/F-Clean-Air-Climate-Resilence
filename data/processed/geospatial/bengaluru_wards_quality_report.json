@@ -1,0 +1,27 @@
+{
+  "source": "DATAMEET_BENGALURU_WARDS",
+  "request_url": "https://raw.githubusercontent.com/datameet/Municipal_Spatial_Data/master/Bangalore/BBMP.geojson",
+  "query_scope": "Administrative Ward Boundaries (Bengaluru)",
+  "retrieval_timestamp": "2026-09-13T18:56:44.837631+00:00",
+  "response_latency_ms": 0,
+  "raw_object_count": 243,
+  "valid_feature_count": 243,
+  "rejected_feature_count": 0,
+  "duplicate_count": 0,
+  "rejection_breakdown": {},
+  "geometry_distribution": {
+    "Polygon": 243
+  },
+  "category_distribution": {
+    "ward_boundary": 243
+  },
+  "bounding_box": {
+    "lat_min": 12.8334905,
+    "lat_max": 13.1426195,
+    "lon_min": 77.4598797,
+    "lon_max": 77.7843613
+  },
+  "coordinate_reference_system": "EPSG:4326 (WGS84)",
+  "license": "CC-BY-SA 4.0",
+  "attribution": "DataMeet Municipal Spatial Data"
+}

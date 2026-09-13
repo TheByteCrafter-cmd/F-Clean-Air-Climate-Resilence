@@ -93,13 +93,16 @@
   - Highway hierarchy: `motorway`, `trunk`, `primary`, `secondary` (identifies high-emission diesel freight bottlenecks).
   - Land-use classifications: `industrial`, `quarry`, `landfill`, `commercial`.
   - Sensitive points of interest: `school`, `kindergarten`, `hospital`, `clinic`, `nursing_home`.
-- **License:** Open Database License (ODbL). Attribution required on map canvas.
+- **License:** Open Database License (ODbL). Attribution required on map canvas (`© OpenStreetMap contributors`).
+- **Implementation Status:** Phase 1E-E Geospatial Context Ingestion Pipeline implemented and verified (see `docs/DATA_INGESTION_GEOSPATIAL.md`). Live Overpass extraction verified with 125 features (50 roads, 25 industrial, 50 sensitive receptors) stored in canonical WGS84 GeoJSON under `data/processed/geospatial/`.
 
 ### 5.2 Municipal Administrative Ward Boundaries
 - **Source:** DataMeet Open Spatial Data Repository for Indian Municipalities.
-- **Coverage:** Municipal Corporation of Delhi (MCD) 250 wards (Delhi_Wards.geojson); Bruhat Bengaluru Mahanagara Palike (BBMP) 198 wards (BBMP.geojson).
+- **Coverage:** Municipal Corporation of Delhi (MCD) 250 wards (Delhi_Wards.geojson); Bruhat Bengaluru Mahanagara Palike (BBMP) 198/243 wards (BBMP.geojson).
 - **Data Format:** Standard GeoJSON polygons.
 - **Role:** Maps detected hotspot bounding centroids to specific municipal ward offices and responsible flying squad inspection units.
+- **License:** Creative Commons Attribution-ShareAlike (CC-BY-SA 4.0).
+- **Implementation Status:** Phase 1E-E Municipal Boundary Ingestion Pipeline implemented and verified (see `docs/DATA_INGESTION_GEOSPATIAL.md`). Live CDN retrieval verified: Delhi (289 valid wards, 1 rejected due to missing upstream identifiers) and Bengaluru (243 valid wards). Standardized GeoJSON artifacts stored under `data/processed/geospatial/`.
 
 ---
 

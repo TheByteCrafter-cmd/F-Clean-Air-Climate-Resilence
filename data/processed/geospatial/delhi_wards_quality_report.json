@@ -1,0 +1,29 @@
+{
+  "source": "DATAMEET_DELHI_WARDS",
+  "request_url": "https://raw.githubusercontent.com/datameet/Municipal_Spatial_Data/master/Delhi/Delhi_Wards.geojson",
+  "query_scope": "Administrative Ward Boundaries (Delhi)",
+  "retrieval_timestamp": "2026-09-13T18:56:43.940035+00:00",
+  "response_latency_ms": 0,
+  "raw_object_count": 290,
+  "valid_feature_count": 289,
+  "rejected_feature_count": 1,
+  "duplicate_count": 0,
+  "rejection_breakdown": {
+    "missing_delhi_ward_identifiers": 1
+  },
+  "geometry_distribution": {
+    "Polygon": 289
+  },
+  "category_distribution": {
+    "ward_boundary": 289
+  },
+  "bounding_box": {
+    "lat_min": 28.404252129000042,
+    "lat_max": 28.883495792000076,
+    "lon_min": 76.83877225000003,
+    "lon_max": 77.34747022900007
+  },
+  "coordinate_reference_system": "EPSG:4326 (WGS84)",
+  "license": "CC-BY-SA 4.0",
+  "attribution": "DataMeet Municipal Spatial Data"
+}

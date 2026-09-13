@@ -113,6 +113,87 @@ export interface Sentinel5PNO2Signal extends SatelliteSignal {
   provenance?: Record<string, unknown> | null;
 }
 
+export interface GeospatialFeature {
+  feature_id: string;
+  feature_type: 'road' | 'industrial' | 'sensitive_receptor' | 'ward_boundary';
+  name?: string | null;
+  city_code: string;
+  geometry: Record<string, unknown>;
+  properties: Record<string, unknown>;
+  source: string;
+  license: string;
+  attribution: string;
+  valid_from?: string | null;
+  valid_to?: string | null;
+  provenance?: Record<string, unknown> | null;
+}
+
+export interface RoadContextFeature extends GeospatialFeature {
+  feature_type: 'road';
+  osm_id: number;
+  highway: string;
+  ref?: string | null;
+  surface?: string | null;
+  classification: string;
+  traffic_density_rank?: number | null;
+}
+
+export interface IndustrialContextFeature extends GeospatialFeature {
+  feature_type: 'industrial';
+  osm_id: number;
+  landuse: 'industrial';
+  industrial_type?: string | null;
+  zone_classification: string;
+}
+
+export interface SensitiveReceptorFeature extends GeospatialFeature {
+  feature_type: 'sensitive_receptor';
+  osm_id: number;
+  amenity: 'hospital' | 'clinic' | 'school';
+  receptor_type: 'HEALTHCARE' | 'EDUCATION' | 'VULNERABLE_COMMUNITY';
+  operator?: string | null;
+}
+
+export interface WardBoundaryFeature extends GeospatialFeature {
+  feature_type: 'ward_boundary';
+  ward_id: string;
+  ward_no: string;
+  ward_name: string;
+  admin_level: string;
+  source_ward_id?: string | number | null;
+  source_properties: Record<string, unknown>;
+}
+
+export interface GeoJSONFeature {
+  type: 'Feature';
+  id?: string | null;
+  geometry: Record<string, unknown>;
+  properties: Record<string, unknown>;
+}
+
+export interface GeospatialMetadata {
+  source: string;
+  retrieval_timestamp: string;
+  crs: string;
+  geometry_types: string[];
+  feature_count: number;
+  bounding_box: {
+    lat_min: number;
+    lat_max: number;
+    lon_min: number;
+    lon_max: number;
+  };
+  normalization_version: string;
+  license: string;
+  attribution: string;
+  query_filter?: string | null;
+}
+
+export interface GeoJSONFeatureCollection {
+  type: 'FeatureCollection';
+  features: GeoJSONFeature[];
+  metadata?: GeospatialMetadata | null;
+}
 
 export interface CitizenEvidenceMetadata {
   evidence_id: string;

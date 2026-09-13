@@ -1,20 +1,26 @@
 """
 VayuDrishti - Ingestion Package
-Air Quality (OpenAQ) & Meteorology (Open-Meteo) ingestion pipelines.
+Air Quality (OpenAQ), Meteorology (Open-Meteo), Satellite (FIRMS, Sentinel-5P),
+and Geospatial Context (OpenStreetMap, Municipal Ward Boundaries) ingestion pipelines.
 """
 
 from backend.ingestion.exceptions import (
     AuthenticationError,
+    BoundaryRetrievalError,
     FIRMSAPIError,
     FIRMSError,
     FIRMSParsingError,
     GEEAuthenticationError,
     GEEExtractionError,
+    GeospatialError,
+    GeospatialValidationError,
     IngestionError,
     MissingCredentialError,
     NetworkError,
     OpenAQAPIError,
     OpenAQError,
+    OverpassAPIError,
+    OverpassRateLimitError,
     RateLimitError,
     Sentinel5PError,
 )
@@ -89,6 +95,34 @@ from backend.ingestion.sentinel5p_validator import (
     Sentinel5PValidator,
 )
 
+# Geospatial Context & Administrative Boundary Components
+from backend.ingestion.osm_client import (
+    DEFAULT_OVERPASS_ENDPOINT,
+    DELHI_PILOT_BBOX,
+    OSMClient,
+    build_pilot_overpass_query,
+)
+from backend.ingestion.osm_normalizer import (
+    ALLOWED_AMENITIES,
+    ALLOWED_HIGHWAYS,
+    ALLOWED_LANDUSE,
+    OSMNormalizer,
+)
+from backend.ingestion.boundary_client import (
+    BOUNDARY_URLS,
+    BoundaryClient,
+)
+from backend.ingestion.boundary_normalizer import BoundaryNormalizer
+from backend.ingestion.geospatial_validator import (
+    GeospatialValidator,
+    compute_bounding_box,
+    validate_coordinates,
+)
+from backend.ingestion.geospatial_pipeline import (
+    DEFAULT_PROCESSED_DIR,
+    GeospatialPipeline,
+)
+
 __all__ = [
     # OpenAQ
     "OpenAQClient",
@@ -134,6 +168,23 @@ __all__ = [
     "GEE_COLLECTION_ID",
     "S5P_PRIMARY_BAND",
     "DEFAULT_DELHI_ROI",
+    # Geospatial Context
+    "OSMClient",
+    "OSMNormalizer",
+    "BoundaryClient",
+    "BoundaryNormalizer",
+    "GeospatialValidator",
+    "GeospatialPipeline",
+    "DEFAULT_OVERPASS_ENDPOINT",
+    "DELHI_PILOT_BBOX",
+    "BOUNDARY_URLS",
+    "DEFAULT_PROCESSED_DIR",
+    "ALLOWED_HIGHWAYS",
+    "ALLOWED_LANDUSE",
+    "ALLOWED_AMENITIES",
+    "build_pilot_overpass_query",
+    "validate_coordinates",
+    "compute_bounding_box",
     # Exceptions
     "IngestionError",
     "OpenAQError",
@@ -148,4 +199,9 @@ __all__ = [
     "Sentinel5PError",
     "GEEAuthenticationError",
     "GEEExtractionError",
+    "GeospatialError",
+    "OverpassAPIError",
+    "OverpassRateLimitError",
+    "BoundaryRetrievalError",
+    "GeospatialValidationError",
 ]
