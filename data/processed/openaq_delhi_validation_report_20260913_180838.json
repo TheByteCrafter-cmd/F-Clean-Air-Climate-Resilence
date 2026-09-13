@@ -1,0 +1,43 @@
+{
+  "run_id": "run-a15a947a",
+  "source": "OpenAQ REST API v3",
+  "generated_at": "2026-09-13T18:08:38.981179+00:00",
+  "metrics": {
+    "records_fetched": 12,
+    "records_parsed": 12,
+    "records_normalized": 9,
+    "records_valid": 9,
+    "records_invalid": 2,
+    "records_duplicate": 1,
+    "pass_rate_percent": 75.0
+  },
+  "invalid_reasons": {
+    "negative_concentration_physical_violation: -8.5": 1,
+    "unsupported_pollutant: 'wind_speed'": 1
+  },
+  "distributions": {
+    "pollutant_counts": {
+      "PM2.5": 3,
+      "PM10": 2,
+      "NO2": 1,
+      "SO2": 1,
+      "CO": 1,
+      "O3": 1
+    },
+    "station_counts": {
+      "ANAND_VIHAR_8118": 3,
+      "PUNJABI_BAGH_8122": 4,
+      "MANDIR_MARG_8125": 2
+    }
+  },
+  "temporal_range": {
+    "min": "2026-09-13T16:00:00+00:00",
+    "max": "2026-09-13T16:00:00+00:00"
+  },
+  "geographic_range": {
+    "lat_min": 28.6364,
+    "lat_max": 28.674,
+    "lon_min": 77.131,
+    "lon_max": 77.3158
+  }
+}

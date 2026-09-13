@@ -1,0 +1,395 @@
+{
+  "metadata": {
+    "source": "OpenAQ REST API v3 (Sanitized Offline Fixture)",
+    "retrieved_at": "2026-09-13T16:30:00Z",
+    "query": {
+      "target": "Delhi NCR Pilot",
+      "coordinates": "28.6139,77.2090",
+      "radius_meters": 25000,
+      "location_limit": 3
+    },
+    "locations_retrieved": 3
+  },
+  "raw_locations": [
+    {
+      "id": 8118,
+      "name": "Anand Vihar, Delhi - DPCC",
+      "locality": "Delhi",
+      "timezone": "Asia/Kolkata",
+      "country": {
+        "id": 7,
+        "code": "IN",
+        "name": "India"
+      },
+      "owner": {
+        "id": 1,
+        "name": "Delhi Pollution Control Committee"
+      },
+      "provider": {
+        "id": 1,
+        "name": "CPCB"
+      },
+      "coordinates": {
+        "latitude": 28.6476,
+        "longitude": 77.3158
+      }
+    },
+    {
+      "id": 8122,
+      "name": "Punjabi Bagh, Delhi - DPCC",
+      "locality": "Delhi",
+      "timezone": "Asia/Kolkata",
+      "country": {
+        "id": 7,
+        "code": "IN",
+        "name": "India"
+      },
+      "owner": {
+        "id": 1,
+        "name": "Delhi Pollution Control Committee"
+      },
+      "provider": {
+        "id": 1,
+        "name": "CPCB"
+      },
+      "coordinates": {
+        "latitude": 28.674,
+        "longitude": 77.131
+      }
+    },
+    {
+      "id": 8125,
+      "name": "Mandir Marg, Delhi - DPCC",
+      "locality": "Delhi",
+      "timezone": "Asia/Kolkata",
+      "country": {
+        "id": 7,
+        "code": "IN",
+        "name": "India"
+      },
+      "owner": {
+        "id": 1,
+        "name": "Delhi Pollution Control Committee"
+      },
+      "provider": {
+        "id": 1,
+        "name": "CPCB"
+      },
+      "coordinates": {
+        "latitude": 28.6364,
+        "longitude": 77.2011
+      }
+    }
+  ],
+  "location_readings": [
+    {
+      "location_id": 8118,
+      "location_metadata": {
+        "id": 8118,
+        "name": "Anand Vihar, Delhi - DPCC",
+        "locality": "Delhi",
+        "country": {
+          "id": 7,
+          "code": "IN",
+          "name": "India"
+        },
+        "provider": {
+          "id": 1,
+          "name": "CPCB"
+        },
+        "owner": {
+          "id": 1,
+          "name": "Delhi Pollution Control Committee"
+        },
+        "coordinates": {
+          "latitude": 28.6476,
+          "longitude": 77.3158
+        }
+      },
+      "latest": [
+        {
+          "sensorsId": 24151,
+          "locationsId": 8118,
+          "value": 142.5,
+          "parameter": {
+            "id": 2,
+            "name": "pm25",
+            "units": "?g/m?",
+            "displayName": "PM2.5"
+          },
+          "datetime": {
+            "utc": "2026-09-13T16:00:00Z",
+            "local": "2026-09-13T21:30:00+05:30"
+          },
+          "coordinates": {
+            "latitude": 28.6476,
+            "longitude": 77.3158
+          }
+        },
+        {
+          "sensorsId": 24152,
+          "locationsId": 8118,
+          "value": 268.0,
+          "parameter": {
+            "id": 1,
+            "name": "pm10",
+            "units": "?g/m?",
+            "displayName": "PM10"
+          },
+          "datetime": {
+            "utc": "2026-09-13T16:00:00Z",
+            "local": "2026-09-13T21:30:00+05:30"
+          },
+          "coordinates": {
+            "latitude": 28.6476,
+            "longitude": 77.3158
+          }
+        },
+        {
+          "sensorsId": 24153,
+          "locationsId": 8118,
+          "value": 52.4,
+          "parameter": {
+            "id": 3,
+            "name": "no2",
+            "units": "?g/m?",
+            "displayName": "NO2"
+          },
+          "datetime": {
+            "utc": "2026-09-13T16:00:00Z",
+            "local": "2026-09-13T21:30:00+05:30"
+          },
+          "coordinates": {
+            "latitude": 28.6476,
+            "longitude": 77.3158
+          }
+        },
+        {
+          "sensorsId": 24151,
+          "locationsId": 8118,
+          "value": 142.5,
+          "parameter": {
+            "id": 2,
+            "name": "pm25",
+            "units": "?g/m?",
+            "displayName": "PM2.5"
+          },
+          "datetime": {
+            "utc": "2026-09-13T16:00:00Z",
+            "local": "2026-09-13T21:30:00+05:30"
+          },
+          "coordinates": {
+            "latitude": 28.6476,
+            "longitude": 77.3158
+          }
+        }
+      ]
+    },
+    {
+      "location_id": 8122,
+      "location_metadata": {
+        "id": 8122,
+        "name": "Punjabi Bagh, Delhi - DPCC",
+        "locality": "Delhi",
+        "country": {
+          "id": 7,
+          "code": "IN",
+          "name": "India"
+        },
+        "provider": {
+          "id": 1,
+          "name": "CPCB"
+        },
+        "owner": {
+          "id": 1,
+          "name": "Delhi Pollution Control Committee"
+        },
+        "coordinates": {
+          "latitude": 28.674,
+          "longitude": 77.131
+        }
+      },
+      "latest": [
+        {
+          "sensorsId": 24201,
+          "locationsId": 8122,
+          "value": 118.0,
+          "parameter": {
+            "id": 2,
+            "name": "pm25",
+            "units": "ug/m3",
+            "displayName": "PM2.5"
+          },
+          "datetime": {
+            "utc": "2026-09-13T16:00:00Z",
+            "local": "2026-09-13T21:30:00+05:30"
+          },
+          "coordinates": {
+            "latitude": 28.674,
+            "longitude": 77.131
+          }
+        },
+        {
+          "sensorsId": 24202,
+          "locationsId": 8122,
+          "value": 215.0,
+          "parameter": {
+            "id": 1,
+            "name": "pm10",
+            "units": "ug/m3",
+            "displayName": "PM10"
+          },
+          "datetime": {
+            "utc": "2026-09-13T16:00:00Z",
+            "local": "2026-09-13T21:30:00+05:30"
+          },
+          "coordinates": {
+            "latitude": 28.674,
+            "longitude": 77.131
+          }
+        },
+        {
+          "sensorsId": 24203,
+          "locationsId": 8122,
+          "value": 18.2,
+          "parameter": {
+            "id": 4,
+            "name": "so2",
+            "units": "?g/m?",
+            "displayName": "SO2"
+          },
+          "datetime": {
+            "utc": "2026-09-13T16:00:00Z",
+            "local": "2026-09-13T21:30:00+05:30"
+          },
+          "coordinates": {
+            "latitude": 28.674,
+            "longitude": 77.131
+          }
+        },
+        {
+          "sensorsId": 24204,
+          "locationsId": 8122,
+          "value": 1.45,
+          "parameter": {
+            "id": 5,
+            "name": "co",
+            "units": "mg/m?",
+            "displayName": "CO"
+          },
+          "datetime": {
+            "utc": "2026-09-13T16:00:00Z",
+            "local": "2026-09-13T21:30:00+05:30"
+          },
+          "coordinates": {
+            "latitude": 28.674,
+            "longitude": 77.131
+          }
+        }
+      ]
+    },
+    {
+      "location_id": 8125,
+      "location_metadata": {
+        "id": 8125,
+        "name": "Mandir Marg, Delhi - DPCC",
+        "locality": "Delhi",
+        "country": {
+          "id": 7,
+          "code": "IN",
+          "name": "India"
+        },
+        "provider": {
+          "id": 1,
+          "name": "CPCB"
+        },
+        "owner": {
+          "id": 1,
+          "name": "Delhi Pollution Control Committee"
+        },
+        "coordinates": {
+          "latitude": 28.6364,
+          "longitude": 77.2011
+        }
+      },
+      "latest": [
+        {
+          "sensorsId": 24301,
+          "locationsId": 8125,
+          "value": 96.0,
+          "parameter": {
+            "id": 2,
+            "name": "pm25",
+            "units": "?g/m?",
+            "displayName": "PM2.5"
+          },
+          "datetime": {
+            "utc": "2026-09-13T16:00:00Z",
+            "local": "2026-09-13T21:30:00+05:30"
+          },
+          "coordinates": {
+            "latitude": 28.6364,
+            "longitude": 77.2011
+          }
+        },
+        {
+          "sensorsId": 24302,
+          "locationsId": 8125,
+          "value": 34.5,
+          "parameter": {
+            "id": 6,
+            "name": "o3",
+            "units": "?g/m?",
+            "displayName": "O3"
+          },
+          "datetime": {
+            "utc": "2026-09-13T16:00:00Z",
+            "local": "2026-09-13T21:30:00+05:30"
+          },
+          "coordinates": {
+            "latitude": 28.6364,
+            "longitude": 77.2011
+          }
+        },
+        {
+          "sensorsId": 24398,
+          "locationsId": 8125,
+          "value": -8.5,
+          "parameter": {
+            "id": 2,
+            "name": "pm25",
+            "units": "?g/m?",
+            "displayName": "PM2.5"
+          },
+          "datetime": {
+            "utc": "2026-09-13T16:00:00Z",
+            "local": "2026-09-13T21:30:00+05:30"
+          },
+          "coordinates": {
+            "latitude": 28.6364,
+            "longitude": 77.2011
+          }
+        },
+        {
+          "sensorsId": 24399,
+          "locationsId": 8125,
+          "value": 6.2,
+          "parameter": {
+            "id": 99,
+            "name": "wind_speed",
+            "units": "m/s",
+            "displayName": "Wind Speed"
+          },
+          "datetime": {
+            "utc": "2026-09-13T16:00:00Z",
+            "local": "2026-09-13T21:30:00+05:30"
+          },
+          "coordinates": {
+            "latitude": 28.6364,
+            "longitude": 77.2011
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -44,6 +44,10 @@ export interface EnvironmentalObservation {
   unit: string;
   source: string;
   station_id?: string | null;
+  source_record_id?: string | null;
+  retrieved_at?: string | null;
+  source_url?: string | null;
+  normalization_version?: string | null;
 }
 
 export interface CitizenEvidenceMetadata {
