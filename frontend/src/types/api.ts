@@ -100,6 +100,19 @@ export interface FireSignal extends SatelliteSignal {
   provenance?: Record<string, unknown> | null;
 }
 
+export interface Sentinel5PNO2Signal extends SatelliteSignal {
+  latitude: number;
+  longitude: number;
+  tropospheric_no2_mol_m2: number;
+  cloud_fraction?: number | null;
+  qa_value?: number | null;
+  stratospheric_no2_mol_m2?: number | null;
+  total_no2_mol_m2?: number | null;
+  approx_resolution_km?: number | null;
+  source: string;
+  provenance?: Record<string, unknown> | null;
+}
+
 
 export interface CitizenEvidenceMetadata {
   evidence_id: string;

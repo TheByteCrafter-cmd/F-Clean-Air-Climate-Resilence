@@ -48,3 +48,29 @@ class FireSignal(SatelliteSignal):
     source: str = Field("NASA_FIRMS", description="Source data provider")
     provenance: Optional[Dict[str, Any]] = Field(None, description="Retrieval metadata, source endpoint, bounding box, timestamp")
     raw_payload: Optional[Dict[str, Any]] = Field(None, description="Preserved minimal raw record dict for auditability")
+
+
+class Sentinel5PNO2Signal(SatelliteSignal):
+    """Specialized Sentinel-5P TROPOMI tropospheric NO2 column signal.
+    
+    Inherits from SatelliteSignal and preserves verified Google Earth Engine
+    and Sentinel-5P L3 product attributes including tropospheric NO2 column
+    number density (mol/m²), cloud fraction, QA value, and spatial footprint.
+    
+    CRITICAL SCIENTIFIC INTEGRITY DIRECTIVE:
+    - This model represents integrated vertical column number density (mol/m²).
+    - It does NOT represent ground-level ambient NO2 concentration (µg/m³).
+    - It does NOT represent PM2.5, AQI, or direct human exposure.
+    - No direct conversion from mol/m² to µg/m³ or PM2.5 is supported or valid.
+    """
+    latitude: float = Field(..., ge=-90.0, le=90.0, description="WGS84 centroid latitude of satellite sample")
+    longitude: float = Field(..., ge=-180.0, le=180.0, description="WGS84 centroid longitude of satellite sample")
+    tropospheric_no2_mol_m2: float = Field(..., description="Tropospheric vertical column NO2 number density in mol/m²")
+    cloud_fraction: Optional[float] = Field(None, ge=0.0, le=1.0, description="Effective cloud fraction (0.0 to 1.0)")
+    qa_value: Optional[float] = Field(None, ge=0.0, le=1.0, description="Quality assurance flag/value (0.0 to 1.0)")
+    stratospheric_no2_mol_m2: Optional[float] = Field(None, description="Stratospheric vertical column NO2 in mol/m²")
+    total_no2_mol_m2: Optional[float] = Field(None, description="Total vertical column NO2 in mol/m²")
+    approx_resolution_km: Optional[float] = Field(5.5, description="Approximate ground pixel resolution in km (TROPOMI nadir)")
+    source: str = Field("COPERNICUS/S5P/NRTI/L3_NO2", description="Earth Engine ImageCollection or dataset identifier")
+    provenance: Optional[Dict[str, Any]] = Field(None, description="Dataset metadata, processing level, retrieval mode, ROI")
+    raw_payload: Optional[Dict[str, Any]] = Field(None, description="Preserved minimal raw record dict for auditability")

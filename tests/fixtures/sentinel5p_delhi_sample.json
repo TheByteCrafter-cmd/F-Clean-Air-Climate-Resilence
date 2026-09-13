@@ -1,0 +1,129 @@
+{
+  "dataset_id": "COPERNICUS/S5P/NRTI/L3_NO2",
+  "primary_band": "tropospheric_NO2_column_number_density",
+  "unit": "mol/m?",
+  "satellite": "Sentinel-5P",
+  "instrument": "TROPOMI",
+  "overpass_description": "Ascending orbital node (~13:30 local solar time)",
+  "observations": [
+    {
+      "latitude": 28.6139,
+      "longitude": 77.209,
+      "tropospheric_NO2_column_number_density": 0.000142,
+      "cloud_fraction": 0.12,
+      "qa_value": 0.88,
+      "stratospheric_NO2_column_number_density": 3.5e-05,
+      "NO2_column_number_density": 0.000177,
+      "system_time_start": 1789200000000,
+      "location_tag": "Central Delhi (Mandir Marg / Connaught Place)"
+    },
+    {
+      "latitude": 28.6508,
+      "longitude": 77.3152,
+      "tropospheric_NO2_column_number_density": 0.000285,
+      "cloud_fraction": 0.18,
+      "qa_value": 0.9,
+      "stratospheric_NO2_column_number_density": 3.4e-05,
+      "NO2_column_number_density": 0.000319,
+      "system_time_start": 1789200000000,
+      "location_tag": "East Delhi Industrial (Anand Vihar Hub)"
+    },
+    {
+      "latitude": 28.6683,
+      "longitude": 77.1167,
+      "tropospheric_NO2_column_number_density": 0.000195,
+      "cloud_fraction": 0.22,
+      "qa_value": 0.82,
+      "stratospheric_NO2_column_number_density": 3.5e-05,
+      "NO2_column_number_density": 0.00023,
+      "system_time_start": 1789200000000,
+      "location_tag": "West Delhi Arterial Corridor (Punjabi Bagh)"
+    },
+    {
+      "latitude": 28.5562,
+      "longitude": 77.1,
+      "tropospheric_NO2_column_number_density": 0.000115,
+      "cloud_fraction": 0.28,
+      "qa_value": 0.78,
+      "stratospheric_NO2_column_number_density": 3.6e-05,
+      "NO2_column_number_density": 0.000151,
+      "system_time_start": 1789200000000,
+      "location_tag": "South-West Aviation Corridor (IGI Airport)"
+    },
+    {
+      "latitude": 28.5284,
+      "longitude": 77.275,
+      "tropospheric_NO2_column_number_density": 0.00022,
+      "cloud_fraction": 0.35,
+      "qa_value": 0.7,
+      "stratospheric_NO2_column_number_density": 3.4e-05,
+      "NO2_column_number_density": 0.000254,
+      "system_time_start": 1789200000000,
+      "location_tag": "South-East Manufacturing Zone (Okhla Phase II)"
+    },
+    {
+      "latitude": 28.78,
+      "longitude": 77.02,
+      "tropospheric_NO2_column_number_density": -1.5e-05,
+      "cloud_fraction": 0.1,
+      "qa_value": 0.85,
+      "stratospheric_NO2_column_number_density": 3.5e-05,
+      "NO2_column_number_density": 2e-05,
+      "system_time_start": 1789200000000,
+      "location_tag": "North-West Agricultural Border (Clean Background Noise - Preserved)"
+    },
+    {
+      "latitude": 28.6,
+      "longitude": 77.18,
+      "tropospheric_NO2_column_number_density": 0.00016,
+      "cloud_fraction": 0.72,
+      "qa_value": 0.4,
+      "stratospheric_NO2_column_number_density": 3.5e-05,
+      "NO2_column_number_density": 0.000195,
+      "system_time_start": 1789200000000,
+      "location_tag": "Cloud Obscured Pixel (cloud_fraction > 0.50 - Screened Out)"
+    },
+    {
+      "latitude": 28.6139,
+      "longitude": 77.209,
+      "tropospheric_NO2_column_number_density": 0.000142,
+      "cloud_fraction": 0.12,
+      "qa_value": 0.88,
+      "stratospheric_NO2_column_number_density": 3.5e-05,
+      "NO2_column_number_density": 0.000177,
+      "system_time_start": 1789200000000,
+      "location_tag": "Exact Duplicate of Sample #1 (Duplicate Identity - Dropped)"
+    },
+    {
+      "latitude": 28.61,
+      "longitude": 77.21,
+      "tropospheric_NO2_column_number_density": -0.0005,
+      "cloud_fraction": 0.15,
+      "qa_value": 0.8,
+      "stratospheric_NO2_column_number_density": 3.5e-05,
+      "NO2_column_number_density": -0.000465,
+      "system_time_start": 1789200000000,
+      "location_tag": "Extreme Unphysical Negative Anomaly (<-0.0001 mol/m? - Rejected)"
+    },
+    {
+      "latitude": 31.634,
+      "longitude": 74.8723,
+      "tropospheric_NO2_column_number_density": 0.00015,
+      "cloud_fraction": 0.2,
+      "qa_value": 0.85,
+      "stratospheric_NO2_column_number_density": 3.5e-05,
+      "NO2_column_number_density": 0.000185,
+      "system_time_start": 1789200000000,
+      "location_tag": "Out-of-ROI Punjab Observation (Outside Delhi Pilot - Filtered)"
+    },
+    {
+      "latitude": null,
+      "longitude": 77.2,
+      "tropospheric_NO2_column_number_density": 0.00013,
+      "cloud_fraction": 0.2,
+      "qa_value": 0.85,
+      "system_time_start": 1789200000000,
+      "location_tag": "Malformed Record (Missing Latitude - Rejected)"
+    }
+  ]
+}

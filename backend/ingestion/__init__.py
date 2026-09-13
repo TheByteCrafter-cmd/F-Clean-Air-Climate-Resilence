@@ -8,12 +8,15 @@ from backend.ingestion.exceptions import (
     FIRMSAPIError,
     FIRMSError,
     FIRMSParsingError,
+    GEEAuthenticationError,
+    GEEExtractionError,
     IngestionError,
     MissingCredentialError,
     NetworkError,
     OpenAQAPIError,
     OpenAQError,
     RateLimitError,
+    Sentinel5PError,
 )
 
 # OpenAQ Ingestion Components
@@ -68,6 +71,24 @@ from backend.ingestion.firms_validator import (
     FIRMSValidator,
 )
 
+# Sentinel-5P TROPOMI Satellite Components
+from backend.ingestion.sentinel5p_client import (
+    DEFAULT_DELHI_ROI,
+    GEE_COLLECTION_ID,
+    PRIMARY_BAND as S5P_PRIMARY_BAND,
+    Sentinel5PClient,
+)
+from backend.ingestion.sentinel5p_normalizer import (
+    Sentinel5PNormalizationResult,
+    Sentinel5PNormalizer,
+)
+from backend.ingestion.sentinel5p_pipeline import Sentinel5PPipeline
+from backend.ingestion.sentinel5p_validator import (
+    Sentinel5PQualityReport,
+    Sentinel5PValidationOutcome,
+    Sentinel5PValidator,
+)
+
 __all__ = [
     # OpenAQ
     "OpenAQClient",
@@ -102,6 +123,17 @@ __all__ = [
     "DEFAULT_REGIONAL_URL",
     "DELHI_NCR_BBOX",
     "NORTH_INDIA_BBOX",
+    # Sentinel-5P
+    "Sentinel5PClient",
+    "Sentinel5PNormalizer",
+    "Sentinel5PValidator",
+    "Sentinel5PQualityReport",
+    "Sentinel5PPipeline",
+    "Sentinel5PNormalizationResult",
+    "Sentinel5PValidationOutcome",
+    "GEE_COLLECTION_ID",
+    "S5P_PRIMARY_BAND",
+    "DEFAULT_DELHI_ROI",
     # Exceptions
     "IngestionError",
     "OpenAQError",
@@ -113,4 +145,7 @@ __all__ = [
     "FIRMSError",
     "FIRMSAPIError",
     "FIRMSParsingError",
+    "Sentinel5PError",
+    "GEEAuthenticationError",
+    "GEEExtractionError",
 ]

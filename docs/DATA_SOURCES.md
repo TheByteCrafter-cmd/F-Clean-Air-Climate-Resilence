@@ -72,6 +72,7 @@
 - **Physical Parameter:** `tropospheric_NO2_column_number_density` ($\text{mol/m}^2$).
 - **Scientific Role:** Validates whether elevated ground NO2 readings represent localized industrial/vehicular point-sources or wide-area transboundary regional smog.
 - **Implementation Strategy for MVP:** Live on-the-fly planetary raster queries introduce substantial network latency during live judging demonstrations. In Phase 2/3, representative Sentinel-5P raster extracts for the Delhi and Bengaluru pilot boxes will be extracted via GEE Python API, converted to optimized WebP/PNG raster tile layers, and served via Cloud Storage/local static cache for instantaneous map rendering.
+- **Implementation Status:** Phase 1E-D Sentinel-5P / Earth Engine Satellite Environmental Signal Ingestion Pipeline implemented and verified (see `docs/DATA_INGESTION_SENTINEL5P.md`). Earth Engine catalog contract verified for `COPERNICUS/S5P/NRTI/L3_NO2` (`tropospheric_NO2_column_number_density` in $\text{mol/m}^2$). GEE runtime authentication is unconfigured in local environment (`GEE RUNTIME ACCESS NOT CONFIGURED`); deterministic offline cached fallback pathway is fully operational.
 
 ### 4.2 NASA FIRMS (Fire Information for Resource Management System)
 - **Data Provider:** NASA Earth Observing System Data and Information System (EOSDIS).

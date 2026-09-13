@@ -1,0 +1,58 @@
+{
+  "dataset_id": "COPERNICUS/S5P/NRTI/L3_NO2",
+  "band": "tropospheric_NO2_column_number_density",
+  "unit": "mol/m?",
+  "retrieval_timestamp": "2026-09-13T18:38:15.261910Z",
+  "retrieval_mode": "OFFLINE_FIXTURE",
+  "authentication_status": "GEE RUNTIME ACCESS NOT CONFIGURED",
+  "roi_filter": {
+    "lat_min": 28.4,
+    "lat_max": 28.85,
+    "lon_min": 76.9,
+    "lon_max": 77.35
+  },
+  "geographic_extent": {
+    "min_lat": 28.5284,
+    "max_lat": 28.78,
+    "min_lon": 77.02,
+    "max_lon": 77.3152
+  },
+  "acquisition_time_range": {
+    "min_utc": "2026-09-12T08:00:00+00:00",
+    "max_utc": "2026-09-12T08:00:00+00:00"
+  },
+  "total_samples_received": 11,
+  "samples_retained": 6,
+  "samples_rejected": 5,
+  "duplicate_count": 1,
+  "out_of_bounds_count": 1,
+  "cloud_rejected_count": 1,
+  "negative_values_preserved_count": 1,
+  "no2_summary_mol_m2": {
+    "min_mol_m2": -0.000015,
+    "max_mol_m2": 0.000285,
+    "mean_mol_m2": 0.000157
+  },
+  "no2_summary_umol_m2": {
+    "min_umol_m2": -15.0,
+    "max_umol_m2": 285.0,
+    "mean_umol_m2": 157.0
+  },
+  "cloud_fraction_summary": {
+    "min": 0.1,
+    "max": 0.35,
+    "mean": 0.20833333333333334
+  },
+  "quality_distribution": {
+    "HIGH": 5,
+    "NOMINAL": 1
+  },
+  "rejection_reasons": {
+    "Cloud fraction 0.72 exceeds threshold 0.5": 1,
+    "Duplicate signal identity": 1,
+    "Outside target Region of Interest (ROI)": 1,
+    "Unphysical negative tropospheric NO2 anomaly (-0.000500 mol/m? < -0.0001)": 1,
+    "Missing latitude or longitude coordinate": 1
+  },
+  "validity_rate_pct": 54.55
+}

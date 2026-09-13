@@ -57,3 +57,18 @@ class FIRMSAPIError(FIRMSError):
 class FIRMSParsingError(FIRMSError):
     """Raised when CSV structure or format cannot be parsed."""
     pass
+
+
+class Sentinel5PError(IngestionError):
+    """Base exception for Sentinel-5P / Earth Engine operations."""
+    pass
+
+
+class GEEAuthenticationError(Sentinel5PError):
+    """Raised when Google Earth Engine runtime authentication is unconfigured or failed."""
+    pass
+
+
+class GEEExtractionError(Sentinel5PError):
+    """Raised when GEE data extraction, filtering, or raster sampling fails."""
+    pass
