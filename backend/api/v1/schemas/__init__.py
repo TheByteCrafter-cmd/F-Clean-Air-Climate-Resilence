@@ -7,6 +7,7 @@ from backend.api.v1.schemas.common import (
     ErrorResponse,
 )
 from backend.api.v1.schemas.observation import EnvironmentalObservation
+from backend.api.v1.schemas.weather import WeatherObservation
 from backend.api.v1.schemas.evidence import CitizenEvidenceMetadata
 from backend.api.v1.schemas.hotspot import HotspotSummary
 from backend.api.v1.schemas.forecast import ForecastSummary
@@ -21,6 +22,7 @@ __all__ = [
     "ErrorDetail",
     "ErrorResponse",
     "EnvironmentalObservation",
+    "WeatherObservation",
     "CitizenEvidenceMetadata",
     "HotspotSummary",
     "ForecastSummary",

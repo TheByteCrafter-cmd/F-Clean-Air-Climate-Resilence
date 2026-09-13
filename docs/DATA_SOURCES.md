@@ -59,6 +59,7 @@
   - `boundary_layer_height` ($\text{meters}$): Identifies nocturnal and winter temperature inversions that trap pollutants close to street level.
   - `relative_humidity_2m` ($\%$): Controls secondary aerosol formation and optical hygroscopic scattering.
 - **License:** Non-commercial open access under CC-BY 4.0. Completely reliable for hackathon prototyping and evaluation.
+- **Implementation Status:** Phase 1E-B Meteorological Ingestion Pipeline implemented and verified (see `docs/DATA_INGESTION_OPENMETEO.md`).
 
 ---
 

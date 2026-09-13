@@ -50,6 +50,26 @@ export interface EnvironmentalObservation {
   normalization_version?: string | null;
 }
 
+export interface WeatherObservation {
+  weather_id?: string | null;
+  timestamp: string;
+  location: Location;
+  temperature_c: number;
+  relative_humidity_pct: number;
+  surface_pressure_hpa: number;
+  wind_speed_ms: number;
+  wind_direction_deg: number;
+  precipitation_mm?: number | null;
+  boundary_layer_height_m?: number | null;
+  wind_u_ms?: number | null;
+  wind_v_ms?: number | null;
+  source: string;
+  retrieved_at?: string | null;
+  source_url?: string | null;
+  normalization_version?: string | null;
+}
+
+
 export interface CitizenEvidenceMetadata {
   evidence_id: string;
   timestamp: string;
