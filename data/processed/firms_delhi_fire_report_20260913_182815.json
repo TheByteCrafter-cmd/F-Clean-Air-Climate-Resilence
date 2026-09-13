@@ -1,0 +1,45 @@
+{
+  "source": "NASA_FIRMS",
+  "product": "SUOMI_VIIRS_C2_South_Asia_24h",
+  "retrieval_timestamp": "2026-09-13T18:28:15.509090Z",
+  "total_rows_received": 954,
+  "rows_retained": 3,
+  "rows_rejected": 951,
+  "duplicate_count": 0,
+  "out_of_bounds_count": 951,
+  "bounding_box_filter": {
+    "lat_min": 28.0,
+    "lat_max": 29.5,
+    "lon_min": 76.5,
+    "lon_max": 78.0
+  },
+  "geographic_extent": {
+    "min_lat": 28.34656,
+    "max_lat": 28.37121,
+    "min_lon": 77.22247,
+    "max_lon": 77.23035
+  },
+  "acquisition_time_range": {
+    "min_utc": "2026-09-12T20:14:00+00:00",
+    "max_utc": "2026-09-12T20:14:00+00:00"
+  },
+  "satellites_represented": {
+    "Suomi-NPP": 3
+  },
+  "confidence_distribution": {
+    "nominal": 3
+  },
+  "daynight_distribution": {
+    "N": 3
+  },
+  "frp_summary": {
+    "min_mw": 1.12,
+    "max_mw": 1.73,
+    "mean_mw": 1.5,
+    "total_mw": 4.49
+  },
+  "rejection_reasons": {
+    "Outside target pilot geographic bounding box": 951
+  },
+  "validity_rate_pct": 0.31
+}

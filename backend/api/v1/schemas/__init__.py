@@ -8,6 +8,7 @@ from backend.api.v1.schemas.common import (
 )
 from backend.api.v1.schemas.observation import EnvironmentalObservation
 from backend.api.v1.schemas.weather import WeatherObservation
+from backend.api.v1.schemas.satellite import SatelliteSignal, FireSignal
 from backend.api.v1.schemas.evidence import CitizenEvidenceMetadata
 from backend.api.v1.schemas.hotspot import HotspotSummary
 from backend.api.v1.schemas.forecast import ForecastSummary
@@ -23,6 +24,8 @@ __all__ = [
     "ErrorResponse",
     "EnvironmentalObservation",
     "WeatherObservation",
+    "SatelliteSignal",
+    "FireSignal",
     "CitizenEvidenceMetadata",
     "HotspotSummary",
     "ForecastSummary",

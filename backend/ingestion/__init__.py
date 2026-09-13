@@ -5,6 +5,9 @@ Air Quality (OpenAQ) & Meteorology (Open-Meteo) ingestion pipelines.
 
 from backend.ingestion.exceptions import (
     AuthenticationError,
+    FIRMSAPIError,
+    FIRMSError,
+    FIRMSParsingError,
     IngestionError,
     MissingCredentialError,
     NetworkError,
@@ -47,6 +50,24 @@ from backend.ingestion.weather_validator import (
     WeatherValidator,
 )
 
+# NASA FIRMS Thermal Anomaly Components
+from backend.ingestion.firms_client import (
+    DEFAULT_REGIONAL_URL,
+    FIRMSClient,
+)
+from backend.ingestion.firms_normalizer import (
+    FIRMSNormalizationResult,
+    FIRMSNormalizer,
+)
+from backend.ingestion.firms_pipeline import FIRMSIngestionPipeline
+from backend.ingestion.firms_validator import (
+    DELHI_NCR_BBOX,
+    NORTH_INDIA_BBOX,
+    FIRMSQualityReport,
+    FIRMSValidationOutcome,
+    FIRMSValidator,
+)
+
 __all__ = [
     # OpenAQ
     "OpenAQClient",
@@ -70,6 +91,17 @@ __all__ = [
     "WeatherValidationOutcome",
     "DELHI_LATITUDE",
     "DELHI_LONGITUDE",
+    # NASA FIRMS
+    "FIRMSClient",
+    "FIRMSNormalizer",
+    "FIRMSValidator",
+    "FIRMSQualityReport",
+    "FIRMSIngestionPipeline",
+    "FIRMSNormalizationResult",
+    "FIRMSValidationOutcome",
+    "DEFAULT_REGIONAL_URL",
+    "DELHI_NCR_BBOX",
+    "NORTH_INDIA_BBOX",
     # Exceptions
     "IngestionError",
     "OpenAQError",
@@ -78,4 +110,7 @@ __all__ = [
     "RateLimitError",
     "OpenAQAPIError",
     "NetworkError",
+    "FIRMSError",
+    "FIRMSAPIError",
+    "FIRMSParsingError",
 ]

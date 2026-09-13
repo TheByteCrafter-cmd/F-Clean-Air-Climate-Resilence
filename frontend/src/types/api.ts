@@ -69,6 +69,37 @@ export interface WeatherObservation {
   normalization_version?: string | null;
 }
 
+export interface SatelliteSignal {
+  signal_id: string;
+  acquisition_time: string;
+  satellite: string;
+  instrument: string;
+  signal_type: string;
+  geometry: Record<string, unknown>;
+  value: number;
+  unit: string;
+  quality_indicator: 'HIGH' | 'NOMINAL' | 'LOW' | string;
+  processing_level?: string | null;
+}
+
+export interface FireSignal extends SatelliteSignal {
+  latitude: number;
+  longitude: number;
+  acquisition_date: string;
+  acquisition_time_str: string;
+  confidence: string;
+  raw_confidence?: string | null;
+  frp_mw?: number | null;
+  bright_ti4_k?: number | null;
+  bright_ti5_k?: number | null;
+  daynight?: string | null;
+  scan?: number | null;
+  track?: number | null;
+  version?: string | null;
+  source: string;
+  provenance?: Record<string, unknown> | null;
+}
+
 
 export interface CitizenEvidenceMetadata {
   evidence_id: string;

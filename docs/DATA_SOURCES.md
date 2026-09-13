@@ -80,6 +80,7 @@
 - **Fields Captured:** `latitude`, `longitude`, `brightness`, `scan`, `track`, `acq_date`, `acq_time`, `satellite`, `confidence`, `frp` (Fire Radiative Power, in $\text{MW}$).
 - **Scientific Role:** Direct physical indicator of high-temperature thermal emissions (agricultural residue/stubble burning, industrial flaring, uncontrolled open municipal solid waste burning).
 - **License:** Public domain (NASA Open Data Policy).
+- **Implementation Status:** Phase 1E-C NASA FIRMS Thermal Anomaly Ingestion Pipeline implemented and verified (see `docs/DATA_INGESTION_FIRMS.md`). Primary unauthenticated regional stream `SUOMI_VIIRS_C2_South_Asia_24h.csv` verified live.
 
 ---
 

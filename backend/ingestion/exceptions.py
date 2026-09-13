@@ -39,3 +39,21 @@ class OpenAQAPIError(OpenAQError):
 class NetworkError(OpenAQError):
     """Raised when network connection drops or times out."""
     pass
+
+
+class FIRMSError(IngestionError):
+    """Base exception for NASA FIRMS operations."""
+    pass
+
+
+class FIRMSAPIError(FIRMSError):
+    """Raised on HTTP failure from NASA FIRMS."""
+    def __init__(self, message: str, status_code: int = None, response_body: str = None):
+        super().__init__(message)
+        self.status_code = status_code
+        self.response_body = response_body
+
+
+class FIRMSParsingError(FIRMSError):
+    """Raised when CSV structure or format cannot be parsed."""
+    pass
