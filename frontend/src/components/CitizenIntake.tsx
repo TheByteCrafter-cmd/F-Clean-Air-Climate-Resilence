@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { apiClient, ApiError } from '../api/client';
-import { EvidenceSubmissionResponse } from '../types/api';
+import { EvidenceSubmissionResponse, EvidenceAIAnalysis, ProbableCategoryItem } from '../types/api';
 
 export const CitizenIntake: React.FC = () => {
   // Media states
@@ -250,6 +250,33 @@ export const CitizenIntake: React.FC = () => {
     }
   };
 
+  // AI Analysis states
+  const [aiAnalysis, setAiAnalysis] = useState<EvidenceAIAnalysis | null>(null);
+  const [aiLoading, setAiLoading] = useState<boolean>(false);
+  const [aiError, setAiError] = useState<string | null>(null);
+  const [lookupEvidenceId, setLookupEvidenceId] = useState<string>('');
+
+  const handleAnalyzeEvidence = async (targetId?: string) => {
+    const id = targetId || submissionResult?.evidence_id || lookupEvidenceId.trim();
+    if (!id) return;
+    setAiLoading(true);
+    setAiError(null);
+    try {
+      const res = await apiClient.analyzeEvidence(id);
+      setAiAnalysis(res);
+    } catch (err: unknown) {
+      if (err instanceof ApiError) {
+        setAiError(`[${err.code}] ${err.message}`);
+      } else if (err instanceof Error) {
+        setAiError(err.message);
+      } else {
+        setAiError('Gemini evidence analysis failed.');
+      }
+    } finally {
+      setAiLoading(false);
+    }
+  };
+
   const handleResetForm = () => {
     handleRemovePhoto();
     handleRemoveVoice();
@@ -259,6 +286,8 @@ export const CitizenIntake: React.FC = () => {
     setConsentGiven(false);
     setSubmissionResult(null);
     setSubmitError(null);
+    setAiAnalysis(null);
+    setAiError(null);
   };
 
   // Success Confirmation Screen
@@ -266,7 +295,7 @@ export const CitizenIntake: React.FC = () => {
     return (
       <div className="civic-card" role="region" aria-label="Submission confirmation">
         <div className="confirmation-header">
-          <div className="confirmation-icon">?</div>
+          <div className="confirmation-icon">✓</div>
           <h2 className="title">Evidence Report Received</h2>
           <p className="subtitle">Thank you for contributing to your community's environmental health.</p>
         </div>
@@ -292,18 +321,88 @@ export const CitizenIntake: React.FC = () => {
             <div className="receipt-row">
               <span className="receipt-label">Location:</span>
               <span>
-                {submissionResult.location.latitude}?, {submissionResult.location.longitude}?
-                {submissionResult.location.accuracy_m ? ` (?${submissionResult.location.accuracy_m}m)` : ''}
+                {submissionResult.location.latitude}°, {submissionResult.location.longitude}°
+                {submissionResult.location.accuracy_m ? ` (±${submissionResult.location.accuracy_m}m)` : ''}
               </span>
             </div>
           )}
         </div>
 
-        <p className="civic-privacy-note">
+        {/* Phase 1E-G Gemini AI Analysis Control */}
+        <div style={{ marginTop: '20px', borderTop: '1px solid #e5e7eb', paddingTop: '16px' }}>
+          <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#1f2937', marginBottom: '8px' }}>
+            Gemini Multimodal Evidence Analysis
+          </h3>
+          {!aiAnalysis ? (
+            <div>
+              <p style={{ fontSize: '0.875rem', color: '#4b5563', marginBottom: '12px' }}>
+                Trigger server-side Gemini AI analysis to verify visual indicators, emission categories, and evidence relevance.
+              </p>
+              <button
+                type="button"
+                className="action-btn-primary"
+                onClick={() => handleAnalyzeEvidence(submissionResult.evidence_id)}
+                disabled={aiLoading}
+              >
+                {aiLoading ? 'Analyzing Evidence...' : 'Run Gemini Evidence Analysis'}
+              </button>
+            </div>
+          ) : (
+            <div className="ai-analysis-card" style={{ backgroundColor: '#f9fafb', padding: '14px', borderRadius: '8px', border: '1px solid #e5e7eb', marginTop: '12px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                <span style={{ fontWeight: 600, fontSize: '0.9rem', color: '#111827' }}>
+                  Model: {aiAnalysis.model_name}
+                </span>
+                <span className="badge-success" style={{ textTransform: 'capitalize' }}>
+                  Relevance: {aiAnalysis.relevance.replace('_', ' ')}
+                </span>
+              </div>
+
+              <p style={{ fontSize: '0.875rem', color: '#374151', margin: '8px 0' }}>
+                <strong>Explanation:</strong> {aiAnalysis.explanation}
+              </p>
+
+              {aiAnalysis.probable_categories.length > 0 && (
+                <div style={{ margin: '8px 0' }}>
+                  <strong style={{ fontSize: '0.85rem', color: '#4b5563' }}>Probable Categories:</strong>
+                  <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginTop: '4px' }}>
+                    {aiAnalysis.probable_categories.map((c: ProbableCategoryItem, idx: number) => (
+                      <span key={idx} className="preset-chip" style={{ fontSize: '0.8rem', backgroundColor: '#eff6ff', color: '#1e40af' }}>
+                        {c.category} (Confidence: {c.confidence_level})
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {aiAnalysis.visual_indicators.length > 0 && (
+                <div style={{ margin: '8px 0' }}>
+                  <strong style={{ fontSize: '0.85rem', color: '#4b5563' }}>Visual Indicators:</strong>
+                  <span style={{ fontSize: '0.85rem', color: '#1f2937', marginLeft: '6px' }}>
+                    {aiAnalysis.visual_indicators.join(', ')}
+                  </span>
+                </div>
+              )}
+
+              <div style={{ display: 'flex', gap: '16px', fontSize: '0.8rem', color: '#6b7280', marginTop: '10px' }}>
+                <span>Audio Status: {aiAnalysis.audio_status}</span>
+                <span>Quality: {aiAnalysis.evidence_quality}</span>
+              </div>
+            </div>
+          )}
+
+          {aiError && (
+            <div className="response-box" style={{ color: '#991b1b', backgroundColor: '#fef2f2', marginTop: '12px' }}>
+              {aiError}
+            </div>
+          )}
+        </div>
+
+        <p className="civic-privacy-note" style={{ marginTop: '16px' }}>
           Your report has been stored securely in the local civic repository. No personal identity was collected.
         </p>
 
-        <button type="button" className="action-btn" onClick={handleResetForm}>
+        <button type="button" className="action-btn" onClick={handleResetForm} style={{ marginTop: '12px' }}>
           Submit Another Observation
         </button>
       </div>
@@ -583,6 +682,32 @@ export const CitizenIntake: React.FC = () => {
           </button>
         </div>
       </form>
+
+      {/* Manual Evidence AI Analysis Lookup Control */}
+      <div style={{ marginTop: '24px', borderTop: '1px solid #e5e7eb', paddingTop: '16px' }}>
+        <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: '#374151', marginBottom: '8px' }}>
+          Dev / Test Tool: Trigger AI Analysis by Evidence ID
+        </h3>
+        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+          <input
+            type="text"
+            placeholder="ev_..."
+            value={lookupEvidenceId}
+            onChange={(e) => setLookupEvidenceId(e.target.value)}
+            className="form-input-sm"
+            style={{ width: '300px', padding: '6px 10px', fontSize: '0.85rem' }}
+          />
+          <button
+            type="button"
+            className="btn-secondary-sm"
+            onClick={() => handleAnalyzeEvidence()}
+            disabled={aiLoading || !lookupEvidenceId.trim()}
+            style={{ padding: '6px 14px', fontSize: '0.85rem' }}
+          >
+            {aiLoading ? 'Analyzing...' : 'Analyze Evidence'}
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

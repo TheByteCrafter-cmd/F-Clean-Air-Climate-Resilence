@@ -11,6 +11,7 @@ from backend.api.v1.schemas.evidence import (
     EvidenceManifest,
     EvidenceSubmissionResponse,
     MediaItem,
+    EvidenceAIAnalysis,
 )
 from backend.ingestion.citizen_evidence_storage import (
     CitizenEvidenceStorage,
@@ -262,3 +263,175 @@ def get_citizen_evidence_manifest(evidence_id: str):
         )
 
     return manifest
+
+
+@router.post(
+    "/{evidence_id}/analyze",
+    response_model=EvidenceAIAnalysis,
+    summary="Trigger Gemini multimodal AI analysis for citizen evidence",
+    description="""
+    Executes Gemini multimodal analysis on previously ingested citizen evidence.
+    Generates structured, evidence-grounded AI analysis, persists the artifact, and updates evidence lifecycle status.
+    """,
+)
+def analyze_citizen_evidence(
+    evidence_id: str,
+    force_reanalyze: bool = False,
+):
+    # Step 1: Validate Evidence ID
+    if not validate_safe_id(evidence_id):
+        return JSONResponse(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            content=ErrorResponse(
+                error=ErrorDetail(
+                    code="INVALID_EVIDENCE_ID",
+                    message=f"Malformatted or unsafe evidence ID: '{evidence_id}'",
+                )
+            ).model_dump(),
+        )
+
+    # Step 2: Check Evidence Manifest Existence
+    manifest = storage.get_manifest(evidence_id)
+    if not manifest:
+        return JSONResponse(
+            status_code=status.HTTP_404_NOT_FOUND,
+            content=ErrorResponse(
+                error=ErrorDetail(
+                    code="EVIDENCE_NOT_FOUND",
+                    message=f"Evidence report '{evidence_id}' not found.",
+                )
+            ).model_dump(),
+        )
+
+    # Step 3: Check Eligibility
+    if manifest.status == "REJECTED":
+        return JSONResponse(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            content=ErrorResponse(
+                error=ErrorDetail(
+                    code="EVIDENCE_REJECTED",
+                    message=f"Evidence report '{evidence_id}' was previously rejected and cannot be analyzed.",
+                )
+            ).model_dump(),
+        )
+
+    # Step 4: Execute Gemini Analysis
+    from backend.ingestion.gemini_evidence_analyzer import GeminiEvidenceAnalyzer
+    from backend.ingestion.exceptions import (
+        GeminiCredentialError,
+        GeminiAuthenticationError,
+        GeminiRateLimitError,
+        GeminiResponseValidationError,
+        GeminiTimeoutError,
+        GeminiAnalysisError,
+    )
+
+    analyzer = GeminiEvidenceAnalyzer()
+
+    try:
+        analysis = analyzer.analyze_evidence(evidence_id=evidence_id, force_reanalyze=force_reanalyze)
+        return analysis
+
+    except GeminiCredentialError as e:
+        return JSONResponse(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            content=ErrorResponse(
+                error=ErrorDetail(
+                    code="GEMINI_CREDENTIAL_UNCONFIGURED",
+                    message=str(e),
+                )
+            ).model_dump(),
+        )
+    except GeminiAuthenticationError as e:
+        return JSONResponse(
+            status_code=status.HTTP_502_BAD_GATEWAY,
+            content=ErrorResponse(
+                error=ErrorDetail(
+                    code="GEMINI_AUTHENTICATION_FAILED",
+                    message=str(e),
+                )
+            ).model_dump(),
+        )
+    except GeminiRateLimitError as e:
+        return JSONResponse(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            content=ErrorResponse(
+                error=ErrorDetail(
+                    code="GEMINI_RATE_LIMIT_EXCEEDED",
+                    message=str(e),
+                )
+            ).model_dump(),
+        )
+    except GeminiTimeoutError as e:
+        return JSONResponse(
+            status_code=status.HTTP_504_GATEWAY_TIMEOUT,
+            content=ErrorResponse(
+                error=ErrorDetail(
+                    code="GEMINI_TIMEOUT",
+                    message=str(e),
+                )
+            ).model_dump(),
+        )
+    except GeminiResponseValidationError as e:
+        return JSONResponse(
+            status_code=status.HTTP_502_BAD_GATEWAY,
+            content=ErrorResponse(
+                error=ErrorDetail(
+                    code="GEMINI_RESPONSE_VALIDATION_ERROR",
+                    message=str(e),
+                )
+            ).model_dump(),
+        )
+    except (GeminiAnalysisError, Exception) as e:
+        logger.error(f"Gemini evidence analysis failed for {evidence_id}: {e}")
+        # Mark manifest as AI_ANALYSIS_FAILED
+        manifest.status = "AI_ANALYSIS_FAILED"
+        storage.save_manifest(manifest)
+
+        return JSONResponse(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            content=ErrorResponse(
+                error=ErrorDetail(
+                    code="GEMINI_ANALYSIS_FAILED",
+                    message=f"Gemini evidence analysis failed: {str(e)}",
+                )
+            ).model_dump(),
+        )
+
+
+@router.get(
+    "/{evidence_id}/analysis",
+    response_model=EvidenceAIAnalysis,
+    summary="Retrieve persisted Gemini AI analysis artifact",
+    description="Fetches the persisted AI analysis artifact for a previously analyzed evidence report.",
+)
+def get_citizen_evidence_analysis(evidence_id: str):
+    if not validate_safe_id(evidence_id):
+        return JSONResponse(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            content=ErrorResponse(
+                error=ErrorDetail(
+                    code="INVALID_EVIDENCE_ID",
+                    message=f"Malformatted or unsafe evidence ID: '{evidence_id}'",
+                )
+            ).model_dump(),
+        )
+
+    from backend.ingestion.gemini_evidence_analyzer import GeminiEvidenceAnalyzer
+
+    analyzer = GeminiEvidenceAnalyzer()
+    analysis = analyzer.get_existing_analysis(evidence_id)
+
+    if not analysis:
+        return JSONResponse(
+            status_code=status.HTTP_404_NOT_FOUND,
+            content=ErrorResponse(
+                error=ErrorDetail(
+                    code="ANALYSIS_NOT_FOUND",
+                    message=f"AI analysis artifact for evidence '{evidence_id}' does not exist or has not been run yet.",
+                )
+            ).model_dump(),
+        )
+
+    return analysis
+

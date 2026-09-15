@@ -3,6 +3,7 @@ import {
   ErrorResponse,
   EvidenceManifest,
   EvidenceSubmissionResponse,
+  EvidenceAIAnalysis,
   HealthResponse,
 } from '../types/api';
 
@@ -66,5 +67,11 @@ export const apiClient = {
     }),
   getEvidence: (evidenceId: string): Promise<EvidenceManifest> =>
     request<EvidenceManifest>(`/api/v1/evidence/${evidenceId}`),
+  analyzeEvidence: (evidenceId: string, forceReanalyze = false): Promise<EvidenceAIAnalysis> =>
+    request<EvidenceAIAnalysis>(`/api/v1/evidence/${evidenceId}/analyze${forceReanalyze ? '?force_reanalyze=true' : ''}`, {
+      method: 'POST',
+    }),
+  getEvidenceAnalysis: (evidenceId: string): Promise<EvidenceAIAnalysis> =>
+    request<EvidenceAIAnalysis>(`/api/v1/evidence/${evidenceId}/analysis`),
 };
 

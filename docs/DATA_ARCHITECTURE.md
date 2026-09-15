@@ -97,7 +97,12 @@ The VayuDrishti architecture defines **8 canonical data domains**. Each domain p
 - **Storage Paths:**
   - Raw Media: `data/raw/citizen_evidence/<evidence_id>/`
   - Manifest JSON: `data/processed/citizen_evidence/manifests/<evidence_id>.json`
-- **Source Attribution:** `CITIZEN_PWA_SUBMISSION`.
+  - AI Analysis JSON: `data/processed/citizen_evidence/analysis/<evidence_id>.json`
+- **AI Analysis Artifact (`EvidenceAIAnalysis`):**
+  - Canonical Analysis ID: `an_{uuid4_hex}`
+  - Essential Fields: `analysis_id`, `evidence_id`, `model_name`, `model_version`, `analyzed_at`, `relevance`, `observed_phenomena`, `probable_categories`, `visual_indicators`, `evidence_quality`, `audio_status`, `uncertainty`, `explanation`, `recommended_followup`.
+  - Lifecycle Status Transitions: `RECEIVED` / `VALIDATED` -> `AI_ANALYZED` / `AI_ANALYSIS_FAILED`.
+- **Source Attribution:** `CITIZEN_PWA_SUBMISSION` (Intake) / `GEMINI_2_5_FLASH_MULTIMODAL` (Analysis).
 - **Validation Rules:**
   - Mandatory voluntary consent checkbox.
   - At least one modality present (photo, voice, or text).
@@ -105,7 +110,7 @@ The VayuDrishti architecture defines **8 canonical data domains**. Each domain p
   - Voice memo duration $\le 60\,\text{s}$, size $\le 10\,\text{MB}$ (`audio/webm`, `audio/ogg`, `audio/wav`, `audio/mp4`, `audio/mpeg`, `audio/x-m4a`).
   - Text remarks $\le 1000\,\text{characters}$.
   - Location coordinates bounded WGS84 (Lat: $-90.0$ to $+90.0$, Lon: $-180.0$ to $+180.0$, `accuracy_m` $\ge 0.0$).
-- **Freshness Expectations:** Real-time event-driven intake.
+- **Freshness Expectations:** Real-time event-driven intake and on-demand AI analysis.
 
 ### Domain F: Pollution Events & Hotspots
 - **Purpose:** Computed spatial-temporal clusters where air pollution significantly deviates from the regional baseline.

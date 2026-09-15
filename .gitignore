@@ -47,3 +47,6 @@ data/raw/citizen_evidence/*
 !data/raw/citizen_evidence/.gitkeep
 data/processed/citizen_evidence/manifests/*
 !data/processed/citizen_evidence/manifests/.gitkeep
+data/processed/citizen_evidence/analysis/*
+!data/processed/citizen_evidence/analysis/.gitkeep
+

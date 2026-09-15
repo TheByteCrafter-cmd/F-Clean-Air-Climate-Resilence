@@ -49,13 +49,33 @@ class CitizenEvidenceStorage:
 
     def __init__(
         self,
-        raw_dir: Path = DEFAULT_RAW_EVIDENCE_DIR,
-        manifest_dir: Path = DEFAULT_PROCESSED_MANIFEST_DIR,
+        raw_dir: Optional[Path] = None,
+        manifest_dir: Optional[Path] = None,
+        data_root: Optional[Path] = None,
     ):
-        self.raw_dir = Path(raw_dir)
-        self.manifest_dir = Path(manifest_dir)
+        if data_root is not None:
+            root = Path(data_root)
+            self.root_dir = root
+            self.raw_dir = root / "raw" / "citizen_evidence"
+            self.processed_dir = root / "processed" / "citizen_evidence"
+            self.manifest_dir = self.processed_dir / "manifests"
+        else:
+            self.raw_dir = Path(raw_dir) if raw_dir else DEFAULT_RAW_EVIDENCE_DIR
+            self.manifest_dir = Path(manifest_dir) if manifest_dir else DEFAULT_PROCESSED_MANIFEST_DIR
+            self.processed_dir = self.manifest_dir.parent
+            self.root_dir = self.raw_dir.parent.parent
+
         self.raw_dir.mkdir(parents=True, exist_ok=True)
         self.manifest_dir.mkdir(parents=True, exist_ok=True)
+
+    def get_media_dir(self, evidence_id: str) -> Path:
+        """Returns the media storage directory path for a given evidence ID."""
+        if not validate_safe_id(evidence_id):
+            raise EvidenceStorageError(f"Invalid or unsafe evidence ID: '{evidence_id}'")
+        media_dir = self.raw_dir / evidence_id
+        media_dir.mkdir(parents=True, exist_ok=True)
+        return media_dir
+
 
     def save_media_file(
         self,

@@ -235,6 +235,30 @@ export interface EvidenceSubmissionResponse {
   message: string;
 }
 
+export interface ProbableCategoryItem {
+  category: string;
+  confidence_level: 'high' | 'medium' | 'low';
+}
+
+export interface EvidenceAIAnalysis {
+  analysis_id: string;
+  evidence_id: string;
+  model_name: string;
+  model_version: string;
+  analyzed_at: string;
+  relevance: 'relevant' | 'partially_relevant' | 'irrelevant' | 'insufficient_evidence';
+  observed_phenomena: string[];
+  probable_categories: ProbableCategoryItem[];
+  visual_indicators: string[];
+  evidence_quality: string;
+  audio_status: string;
+  uncertainty: string[];
+  explanation: string;
+  recommended_followup: string[];
+  safety_note?: string | null;
+  schema_version: string;
+}
+
 export interface CitizenEvidenceMetadata {
   evidence_id: string;
   timestamp: string;

@@ -277,7 +277,8 @@ try {
 | `GET` | `/api/health` | System Health | **OPERATIONAL (Phase 1A/1B)** |
 | `GET` | `/api/v1/status` | API Registry | **OPERATIONAL (Phase 1B)** |
 | `POST` | `/api/v1/evidence` | Citizen Evidence Intake | **OPERATIONAL (Phase 1E-F)** |
-| `GET` | `/api/v1/evidence/{evidence_id}` | Citizen Evidence Manifest | **OPERATIONAL (Phase 1E-F)** |
+| `POST` | `/api/v1/evidence/{evidence_id}/analyze` | Gemini Multimodal Evidence Analysis | **OPERATIONAL (Phase 1E-G)** |
+| `GET` | `/api/v1/evidence/{evidence_id}/analysis` | Gemini AI Analysis Artifact | **OPERATIONAL (Phase 1E-G)** |
 | `GET` | `/api/v1/observations/latest` | Observations | *PLANNED* |
 | `GET` | `/api/v1/observations/history` | Observations | *PLANNED* |
 | `GET` | `/api/v1/hotspots/active` | Hotspot Intelligence | *PLANNED* |
@@ -287,5 +288,5 @@ try {
 | `POST`| `/api/v1/authority/dispatch` | Decision Support | *PLANNED* |
 
 ---
-**PHASE 1E-F CITIZEN EVIDENCE CONTRACT:** OPERATIONAL & VERIFIED  
+**PHASE 1E-G GEMINI EVIDENCE ANALYSIS CONTRACT:** OPERATIONAL & VERIFIED  
 

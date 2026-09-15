@@ -25,6 +25,8 @@ from backend.api.v1.schemas.evidence import (
     MediaItem,
     EvidenceManifest,
     EvidenceSubmissionResponse,
+    ProbableCategoryItem,
+    EvidenceAIAnalysis,
 )
 from backend.api.v1.schemas.hotspot import HotspotSummary
 from backend.api.v1.schemas.forecast import ForecastSummary
@@ -56,6 +58,8 @@ __all__ = [
     "MediaItem",
     "EvidenceManifest",
     "EvidenceSubmissionResponse",
+    "ProbableCategoryItem",
+    "EvidenceAIAnalysis",
     "HotspotSummary",
     "ForecastSummary",
     "RiskSummary",

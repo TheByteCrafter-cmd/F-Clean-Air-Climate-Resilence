@@ -141,3 +141,36 @@ class EvidenceStorageError(CitizenEvidenceError):
     pass
 
 
+class GeminiAnalysisError(IngestionError):
+    """Base exception for Gemini multimodal analysis failures."""
+    pass
+
+
+class GeminiCredentialError(GeminiAnalysisError):
+    """Raised when GEMINI_API_KEY environment variable is missing or unconfigured."""
+    pass
+
+
+class GeminiAuthenticationError(GeminiAnalysisError):
+    """Raised when Gemini API rejects authentication credentials (e.g. invalid key)."""
+    pass
+
+
+class GeminiRateLimitError(GeminiAnalysisError):
+    """Raised when Gemini API rate limits or quota are exceeded (HTTP 429)."""
+    def __init__(self, message: str = "Gemini API rate limit reached", retry_after: int = None):
+        super().__init__(message)
+        self.retry_after = retry_after
+
+
+class GeminiResponseValidationError(GeminiAnalysisError):
+    """Raised when Gemini structured JSON output fails Pydantic schema validation."""
+    pass
+
+
+class GeminiTimeoutError(GeminiAnalysisError):
+    """Raised when request to Gemini API times out."""
+    pass
+
+
+

@@ -32,11 +32,65 @@ class EvidenceManifest(BaseModel):
     description: Optional[str] = Field(None, max_length=1000, description="Optional citizen observation remarks")
     category: Optional[str] = Field(None, description="Suspected pollution category tag")
     consent_given: bool = Field(True, description="Explicit citizen consent confirmation")
-    status: Literal["RECEIVED", "VALIDATED", "REJECTED", "READY_FOR_AI_ANALYSIS"] = Field(
-        "RECEIVED", description="Evidence lifecycle processing status"
-    )
+    status: Literal[
+        "RECEIVED",
+        "VALIDATED",
+        "REJECTED",
+        "READY_FOR_AI_ANALYSIS",
+        "AI_ANALYZED",
+        "AI_ANALYSIS_FAILED",
+    ] = Field("RECEIVED", description="Evidence lifecycle processing status")
     source: str = Field("citizen_web", description="Intake source channel")
     schema_version: str = Field("1.0", description="Manifest schema version")
+
+
+class ProbableCategoryItem(BaseModel):
+    """Category classification with qualitative confidence level."""
+    category: str = Field(..., description="Environmental category from taxonomy (e.g. industrial_smoke, biomass_burning)")
+    confidence_level: Literal["high", "medium", "low"] = Field(
+        ..., description="Qualitative confidence assessment (never calibrated probability)"
+    )
+
+
+class EvidenceAIAnalysis(BaseModel):
+    """Structured AI analysis artifact produced by Gemini multimodal processing."""
+    analysis_id: str = Field(..., description="Unique analysis identifier: an_<uuid_hex>")
+    evidence_id: str = Field(..., description="Associated evidence identifier: ev_<uuid_hex>")
+    model_name: str = Field(..., description="Gemini model identifier used for analysis")
+    model_version: str = Field("2026-09", description="Model version or API snapshot identifier")
+    analyzed_at: datetime = Field(..., description="ISO 8601 UTC analysis timestamp")
+    relevance: Literal["relevant", "partially_relevant", "irrelevant", "insufficient_evidence"] = Field(
+        ..., description="Qualitative relevance of visual/text evidence to environmental monitoring"
+    )
+    observed_phenomena: List[str] = Field(
+        default_factory=list, description="List of observed environmental phenomena grounded in evidence"
+    )
+    probable_categories: List[ProbableCategoryItem] = Field(
+        default_factory=list, description="Categorical emission classifications with qualitative confidence"
+    )
+    visual_indicators: List[str] = Field(
+        default_factory=list, description="Observable visual features (e.g. dark plume, dense dust cloud)"
+    )
+    evidence_quality: str = Field(
+        "clear", description="Assessment of visual clarity (clear, partially_obscured, blurry, low_resolution, dark)"
+    )
+    audio_status: str = Field(
+        "AUDIO_ANALYSIS_DEFERRED", description="Explicit audio analysis status tag"
+    )
+    uncertainty: List[str] = Field(
+        default_factory=list, description="Explicit statements of ambiguity, obscuration, or incomplete context"
+    )
+    explanation: str = Field(
+        ..., description="Concise, evidence-grounded interpretation avoiding unsupported causal claims"
+    )
+    recommended_followup: List[str] = Field(
+        default_factory=list, description="Suggested additional evidence (e.g. clearer photo, wider angle)"
+    )
+    safety_note: Optional[str] = Field(
+        None, description="Optional safety, refusal, or prompt injection guard note"
+    )
+    schema_version: str = Field("1.0", description="Analysis schema version")
+
 
 
 class EvidenceSubmissionResponse(BaseModel):
