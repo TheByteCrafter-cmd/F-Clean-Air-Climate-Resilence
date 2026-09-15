@@ -195,6 +195,46 @@ export interface GeoJSONFeatureCollection {
   metadata?: GeospatialMetadata | null;
 }
 
+export interface EvidenceLocation {
+  latitude: number;
+  longitude: number;
+  accuracy_m?: number | null;
+  source: 'gps' | 'manual';
+  timestamp?: string | null;
+}
+
+export interface MediaItem {
+  media_id: string;
+  media_type: 'photo' | 'voice';
+  mime_type: string;
+  file_size_bytes: number;
+  filename: string;
+  captured_at?: string | null;
+}
+
+export interface EvidenceManifest {
+  evidence_id: string;
+  submitted_at: string;
+  location?: EvidenceLocation | null;
+  media: MediaItem[];
+  description?: string | null;
+  category?: string | null;
+  consent_given: boolean;
+  status: 'RECEIVED' | 'VALIDATED' | 'REJECTED' | 'READY_FOR_AI_ANALYSIS' | string;
+  source: string;
+  schema_version: string;
+}
+
+export interface EvidenceSubmissionResponse {
+  evidence_id: string;
+  status: string;
+  submitted_at: string;
+  location?: EvidenceLocation | null;
+  media_count: number;
+  media_types: string[];
+  message: string;
+}
+
 export interface CitizenEvidenceMetadata {
   evidence_id: string;
   timestamp: string;

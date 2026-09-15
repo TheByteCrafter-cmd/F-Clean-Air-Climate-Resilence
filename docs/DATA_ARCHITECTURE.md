@@ -89,14 +89,23 @@ The VayuDrishti architecture defines **8 canonical data domains**. Each domain p
 
 ### Domain E: Citizen Evidence
 - **Purpose:** Crowdsourced visual, auditory, and descriptive ground truth regarding localized, episodic pollution events.
-- **Canonical ID:** `cit_ev_{uuid4}`
-- **Timestamp Standard:** ISO 8601 UTC submission time + device creation timestamp.
-- **Location Standard:** WGS 84 client GPS coordinates with accuracy radius ($\pm r\text{ meters}$).
-- **Essential Fields:** `evidence_id`, `timestamp`, `location`, `media_type`, `storage_ref`, `user_category`, `processing_status`.
-- **Optional Fields:** `raw_audio_ref`, `gemini_verification_score`, `gemini_detected_type`, `gemini_rationale`, `p_hash`.
+- **Canonical ID:** `ev_{uuid4_hex}` (e.g. `ev_a1b2c3d4e5f67890a1b2c3d4e5f67890`)
+- **Timestamp Standard:** ISO 8601 UTC submission time (`received_at`).
+- **Location Standard:** WGS 84 client GPS coordinates with accuracy radius (`accuracy_m`), or manual corridor preset.
+- **Essential Fields:** `evidence_id`, `received_at`, `consent`, `category`, `media_files`, `status`.
+- **Optional Fields:** `description`, `location`, `client_metadata`.
+- **Storage Paths:**
+  - Raw Media: `data/raw/citizen_evidence/<evidence_id>/`
+  - Manifest JSON: `data/processed/citizen_evidence/manifests/<evidence_id>.json`
 - **Source Attribution:** `CITIZEN_PWA_SUBMISSION`.
-- **Validation Rules:** Image payload $\le 10\,\text{MB}$; GPS within pilot city bounds; submission rate-limited to 3/hour/IP.
-- **Freshness Expectations:** Real-time event-driven (ingested within seconds).
+- **Validation Rules:**
+  - Mandatory voluntary consent checkbox.
+  - At least one modality present (photo, voice, or text).
+  - Photo payload $\le 10\,\text{MB}$ (`image/jpeg`, `image/png`, `image/webp`).
+  - Voice memo duration $\le 60\,\text{s}$, size $\le 10\,\text{MB}$ (`audio/webm`, `audio/ogg`, `audio/wav`, `audio/mp4`, `audio/mpeg`, `audio/x-m4a`).
+  - Text remarks $\le 1000\,\text{characters}$.
+  - Location coordinates bounded WGS84 (Lat: $-90.0$ to $+90.0$, Lon: $-180.0$ to $+180.0$, `accuracy_m` $\ge 0.0$).
+- **Freshness Expectations:** Real-time event-driven intake.
 
 ### Domain F: Pollution Events & Hotspots
 - **Purpose:** Computed spatial-temporal clusters where air pollution significantly deviates from the regional baseline.

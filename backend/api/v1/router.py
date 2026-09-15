@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from backend.api.v1.schemas.common import ApiStatusResponse
+from backend.api.v1.endpoints.evidence import router as evidence_router
 
 api_v1_router = APIRouter(prefix="/api/v1", tags=["v1"])
 
@@ -14,3 +15,7 @@ def get_api_v1_status():
         version="v1",
         message="VayuDrishti API v1 skeleton is operational."
     )
+
+
+# Register Citizen Evidence Sub-Router
+api_v1_router.include_router(evidence_router)

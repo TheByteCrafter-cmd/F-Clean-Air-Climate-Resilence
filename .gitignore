@@ -37,3 +37,13 @@ pnpm-debug.log*
 .DS_Store
 Thumbs.db
 *.tsbuildinfo
+
+# Data Storage (Raw & Processed Data Artifacts)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/raw/citizen_evidence/*
+!data/raw/citizen_evidence/.gitkeep
+data/processed/citizen_evidence/manifests/*
+!data/processed/citizen_evidence/manifests/.gitkeep

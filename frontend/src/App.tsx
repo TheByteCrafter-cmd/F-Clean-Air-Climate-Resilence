@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { apiClient, ApiError } from './api/client';
 import { ApiStatusResponse, HealthResponse } from './types/api';
+import { CitizenIntake } from './components/CitizenIntake';
 
 const App: React.FC = () => {
   const [healthData, setHealthData] = useState<HealthResponse | null>(null);
@@ -38,81 +39,81 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="card">
-      <div className="header">
-        <h1 className="title">VayuDrishti</h1>
-        <p className="subtitle">Phase 1B: Architecture Contract & API Skeleton</p>
-      </div>
+    <div style={{ maxWidth: '720px', margin: '0 auto', padding: '16px' }}>
+      <CitizenIntake />
 
-      <div className="status-group">
-        <div className="status-item">
-          <span>Frontend Layer (Vite + React + TypeScript)</span>
-          <span className="badge-success">
-            <span className="dot"></span>
-            Operational
-          </span>
+      <div className="card" style={{ marginTop: '24px' }}>
+        <div className="header">
+          <h2 className="title" style={{ fontSize: '1.25rem' }}>System Status & API Health</h2>
+          <p className="subtitle">Phase 1B & 1E-F Verification Hub</p>
         </div>
 
-        <div className="status-item">
-          <span>Legacy Health Check (/api/health)</span>
-          {loading ? (
-            <span className="badge-warning">
-              <span className="dot"></span>
-              Checking...
-            </span>
-          ) : error ? (
-            <span className="badge-error">
-              <span className="dot"></span>
-              Unreachable
-            </span>
-          ) : (
+        <div className="status-group">
+          <div className="status-item">
+            <span>Frontend Layer (Vite + React + TS)</span>
             <span className="badge-success">
               <span className="dot"></span>
-              Connected ({healthData?.status})
+              Operational
             </span>
-          )}
+          </div>
+
+          <div className="status-item">
+            <span>Backend Health (/api/health)</span>
+            {loading ? (
+              <span className="badge-warning">
+                <span className="dot"></span>
+                Checking...
+              </span>
+            ) : error ? (
+              <span className="badge-error">
+                <span className="dot"></span>
+                Unreachable
+              </span>
+            ) : (
+              <span className="badge-success">
+                <span className="dot"></span>
+                Connected ({healthData?.status})
+              </span>
+            )}
+          </div>
+
+          <div className="status-item">
+            <span>Versioned API (/api/v1/status)</span>
+            {loading ? (
+              <span className="badge-warning">
+                <span className="dot"></span>
+                Checking...
+              </span>
+            ) : error ? (
+              <span className="badge-error">
+                <span className="dot"></span>
+                Unreachable
+              </span>
+            ) : (
+              <span className="badge-success">
+                <span className="dot"></span>
+                Active ({v1Data?.version})
+              </span>
+            )}
+          </div>
         </div>
 
-        <div className="status-item">
-          <span>Versioned API Skeleton (/api/v1/status)</span>
-          {loading ? (
-            <span className="badge-warning">
-              <span className="dot"></span>
-              Checking...
-            </span>
-          ) : error ? (
-            <span className="badge-error">
-              <span className="dot"></span>
-              Unreachable
-            </span>
-          ) : (
-            <span className="badge-success">
-              <span className="dot"></span>
-              Active ({v1Data?.version})
-            </span>
-          )}
-        </div>
+        {v1Data && healthData && (
+          <div className="response-box">
+            <pre>{JSON.stringify({ health: healthData, v1_status: v1Data }, null, 2)}</pre>
+          </div>
+        )}
+
+        {error && (
+          <div className="response-box" style={{ color: '#991b1b', backgroundColor: '#fef2f2' }}>
+            API Connection Error: {error}
+          </div>
+        )}
+
+        <button className="action-btn" onClick={checkConnectivity} disabled={loading} style={{ marginTop: '12px' }}>
+          {loading ? 'Validating Contracts...' : 'Re-verify API Contracts'}
+        </button>
       </div>
-
-      {v1Data && healthData && (
-        <div className="response-box">
-          <pre>{JSON.stringify({ health: healthData, v1_status: v1Data }, null, 2)}</pre>
-        </div>
-      )}
-
-      {error && (
-        <div className="response-box" style={{ color: '#991b1b', backgroundColor: '#fef2f2' }}>
-          API Connection Error: {error}
-        </div>
-      )}
-
-      <button className="action-btn" onClick={checkConnectivity} disabled={loading}>
-        {loading ? 'Validating Contracts...' : 'Re-verify API Contracts'}
-      </button>
-
-      <p className="footer-note">
-        Phase 1B Typed Contract Validation — Frontend & Backend Skeleton Verified.
-      </p>
     </div>
   );
 };

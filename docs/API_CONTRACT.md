@@ -144,7 +144,45 @@ interface EnvironmentalObservation {
 }
 ```
 
-### 6.4 Citizen Evidence Metadata
+### 6.4 Citizen Evidence Metadata & Intake Manifest
+```typescript
+interface EvidenceLocation {
+  latitude: number;          // -90.0 to 90.0
+  longitude: number;         // -180.0 to 180.0
+  accuracy_m?: number | null;// Non-negative accuracy in meters
+  source: 'gps' | 'manual';
+}
+
+interface MediaItem {
+  media_type: 'photo' | 'voice' | 'document';
+  mime_type: string;         // e.g. "image/jpeg", "audio/webm"
+  file_path: string;         // Safe local file path under data/raw/citizen_evidence/<id>/
+  original_filename: string;
+  size_bytes: number;
+}
+
+interface EvidenceManifest {
+  evidence_id: string;       // Canonical ID: ev_<32_hex_chars>
+  received_at: string;       // ISO 8601 UTC
+  consent: boolean;          // Mandatory explicit consent flag (true)
+  category: string;          // e.g. "industrial_smoke", "biomass_burning"
+  description?: string | null; // Text remark (<= 1000 characters)
+  location?: EvidenceLocation | null;
+  media_files: MediaItem[];
+  status: 'received' | 'validated' | 'processing' | 'archived';
+  client_metadata?: Record<string, any>;
+}
+
+interface EvidenceSubmissionResponse {
+  evidence_id: string;
+  received_at: string;
+  media_count: number;
+  manifest_path: string;
+  status: string;
+}
+```
+
+### 6.5 Legacy Citizen Evidence Metadata (Backward Compatibility)
 ```typescript
 interface CitizenEvidenceMetadata {
   evidence_id: string;
@@ -157,7 +195,7 @@ interface CitizenEvidenceMetadata {
 }
 ```
 
-### 6.5 Hotspot Summary
+### 6.6 Hotspot Summary
 ```typescript
 interface HotspotSummary {
   hotspot_id: string;
@@ -169,7 +207,7 @@ interface HotspotSummary {
 }
 ```
 
-### 6.6 Corridor Forecast Summary
+### 6.7 Corridor Forecast Summary
 ```typescript
 interface ForecastSummary {
   location: Location;
@@ -182,7 +220,7 @@ interface ForecastSummary {
 }
 ```
 
-### 6.7 Risk Assessment Summary
+### 6.8 Risk Assessment Summary
 ```typescript
 interface RiskSummary {
   risk_level: "LOW" | "MODERATE" | "HIGH" | "CRITICAL";
@@ -192,7 +230,7 @@ interface RiskSummary {
 }
 ```
 
-### 6.8 Authority Recommendation & Action
+### 6.9 Authority Recommendation & Action
 ```typescript
 interface AuthorityRecommendation {
   recommendation_id: string;
@@ -212,10 +250,17 @@ Components must never issue raw `fetch` calls. All HTTP interaction is routed th
 ```typescript
 import { apiClient, ApiError } from '@/api/client';
 
-// Example Phase 1B invocation:
+// Example Phase 1E-F evidence submission:
 try {
-  const status = await apiClient.getV1Status();
-  console.log('API V1 Online:', status.version);
+  const formData = new FormData();
+  formData.append('consent', 'true');
+  formData.append('photo', photoFile);
+  formData.append('description', 'Thick black smoke near Mayapuri');
+  formData.append('latitude', '28.6320');
+  formData.append('longitude', '77.1180');
+
+  const response = await apiClient.submitEvidence(formData);
+  console.log('Submitted evidence ID:', response.evidence_id);
 } catch (err) {
   if (err instanceof ApiError) {
     console.error(`[${err.code}] ${err.message}`);
@@ -225,23 +270,22 @@ try {
 
 ---
 
-## 8. Future Endpoint Roadmap
-
-*The following routes represent the target contract for subsequent phases. In Phase 1B, they are planned architectural boundaries only.*
+## 8. Operational Endpoint Roadmap
 
 | Method | Endpoint Route | Planned Domain | Status |
 | :--- | :--- | :--- | :--- |
 | `GET` | `/api/health` | System Health | **OPERATIONAL (Phase 1A/1B)** |
 | `GET` | `/api/v1/status` | API Registry | **OPERATIONAL (Phase 1B)** |
-| `GET` | `/api/v1/observations/latest` | Observations | *NOT IMPLEMENTED IN PHASE 1B (Phase 2)* |
-| `GET` | `/api/v1/observations/history` | Observations | *NOT IMPLEMENTED IN PHASE 1B (Phase 2)* |
-| `POST` | `/api/v1/evidence/upload` | Citizen Evidence | *NOT IMPLEMENTED IN PHASE 1B (Phase 4)* |
-| `GET` | `/api/v1/hotspots/active` | Hotspot Intelligence | *NOT IMPLEMENTED IN PHASE 1B (Phase 5)* |
-| `GET` | `/api/v1/forecast/corridor` | Forecasting | *NOT IMPLEMENTED IN PHASE 1B (Phase 6)* |
-| `GET` | `/api/v1/risk/summary` | Risk Assessment | *NOT IMPLEMENTED IN PHASE 1B (Phase 7)* |
-| `GET` | `/api/v1/authority/tasks` | Decision Support | *NOT IMPLEMENTED IN PHASE 1B (Phase 8)* |
-| `POST`| `/api/v1/authority/dispatch` | Decision Support | *NOT IMPLEMENTED IN PHASE 1B (Phase 8)* |
+| `POST` | `/api/v1/evidence` | Citizen Evidence Intake | **OPERATIONAL (Phase 1E-F)** |
+| `GET` | `/api/v1/evidence/{evidence_id}` | Citizen Evidence Manifest | **OPERATIONAL (Phase 1E-F)** |
+| `GET` | `/api/v1/observations/latest` | Observations | *PLANNED* |
+| `GET` | `/api/v1/observations/history` | Observations | *PLANNED* |
+| `GET` | `/api/v1/hotspots/active` | Hotspot Intelligence | *PLANNED* |
+| `GET` | `/api/v1/forecast/corridor` | Forecasting | *PLANNED* |
+| `GET` | `/api/v1/risk/summary` | Risk Assessment | *PLANNED* |
+| `GET` | `/api/v1/authority/tasks` | Decision Support | *PLANNED* |
+| `POST`| `/api/v1/authority/dispatch` | Decision Support | *PLANNED* |
 
 ---
-**PHASE 1B CONTRACT SIGN-OFF:** COMPLETED & FROZEN  
-**NEXT PHASE:** PHASE 2 — ENVIRONMENTAL DATA INGESTION PIPELINE
+**PHASE 1E-F CITIZEN EVIDENCE CONTRACT:** OPERATIONAL & VERIFIED  
+

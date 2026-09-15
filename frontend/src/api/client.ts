@@ -1,4 +1,10 @@
-import { ApiStatusResponse, ErrorResponse, HealthResponse } from '../types/api';
+import {
+  ApiStatusResponse,
+  ErrorResponse,
+  EvidenceManifest,
+  EvidenceSubmissionResponse,
+  HealthResponse,
+} from '../types/api';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
@@ -16,12 +22,16 @@ export class ApiError extends Error {
 
 async function request<T>(endpoint: string, options?: RequestInit): Promise<T> {
   const url = `${API_BASE_URL}${endpoint}`;
+  const isFormData = typeof FormData !== 'undefined' && options?.body instanceof FormData;
+
+  const headers: HeadersInit = {
+    ...(isFormData ? {} : { 'Content-Type': 'application/json' }),
+    ...options?.headers,
+  };
+
   const response = await fetch(url, {
-    headers: {
-      'Content-Type': 'application/json',
-      ...options?.headers,
-    },
     ...options,
+    headers,
   });
 
   if (!response.ok) {
@@ -49,4 +59,12 @@ async function request<T>(endpoint: string, options?: RequestInit): Promise<T> {
 export const apiClient = {
   getHealth: (): Promise<HealthResponse> => request<HealthResponse>('/api/health'),
   getV1Status: (): Promise<ApiStatusResponse> => request<ApiStatusResponse>('/api/v1/status'),
+  submitEvidence: (formData: FormData): Promise<EvidenceSubmissionResponse> =>
+    request<EvidenceSubmissionResponse>('/api/v1/evidence', {
+      method: 'POST',
+      body: formData,
+    }),
+  getEvidence: (evidenceId: string): Promise<EvidenceManifest> =>
+    request<EvidenceManifest>(`/api/v1/evidence/${evidenceId}`),
 };
+

@@ -7,12 +7,18 @@ and Geospatial Context (OpenStreetMap, Municipal Ward Boundaries) ingestion pipe
 from backend.ingestion.exceptions import (
     AuthenticationError,
     BoundaryRetrievalError,
+    CitizenEvidenceError,
+    ConsentRequiredError,
+    EmptyEvidenceError,
+    EvidenceStorageError,
+    FileSizeLimitExceededError,
     FIRMSAPIError,
     FIRMSError,
     FIRMSParsingError,
     GEEAuthenticationError,
     GEEExtractionError,
     GeospatialError,
+    LocationValidationError,
     GeospatialValidationError,
     IngestionError,
     MissingCredentialError,
@@ -23,6 +29,7 @@ from backend.ingestion.exceptions import (
     OverpassRateLimitError,
     RateLimitError,
     Sentinel5PError,
+    UnsupportedMediaFormatError,
 )
 
 # OpenAQ Ingestion Components
@@ -118,6 +125,20 @@ from backend.ingestion.geospatial_validator import (
     compute_bounding_box,
     validate_coordinates,
 )
+# Citizen Evidence Intake Components
+from backend.ingestion.citizen_evidence_validator import (
+    CitizenEvidenceValidator,
+    MAX_PHOTO_SIZE_BYTES,
+    MAX_VOICE_SIZE_BYTES,
+    ALLOWED_PHOTO_MIME_TYPES,
+    ALLOWED_VOICE_MIME_TYPES,
+)
+from backend.ingestion.citizen_evidence_storage import (
+    CitizenEvidenceStorage,
+    generate_evidence_id,
+    validate_safe_id,
+)
+
 from backend.ingestion.geospatial_pipeline import (
     DEFAULT_PROCESSED_DIR,
     GeospatialPipeline,
@@ -185,6 +206,15 @@ __all__ = [
     "build_pilot_overpass_query",
     "validate_coordinates",
     "compute_bounding_box",
+    # Citizen Evidence
+    "CitizenEvidenceValidator",
+    "CitizenEvidenceStorage",
+    "generate_evidence_id",
+    "validate_safe_id",
+    "MAX_PHOTO_SIZE_BYTES",
+    "MAX_VOICE_SIZE_BYTES",
+    "ALLOWED_PHOTO_MIME_TYPES",
+    "ALLOWED_VOICE_MIME_TYPES",
     # Exceptions
     "IngestionError",
     "OpenAQError",
@@ -204,4 +234,11 @@ __all__ = [
     "OverpassRateLimitError",
     "BoundaryRetrievalError",
     "GeospatialValidationError",
+    "CitizenEvidenceError",
+    "ConsentRequiredError",
+    "EmptyEvidenceError",
+    "UnsupportedMediaFormatError",
+    "FileSizeLimitExceededError",
+    "LocationValidationError",
+    "EvidenceStorageError",
 ]

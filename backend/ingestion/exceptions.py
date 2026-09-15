@@ -105,3 +105,39 @@ class GeospatialValidationError(GeospatialError):
     """Raised when geospatial geometry, coordinates, or GeoJSON structure fails validation."""
     pass
 
+
+class CitizenEvidenceError(IngestionError):
+    """Base exception for citizen evidence intake and validation."""
+    pass
+
+
+class ConsentRequiredError(CitizenEvidenceError):
+    """Raised when explicit citizen consent is absent or false."""
+    pass
+
+
+class EmptyEvidenceError(CitizenEvidenceError):
+    """Raised when no evidence modality (photo, voice, or text) is provided in submission."""
+    pass
+
+
+class UnsupportedMediaFormatError(CitizenEvidenceError):
+    """Raised when uploaded file MIME type or format is unsupported or dangerous."""
+    pass
+
+
+class FileSizeLimitExceededError(CitizenEvidenceError):
+    """Raised when uploaded media file exceeds the allowed size limit."""
+    pass
+
+
+class LocationValidationError(CitizenEvidenceError):
+    """Raised when location coordinates or accuracy values fail physical or format validation."""
+    pass
+
+
+class EvidenceStorageError(CitizenEvidenceError):
+    """Raised when writing evidence media or manifest to filesystem fails."""
+    pass
+
+

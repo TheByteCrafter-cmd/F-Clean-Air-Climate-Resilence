@@ -19,7 +19,13 @@ from backend.api.v1.schemas.geospatial import (
     GeoJSONFeatureCollection,
     GeospatialMetadata,
 )
-from backend.api.v1.schemas.evidence import CitizenEvidenceMetadata
+from backend.api.v1.schemas.evidence import (
+    CitizenEvidenceMetadata,
+    EvidenceLocation,
+    MediaItem,
+    EvidenceManifest,
+    EvidenceSubmissionResponse,
+)
 from backend.api.v1.schemas.hotspot import HotspotSummary
 from backend.api.v1.schemas.forecast import ForecastSummary
 from backend.api.v1.schemas.risk import RiskSummary
@@ -46,6 +52,10 @@ __all__ = [
     "GeoJSONFeatureCollection",
     "GeospatialMetadata",
     "CitizenEvidenceMetadata",
+    "EvidenceLocation",
+    "MediaItem",
+    "EvidenceManifest",
+    "EvidenceSubmissionResponse",
     "HotspotSummary",
     "ForecastSummary",
     "RiskSummary",
