@@ -128,4 +128,21 @@ Full test suite in `tests/test_hotspot_detection.py` verifies:
 - Idempotent filesystem persistence (`hs_<uuid>.json` and `delhi_hotspots.geojson`).
 - REST API endpoints (`POST detect`, `GET detail`, `GET collection`).
 - Scenarios A through H.
-- 121 passing unit/integration tests across codebase.
+- Score invariance across direct source artifacts vs. `EvidenceFusionResult` summaries.
+- 123 passing unit/integration tests across codebase.
+
+---
+
+## 9. Scoring Integrity & Evidence Double-Counting Prevention
+
+To prevent the exact same underlying physical evidence from being credited multiple times when present through both direct source artifacts and linked `EvidenceFusionResult` summaries, the hotspot engine enforces strict set-based evidence deduplication rules:
+
+### Core Scoring Principles
+1. **Primary Anomaly Signal:** Spatial PM pollution interpolation ($IDW, p=2.0$) and local baseline deviation drive up to $75.0$ points ($40.0$ pts anomaly magnitude, $20.0$ pts spatial extent, $15.0$ pts station coverage).
+2. **Non-Duplicated Corroboration:** Up to $25.0$ points awarded for independent corroborating evidence families ($6.25$ pts per unique non-OpenAQ family).
+3. **OpenAQ Exclusion from Corroboration:** OpenAQ telemetry drives the primary spatial anomaly calculation and is explicitly excluded from receiving an additional independent corroboration bonus.
+4. **Fusion Result as Corroboration Summary:** A linked `EvidenceFusionResult` artifact provides corroborating evidence for `"CITIZEN_GEMINI"` (anchor) and any represented source families (`"THERMAL_ANOMALY"`, `"SATELLITE_NO2"`, `"GEOSPATIAL_CONTEXT"`, `"WEATHER"`).
+5. **Set-Based Source Family Deduplication:** Non-AirQuality source families are tracked in a set (`scored_families`). Each unique source family can contribute to the corroboration score at most **ONCE**, regardless of whether it appears via an `EvidenceFusionResult`, a direct source artifact (FIRMS, Sentinel-5P, OSM, Weather), or both.
+6. **Score Invariance Guarantee:** Providing direct source records alongside an `EvidenceFusionResult` referencing the exact same source families produces an **identical** support score, eliminating duplicate counting.
+7. **Score Semantics & Disclaimers:** Hotspot Support Score $\neq$ probability of pollution, probability of causation, or health risk. It represents an engineering evidence-support score reflecting spatial anomaly strength and multi-source corroboration.
+

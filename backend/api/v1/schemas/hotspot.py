@@ -40,6 +40,8 @@ class HotspotDetectionResult(BaseModel):
     uncertainty_notes: List[str] = Field(default_factory=list, description="Explicit caveats and non-causal disclaimer notes")
     data_quality: str = Field("SUFFICIENT_SPATIAL_DATA", description="Data sufficiency status flag")
     provenance: List[str] = Field(default_factory=list, description="Relative paths of scanned local data artifacts")
+    score_breakdown: Dict[str, float] = Field(default_factory=dict, description="Auditable breakdown of hotspot support score components")
+    corroboration_breakdown: List[Dict[str, str]] = Field(default_factory=list, description="Auditable list of non-duplicated corroborating source families and contribution basis")
     config_version: str = Field("1.0-provisional", description="Detector configuration version")
     schema_version: str = Field("1.0", description="Schema version")
 

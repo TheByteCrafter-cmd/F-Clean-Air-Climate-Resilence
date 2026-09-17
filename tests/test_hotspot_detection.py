@@ -265,3 +265,132 @@ def test_api_hotspot_not_found():
     """Verifies 404 response for non-existent hotspot_id."""
     response = client.get("/api/v1/hotspots/hs_00000000000000000000000000000000")
     assert response.status_code == 404
+
+
+# ==============================================================================
+# 5. SCORING INTEGRITY & INVARIANCE TESTS (PHASE 1E-I.1)
+# ==============================================================================
+def test_score_invariance_fusion_vs_direct_sources(temp_data_dir):
+    """
+    SCENARIO C / SCORE INVARIANCE TEST:
+    Verifies that providing direct FIRMS/Sentinel/OSM source records in addition to an
+    EvidenceFusionResult containing the exact same source families does NOT increase
+    the hotspot support score (zero double-counting).
+    """
+    detector = HyperLocalHotspotDetector(data_root=temp_data_dir)
+    sc_e = get_hotspot_scenario_e_records()
+
+    # Fusion result that explicitly includes THERMAL_ANOMALY and WEATHER supporting signals
+    mock_fusion_with_signals = [{
+        "fusion_id": "fu_test_e_full",
+        "event_anchor_id": "ev_test_e",
+        "created_at": "2026-09-18T00:00:00Z",
+        "support_score": 90.0,
+        "confidence_tier": "HIGH_SUPPORT",
+        "supporting_signals": [
+            {
+                "source_family": "THERMAL_ANOMALY",
+                "source_type": "FIRMS",
+                "record_id": "f1",
+                "provenance_ref": "firms.csv"
+            },
+            {
+                "source_family": "WEATHER",
+                "source_type": "OpenMeteo",
+                "record_id": "w1",
+                "provenance_ref": "weather.json"
+            }
+        ],
+        "explanation": "Corroborated by thermal and weather signals"
+    }]
+
+    # Case 1: OpenAQ + EvidenceFusionResult (which summarizes FIRMS & Weather)
+    res_fusion_only = detector.detect_hotspots(
+        pollutant="PM2.5",
+        custom_openaq_data=sc_e["openaq"],
+        custom_fusion_data=mock_fusion_with_signals,
+    )
+    assert len(res_fusion_only) >= 1
+    score_1 = res_fusion_only[0].support_score
+    breakdown_1 = res_fusion_only[0].score_breakdown
+
+    # Case 2: OpenAQ + EvidenceFusionResult + Direct FIRMS + Direct Weather
+    res_fusion_and_direct = detector.detect_hotspots(
+        pollutant="PM2.5",
+        custom_openaq_data=sc_e["openaq"],
+        custom_fusion_data=mock_fusion_with_signals,
+        custom_firms_data=sc_e["firms"],
+        custom_weather_data=sc_e["weather"],
+    )
+    assert len(res_fusion_and_direct) >= 1
+    score_2 = res_fusion_and_direct[0].support_score
+    breakdown_2 = res_fusion_and_direct[0].score_breakdown
+
+    # Scores and breakdowns MUST be identical (Invariance Guarantee)
+    assert score_1 == score_2
+    assert breakdown_1["corroboration"] == breakdown_2["corroboration"]
+    assert breakdown_1["total_score"] == breakdown_2["total_score"]
+
+
+def test_openaq_inside_fusion_not_double_counted(temp_data_dir):
+    """
+    Verifies OpenAQ observations inside an EvidenceFusionResult do NOT receive
+    an independent corroboration bonus on top of spatial anomaly scoring.
+    """
+    detector = HyperLocalHotspotDetector(data_root=temp_data_dir)
+    sc_a = get_hotspot_scenario_a_records()
+
+    # Mock a fusion result that includes AIR_QUALITY in supporting_signals
+    mock_fusion_openaq = [{
+        "fusion_id": "fu_test_openaq_only",
+        "event_anchor_id": "ev_test_anchor",
+        "created_at": "2026-09-18T00:00:00Z",
+        "support_score": 85.0,
+        "confidence_tier": "HIGH_SUPPORT",
+        "supporting_signals": [
+            {
+                "source_family": "AIR_QUALITY",
+                "source_type": "OpenAQ",
+                "record_id": "aq_del_001",
+                "provenance_ref": "data/processed/openaq_delhi_observations.jsonl"
+            }
+        ],
+        "explanation": "Test OpenAQ fusion"
+    }]
+
+    res = detector.detect_hotspots(
+        pollutant="PM2.5",
+        custom_openaq_data=sc_a["openaq"],
+        custom_fusion_data=mock_fusion_openaq,
+    )
+
+    assert len(res) >= 1
+    hotspot = res[0]
+    # AIR_QUALITY inside fusion must NOT add corroboration bonus points
+    # Scored families only includes CITIZEN_GEMINI from fusion anchor
+    assert "AIR_QUALITY" not in [d["source_family"] for d in hotspot.corroboration_breakdown]
+    assert hotspot.score_breakdown["corroboration"] == 6.25  # Only 1 family (CITIZEN_GEMINI)
+
+
+def test_score_breakdown_auditability(temp_data_dir):
+    """Verifies that score_breakdown and corroboration_breakdown fields are properly populated."""
+    detector = HyperLocalHotspotDetector(data_root=temp_data_dir)
+    sc_a = get_hotspot_scenario_a_records()
+
+    res = detector.detect_hotspots(
+        pollutant="PM2.5",
+        custom_openaq_data=sc_a["openaq"],
+        custom_firms_data=sc_a["firms"],
+        custom_weather_data=sc_a["weather"],
+    )
+
+    assert len(res) >= 1
+    hotspot = res[0]
+    assert "spatial_anomaly" in hotspot.score_breakdown
+    assert "spatial_extent" in hotspot.score_breakdown
+    assert "spatial_coverage" in hotspot.score_breakdown
+    assert "corroboration" in hotspot.score_breakdown
+    assert "total_score" in hotspot.score_breakdown
+    assert isinstance(hotspot.corroboration_breakdown, list)
+    assert len(hotspot.corroboration_breakdown) >= 1
+

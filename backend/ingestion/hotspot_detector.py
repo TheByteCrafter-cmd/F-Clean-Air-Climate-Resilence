@@ -458,15 +458,37 @@ class HyperLocalHotspotDetector:
         linked_fusion_ids: List[str] = []
         nearby_context: Dict[str, Any] = {"firms_signals": 0, "satellite_signals": 0, "osm_features": 0}
 
-        # Check linked fusion results within 10 km
+        # Track non-AirQuality source families that receive corroboration score points
+        scored_families: Set[str] = set()
+        corroboration_breakdown: List[Dict[str, str]] = []
+
+        # 1. Process linked EvidenceFusionResult artifacts (corroboration summaries)
         for fus in fusion_results:
-            # Check if fusion result anchor location is near centroid
             f_id = fus.get("fusion_id")
             if f_id and f_id not in linked_fusion_ids:
                 linked_fusion_ids.append(f_id)
                 supporting_families.add("CITIZEN_GEMINI")
+                if "CITIZEN_GEMINI" not in scored_families:
+                    scored_families.add("CITIZEN_GEMINI")
+                    corroboration_breakdown.append({
+                        "source_family": "CITIZEN_GEMINI",
+                        "contribution_basis": f"Represented via linked EvidenceFusionResult artifact ({f_id})"
+                    })
 
-        # Check FIRMS signals within 15 km
+                # Extract supporting signals inside EvidenceFusionResult
+                signals = fus.get("supporting_signals", [])
+                for sig in signals:
+                    s_fam = sig.get("source_family") if isinstance(sig, dict) else getattr(sig, "source_family", None)
+                    if s_fam and s_fam != "AIR_QUALITY":
+                        supporting_families.add(s_fam)
+                        if s_fam not in scored_families:
+                            scored_families.add(s_fam)
+                            corroboration_breakdown.append({
+                                "source_family": s_fam,
+                                "contribution_basis": f"Represented inside EvidenceFusionResult artifact ({f_id})"
+                            })
+
+        # 2. Process direct FIRMS signals within 15 km
         firms_count = 0
         for f_rec in firms_records:
             f_lat = f_rec.get("latitude")
@@ -477,8 +499,14 @@ class HyperLocalHotspotDetector:
         if firms_count > 0:
             supporting_families.add("THERMAL_ANOMALY")
             nearby_context["firms_signals"] = firms_count
+            if "THERMAL_ANOMALY" not in scored_families:
+                scored_families.add("THERMAL_ANOMALY")
+                corroboration_breakdown.append({
+                    "source_family": "THERMAL_ANOMALY",
+                    "contribution_basis": f"Direct FIRMS thermal fire count ({firms_count}) within 15 km"
+                })
 
-        # Check Weather context (Stagnant wind)
+        # 3. Process direct Weather context
         stagnant_wx = any(
             float(w.get("wind_speed_ms", w.get("wind_speed_10m", 5.0))) <= 3.0
             for w in weather_records
@@ -486,30 +514,56 @@ class HyperLocalHotspotDetector:
         if stagnant_wx or weather_records:
             supporting_families.add("WEATHER")
             nearby_context["weather_stagnant"] = stagnant_wx
+            if "WEATHER" not in scored_families:
+                scored_families.add("WEATHER")
+                corroboration_breakdown.append({
+                    "source_family": "WEATHER",
+                    "contribution_basis": "Direct stagnant wind / meteorological records"
+                })
 
-        # Check Satellite NO2 context
+        # 4. Process direct Satellite NO2 context
         if sat_records:
             supporting_families.add("SATELLITE_NO2")
             nearby_context["satellite_signals"] = len(sat_records)
+            if "SATELLITE_NO2" not in scored_families:
+                scored_families.add("SATELLITE_NO2")
+                corroboration_breakdown.append({
+                    "source_family": "SATELLITE_NO2",
+                    "contribution_basis": f"Direct Sentinel-5P satellite NO2 records ({len(sat_records)})"
+                })
 
-        # Check OSM Geospatial context
+        # 5. Process direct OSM Geospatial context
         if geo_records:
             supporting_families.add("GEOSPATIAL_CONTEXT")
             nearby_context["osm_features"] = len(geo_records)
+            if "GEOSPATIAL_CONTEXT" not in scored_families:
+                scored_families.add("GEOSPATIAL_CONTEXT")
+                corroboration_breakdown.append({
+                    "source_family": "GEOSPATIAL_CONTEXT",
+                    "contribution_basis": f"Direct OpenStreetMap spatial features ({len(geo_records)})"
+                })
 
         # Calculate Hotspot Support Score (0–100)
         # Components:
         # 1. Anomaly magnitude (up to 40 pts)
         # 2. Spatial extent/cell count (up to 20 pts)
         # 3. Observation density & proximity (up to 15 pts)
-        # 4. Corroborating evidence families (up to 25 pts)
-        anomaly_score = min(40.0, (anomaly_value / 50.0) * 40.0)
-        extent_score = min(20.0, len(region_cells) * 5.0)
-        density_score = min(15.0, obs_count * 3.0)
-        corroboration_score = min(25.0, (len(supporting_families) - 1) * 6.25)
+        # 4. Non-duplicated corroborating evidence families (up to 25 pts)
+        anomaly_score = round(min(40.0, (anomaly_value / 50.0) * 40.0), 2)
+        extent_score = round(min(20.0, len(region_cells) * 5.0), 2)
+        density_score = round(min(15.0, obs_count * 3.0), 2)
+        corroboration_score = round(min(25.0, len(scored_families) * 6.25), 2)
 
         total_raw_score = anomaly_score + extent_score + density_score + corroboration_score
         support_score = round(min(100.0, max(0.0, total_raw_score)), 1)
+
+        score_breakdown = {
+            "spatial_anomaly": anomaly_score,
+            "spatial_extent": extent_score,
+            "spatial_coverage": density_score,
+            "corroboration": corroboration_score,
+            "total_score": support_score,
+        }
 
         if support_score >= self.config.tier_high_threshold:
             confidence_tier = "HIGH_SUPPORT"
@@ -546,6 +600,8 @@ class HyperLocalHotspotDetector:
             uncertainty_notes=uncertainty_notes,
             data_quality="SUFFICIENT_SPATIAL_DATA",
             provenance=list(dict.fromkeys(provenance_files)),
+            score_breakdown=score_breakdown,
+            corroboration_breakdown=corroboration_breakdown,
             config_version=self.config.config_version,
             schema_version="1.0",
         )
