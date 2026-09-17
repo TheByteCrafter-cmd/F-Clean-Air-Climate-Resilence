@@ -173,4 +173,20 @@ class GeminiTimeoutError(GeminiAnalysisError):
     pass
 
 
+class EvidenceFusionError(IngestionError):
+    """Base exception for multi-source evidence fusion failures."""
+    pass
+
+
+class AnchorMetadataNotFoundError(EvidenceFusionError):
+    """Raised when event anchor (citizen report or location) is missing required metadata."""
+    pass
+
+
+class FusionPersistenceError(EvidenceFusionError):
+    """Raised when writing fusion result artifact to filesystem fails."""
+    pass
+
+
+
 

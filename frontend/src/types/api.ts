@@ -259,6 +259,32 @@ export interface EvidenceAIAnalysis {
   schema_version: string;
 }
 
+export interface MatchedRecordRef {
+  source_family: string;
+  source_type: string;
+  record_id: string;
+  distance_km?: number | null;
+  time_difference_minutes?: number | null;
+  key_values: Record<string, unknown>;
+  provenance_ref: string;
+}
+
+export interface EvidenceFusionResult {
+  fusion_id: string;
+  event_anchor_id: string;
+  created_at: string;
+  support_score: number;
+  confidence_tier: 'LOW_SUPPORT' | 'MODERATE_SUPPORT' | 'HIGH_SUPPORT' | string;
+  supporting_signals: MatchedRecordRef[];
+  unavailable_signals: string[];
+  conflicting_signals: MatchedRecordRef[];
+  explanation: string;
+  uncertainty_notes: string[];
+  provenance_sources: string[];
+  config_version: string;
+  schema_version: string;
+}
+
 export interface CitizenEvidenceMetadata {
   evidence_id: string;
   timestamp: string;

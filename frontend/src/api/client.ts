@@ -4,6 +4,7 @@ import {
   EvidenceManifest,
   EvidenceSubmissionResponse,
   EvidenceAIAnalysis,
+  EvidenceFusionResult,
   HealthResponse,
 } from '../types/api';
 
@@ -73,5 +74,10 @@ export const apiClient = {
     }),
   getEvidenceAnalysis: (evidenceId: string): Promise<EvidenceAIAnalysis> =>
     request<EvidenceAIAnalysis>(`/api/v1/evidence/${evidenceId}/analysis`),
+  fuseEvidence: (evidenceId: string): Promise<EvidenceFusionResult> =>
+    request<EvidenceFusionResult>(`/api/v1/fusion/evidence/${evidenceId}`, {
+      method: 'POST',
+    }),
+  getFusionResult: (fusionId: string): Promise<EvidenceFusionResult> =>
+    request<EvidenceFusionResult>(`/api/v1/fusion/${fusionId}`),
 };
-

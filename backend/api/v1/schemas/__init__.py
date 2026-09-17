@@ -28,6 +28,7 @@ from backend.api.v1.schemas.evidence import (
     ProbableCategoryItem,
     EvidenceAIAnalysis,
 )
+from backend.api.v1.schemas.fusion import MatchedRecordRef, EvidenceFusionResult
 from backend.api.v1.schemas.hotspot import HotspotSummary
 from backend.api.v1.schemas.forecast import ForecastSummary
 from backend.api.v1.schemas.risk import RiskSummary
@@ -60,6 +61,8 @@ __all__ = [
     "EvidenceSubmissionResponse",
     "ProbableCategoryItem",
     "EvidenceAIAnalysis",
+    "MatchedRecordRef",
+    "EvidenceFusionResult",
     "HotspotSummary",
     "ForecastSummary",
     "RiskSummary",

@@ -1,6 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { apiClient, ApiError } from '../api/client';
-import { EvidenceSubmissionResponse, EvidenceAIAnalysis, ProbableCategoryItem } from '../types/api';
+import {
+  EvidenceSubmissionResponse,
+  EvidenceAIAnalysis,
+  ProbableCategoryItem,
+  EvidenceFusionResult,
+  MatchedRecordRef,
+} from '../types/api';
 
 export const CitizenIntake: React.FC = () => {
   // Media states
@@ -256,6 +262,11 @@ export const CitizenIntake: React.FC = () => {
   const [aiError, setAiError] = useState<string | null>(null);
   const [lookupEvidenceId, setLookupEvidenceId] = useState<string>('');
 
+  // Multi-Source Evidence Fusion states
+  const [fusionResult, setFusionResult] = useState<EvidenceFusionResult | null>(null);
+  const [fusionLoading, setFusionLoading] = useState<boolean>(false);
+  const [fusionError, setFusionError] = useState<string | null>(null);
+
   const handleAnalyzeEvidence = async (targetId?: string) => {
     const id = targetId || submissionResult?.evidence_id || lookupEvidenceId.trim();
     if (!id) return;
@@ -277,6 +288,27 @@ export const CitizenIntake: React.FC = () => {
     }
   };
 
+  const handleFuseEvidence = async (targetId?: string) => {
+    const id = targetId || submissionResult?.evidence_id || lookupEvidenceId.trim();
+    if (!id) return;
+    setFusionLoading(true);
+    setFusionError(null);
+    try {
+      const res = await apiClient.fuseEvidence(id);
+      setFusionResult(res);
+    } catch (err: unknown) {
+      if (err instanceof ApiError) {
+        setFusionError(`[${err.code}] ${err.message}`);
+      } else if (err instanceof Error) {
+        setFusionError(err.message);
+      } else {
+        setFusionError('Multi-source evidence fusion failed.');
+      }
+    } finally {
+      setFusionLoading(false);
+    }
+  };
+
   const handleResetForm = () => {
     handleRemovePhoto();
     handleRemoveVoice();
@@ -288,6 +320,8 @@ export const CitizenIntake: React.FC = () => {
     setSubmitError(null);
     setAiAnalysis(null);
     setAiError(null);
+    setFusionResult(null);
+    setFusionError(null);
   };
 
   // Success Confirmation Screen
@@ -394,6 +428,86 @@ export const CitizenIntake: React.FC = () => {
           {aiError && (
             <div className="response-box" style={{ color: '#991b1b', backgroundColor: '#fef2f2', marginTop: '12px' }}>
               {aiError}
+            </div>
+          )}
+        </div>
+
+        {/* Phase 1E-H Multi-Source Evidence Fusion Control */}
+        <div style={{ marginTop: '20px', borderTop: '1px solid #e5e7eb', paddingTop: '16px' }}>
+          <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#1f2937', marginBottom: '8px' }}>
+            Multi-Source Evidence Fusion Engine
+          </h3>
+          {!fusionResult ? (
+            <div>
+              <p style={{ fontSize: '0.875rem', color: '#4b5563', marginBottom: '12px' }}>
+                Correlate report against OpenAQ, Open-Meteo weather, NASA FIRMS thermal signals, Sentinel-5P NO2 satellite scans, and OSM context.
+              </p>
+              <button
+                type="button"
+                className="action-btn-primary"
+                onClick={() => handleFuseEvidence(submissionResult.evidence_id)}
+                disabled={fusionLoading}
+                style={{ backgroundColor: '#4f46e5' }}
+              >
+                {fusionLoading ? 'Fusing Multi-Source Signals...' : 'Run Evidence Fusion Engine'}
+              </button>
+            </div>
+          ) : (
+            <div className="ai-analysis-card" style={{ backgroundColor: '#f8fafc', padding: '14px', borderRadius: '8px', border: '1px solid #cbd5e1', marginTop: '12px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                <div>
+                  <span style={{ fontWeight: 600, fontSize: '0.95rem', color: '#0f172a' }}>
+                    Support Score: {fusionResult.support_score} / 100.0
+                  </span>
+                  <span style={{ fontSize: '0.8rem', color: '#64748b', marginLeft: '8px' }}>
+                    (ID: {fusionResult.fusion_id})
+                  </span>
+                </div>
+                <span className={`badge-success`} style={{
+                  backgroundColor: fusionResult.confidence_tier === 'HIGH_SUPPORT' ? '#dcfce7' : fusionResult.confidence_tier === 'MODERATE_SUPPORT' ? '#fef9c3' : '#fee2e2',
+                  color: fusionResult.confidence_tier === 'HIGH_SUPPORT' ? '#166534' : fusionResult.confidence_tier === 'MODERATE_SUPPORT' ? '#854d0e' : '#991b1b',
+                  fontWeight: 600,
+                  fontSize: '0.8rem'
+                }}>
+                  {fusionResult.confidence_tier}
+                </span>
+              </div>
+
+              <p style={{ fontSize: '0.875rem', color: '#334155', margin: '8px 0', lineHeight: '1.4' }}>
+                <strong>Explanation:</strong> {fusionResult.explanation}
+              </p>
+
+              {fusionResult.supporting_signals.length > 0 && (
+                <div style={{ margin: '10px 0' }}>
+                  <strong style={{ fontSize: '0.85rem', color: '#475569' }}>Supporting Signals ({fusionResult.supporting_signals.length}):</strong>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: '4px' }}>
+                    {fusionResult.supporting_signals.map((s: MatchedRecordRef, idx: number) => (
+                      <div key={idx} style={{ fontSize: '0.8rem', backgroundColor: '#f1f5f9', padding: '6px 10px', borderRadius: '4px', color: '#1e293b' }}>
+                        <strong>{s.source_type} ({s.source_family})</strong> — {s.distance_km != null ? `${s.distance_km} km away` : 'co-located'}
+                        {s.time_difference_minutes != null ? `, ${s.time_difference_minutes > 0 ? '+' : ''}${s.time_difference_minutes}m offset` : ''}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {fusionResult.unavailable_signals.length > 0 && (
+                <div style={{ margin: '8px 0', fontSize: '0.8rem', color: '#64748b' }}>
+                  <strong>Unavailable Signals:</strong> {fusionResult.unavailable_signals.join(', ')}
+                </div>
+              )}
+
+              {fusionResult.conflicting_signals.length > 0 && (
+                <div style={{ margin: '8px 0', fontSize: '0.8rem', color: '#b91c1c' }}>
+                  <strong>Conflicting Signals:</strong> {fusionResult.conflicting_signals.map(c => c.source_family).join(', ')}
+                </div>
+              )}
+            </div>
+          )}
+
+          {fusionError && (
+            <div className="response-box" style={{ color: '#991b1b', backgroundColor: '#fef2f2', marginTop: '12px' }}>
+              {fusionError}
             </div>
           )}
         </div>
@@ -683,10 +797,10 @@ export const CitizenIntake: React.FC = () => {
         </div>
       </form>
 
-      {/* Manual Evidence AI Analysis Lookup Control */}
+      {/* Manual Evidence AI Analysis & Evidence Fusion Lookup Control */}
       <div style={{ marginTop: '24px', borderTop: '1px solid #e5e7eb', paddingTop: '16px' }}>
         <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: '#374151', marginBottom: '8px' }}>
-          Dev / Test Tool: Trigger AI Analysis by Evidence ID
+          Dev / Test Tool: Trigger AI Analysis or Evidence Fusion by Evidence ID
         </h3>
         <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
           <input
@@ -695,16 +809,25 @@ export const CitizenIntake: React.FC = () => {
             value={lookupEvidenceId}
             onChange={(e) => setLookupEvidenceId(e.target.value)}
             className="form-input-sm"
-            style={{ width: '300px', padding: '6px 10px', fontSize: '0.85rem' }}
+            style={{ width: '260px', padding: '6px 10px', fontSize: '0.85rem' }}
           />
           <button
             type="button"
             className="btn-secondary-sm"
             onClick={() => handleAnalyzeEvidence()}
             disabled={aiLoading || !lookupEvidenceId.trim()}
-            style={{ padding: '6px 14px', fontSize: '0.85rem' }}
+            style={{ padding: '6px 12px', fontSize: '0.85rem' }}
           >
             {aiLoading ? 'Analyzing...' : 'Analyze Evidence'}
+          </button>
+          <button
+            type="button"
+            className="btn-secondary-sm"
+            onClick={() => handleFuseEvidence()}
+            disabled={fusionLoading || !lookupEvidenceId.trim()}
+            style={{ padding: '6px 12px', fontSize: '0.85rem', backgroundColor: '#eff6ff', color: '#1d4ed8' }}
+          >
+            {fusionLoading ? 'Fusing...' : 'Run Fusion Engine'}
           </button>
         </div>
       </div>
