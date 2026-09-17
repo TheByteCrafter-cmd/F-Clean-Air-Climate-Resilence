@@ -145,6 +145,44 @@ class OpenAQClient:
         """Fetch sensors for a specific location ID."""
         return self._execute_request(f"/locations/{locations_id}/sensors")
 
+    def get_location_measurements(
+        self,
+        locations_id: int,
+        date_from: Optional[str] = None,
+        date_to: Optional[str] = None,
+        limit: int = 1000,
+        page: int = 1,
+    ) -> Dict[str, Any]:
+        """Fetch historical measurements for a specific location ID."""
+        params: Dict[str, Any] = {
+            "limit": limit,
+            "page": page,
+        }
+        if date_from:
+            params["date_from"] = date_from
+        if date_to:
+            params["date_to"] = date_to
+        return self._execute_request(f"/locations/{locations_id}/measurements", params=params)
+
+    def get_sensor_measurements(
+        self,
+        sensors_id: int,
+        date_from: Optional[str] = None,
+        date_to: Optional[str] = None,
+        limit: int = 1000,
+        page: int = 1,
+    ) -> Dict[str, Any]:
+        """Fetch historical measurements for a specific sensor ID."""
+        params: Dict[str, Any] = {
+            "limit": limit,
+            "page": page,
+        }
+        if date_from:
+            params["datetime_from"] = date_from
+        if date_to:
+            params["datetime_to"] = date_to
+        return self._execute_request(f"/sensors/{sensors_id}/hours", params=params)
+
     def fetch_delhi_sample(self, location_limit: int = 3) -> Dict[str, Any]:
         """Controlled fetch workflow for Delhi pilot area.
         

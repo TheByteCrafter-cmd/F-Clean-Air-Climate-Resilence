@@ -299,8 +299,8 @@ class ForecastingDatasetBuilder:
             "created_at": now_utc,
             "input_artifact_references": list(dict.fromkeys(provenance_files)),
             "row_count": len(dataset_rows),
-            "station_count": readiness_report["metrics"]["total_stations"],
-            "time_range_hours": readiness_report["metrics"]["time_range_hours"],
+            "station_count": readiness_report["metrics"].get("total_stations", 0),
+            "time_range_hours": readiness_report["metrics"].get("time_range_hours", 0.0),
             "target_horizons": self.config.target_horizons_hours,
             "feature_groups": [
                 "historical_pm25_lags",
