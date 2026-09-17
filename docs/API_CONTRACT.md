@@ -176,7 +176,71 @@ interface EvidenceFusionResult {
 
 ---
 
-## 7. Operational Endpoint Roadmap
+## 7. Hyper-Local Hotspot Detection Schemas (Phase 1E-I)
+
+```typescript
+interface HotspotDetectionRequest {
+  pollutant?: string;               // Default "PM2.5"
+  analysis_timestamp?: string;      // ISO 8601 UTC (defaults to latest available)
+  time_window_minutes?: number;     // Window +/- minutes (default 60.0)
+  roi_bbox?: number[];             // Optional [lat_min, lon_min, lat_max, lon_max]
+}
+
+interface SpatialCoverageInfo {
+  min_station_distance_km?: number | null;
+  max_station_distance_km?: number | null;
+  nearest_station_id?: string | null;
+}
+
+interface HotspotDetectionResult {
+  hotspot_id: string;              // hs_<uuid_hex>
+  pollutant: string;
+  analysis_timestamp: string;      // ISO 8601 UTC
+  geometry: Record<string, unknown>; // GeoJSON Polygon or MultiPolygon
+  center: { latitude: number; longitude: number };
+  support_score: number;          // 0.0 to 100.0
+  confidence_tier: 'LOW_SUPPORT' | 'MODERATE_SUPPORT' | 'HIGH_SUPPORT';
+  interpolated_value: number;      // Peak / centroid concentration in µg/m³
+  local_baseline: number;          // Regional median station value in µg/m³
+  anomaly_value: number;           // Absolute anomaly above baseline
+  relative_anomaly: number;        // Relative anomaly fraction
+  observation_count: number;       // Valid stations in radius
+  spatial_coverage: SpatialCoverageInfo;
+  supporting_source_families: string[];
+  linked_fusion_ids: string[];
+  nearby_context: Record<string, unknown>;
+  uncertainty_notes: string[];
+  data_quality: string;
+  provenance: string[];
+  config_version: string;
+  schema_version: string;
+}
+
+interface HotspotSummary {
+  hotspot_id: string;
+  pollutant: string;
+  location: { latitude: number; longitude: number };
+  severity: string;
+  confidence: number;
+  confidence_tier: string;
+  detected_at: string;
+  interpolated_value: number;
+  anomaly_value: number;
+  observation_count: number;
+  radius_meters?: number | null;
+}
+
+interface HotspotCollectionResponse {
+  total_count: number;
+  pollutant: string;
+  analysis_timestamp?: string | null;
+  hotspots: HotspotSummary[];
+}
+```
+
+---
+
+## 8. Operational Endpoint Roadmap
 
 | Method | Endpoint Route | Planned Domain | Status |
 | :--- | :--- | :--- | :--- |
@@ -187,8 +251,12 @@ interface EvidenceFusionResult {
 | `GET` | `/api/v1/evidence/{evidence_id}/analysis` | Gemini AI Analysis Artifact | **OPERATIONAL (Phase 1E-G)** |
 | `POST` | `/api/v1/fusion/evidence/{evidence_id}` | Multi-Source Evidence Fusion | **OPERATIONAL (Phase 1E-H)** |
 | `GET` | `/api/v1/fusion/{fusion_id}` | Evidence Fusion Result Artifact | **OPERATIONAL (Phase 1E-H)** |
+| `POST` | `/api/v1/hotspots/detect` | Hyper-Local Hotspot Detection | **OPERATIONAL (Phase 1E-I)** |
+| `GET` | `/api/v1/hotspots/{hotspot_id}` | Hotspot Artifact Detail | **OPERATIONAL (Phase 1E-I)** |
+| `GET` | `/api/v1/hotspots` | Hotspot Collection Summaries | **OPERATIONAL (Phase 1E-I)** |
 | `GET` | `/api/v1/observations/latest` | Observations | *PLANNED* |
 | `GET` | `/api/v1/hotspots/active` | Hotspot Intelligence | *PLANNED* |
 
 ---
-**PHASE 1E-H MULTI-SOURCE EVIDENCE FUSION CONTRACT:** OPERATIONAL & VERIFIED  
+**PHASE 1E-I HYPER-LOCAL HOTSPOT DETECTION CONTRACT:** OPERATIONAL & VERIFIED  
+

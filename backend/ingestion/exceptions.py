@@ -188,5 +188,16 @@ class FusionPersistenceError(EvidenceFusionError):
     pass
 
 
+class HotspotDetectionError(IngestionError):
+    """Base exception for hyper-local hotspot detection failures."""
+    pass
 
 
+class InsufficientSpatialDataError(HotspotDetectionError):
+    """Raised when observation point density falls below minimum required for spatial IDW interpolation."""
+    pass
+
+
+class HotspotPersistenceError(HotspotDetectionError):
+    """Raised when writing hotspot detection artifact to filesystem fails."""
+    pass

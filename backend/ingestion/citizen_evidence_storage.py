@@ -33,9 +33,9 @@ def generate_evidence_id() -> str:
     return f"ev_{uuid.uuid4().hex}"
 
 
-def validate_safe_id(evidence_id: str) -> bool:
-    """Validates evidence ID format to prevent path traversal or injection."""
-    return bool(re.match(r"^ev_[a-f0-9]{32}$", evidence_id))
+def validate_safe_id(id_str: str) -> bool:
+    """Validates evidence, fusion, analysis, or hotspot ID format to prevent path traversal or injection."""
+    return bool(re.match(r"^(ev|fu|hs|an)_[a-f0-9]{32}$", id_str))
 
 
 class CitizenEvidenceStorage:
@@ -76,7 +76,6 @@ class CitizenEvidenceStorage:
         media_dir.mkdir(parents=True, exist_ok=True)
         return media_dir
 
-
     def save_media_file(
         self,
         evidence_id: str,
@@ -86,22 +85,6 @@ class CitizenEvidenceStorage:
         client_filename: Optional[str] = None,
         sequence_index: int = 1,
     ) -> MediaItem:
-        """Saves uploaded media bytes with a server-generated safe filename.
-        
-        Args:
-            evidence_id: Canonical evidence ID.
-            media_type: 'photo' or 'voice'.
-            content: Raw byte contents of the uploaded file.
-            mime_type: Validated MIME type.
-            client_filename: Original client filename (used only for extension hints, never raw path).
-            sequence_index: Index number if multiple items are attached.
-            
-        Returns:
-            Populated MediaItem metadata object.
-            
-        Raises:
-            EvidenceStorageError: If directory creation or file writing fails.
-        """
         if not validate_safe_id(evidence_id):
             raise EvidenceStorageError(f"Invalid or unsafe evidence ID: '{evidence_id}'")
 
@@ -149,17 +132,6 @@ class CitizenEvidenceStorage:
             raise EvidenceStorageError(f"Filesystem error saving evidence media: {exc}")
 
     def save_manifest(self, manifest: EvidenceManifest) -> Path:
-        """Saves the canonical evidence manifest JSON.
-        
-        Args:
-            manifest: Validated EvidenceManifest instance.
-            
-        Returns:
-            Path to the saved manifest file.
-            
-        Raises:
-            EvidenceStorageError: If writing manifest fails.
-        """
         evidence_id = manifest.evidence_id
         if not validate_safe_id(evidence_id):
             raise EvidenceStorageError(f"Invalid or unsafe evidence ID in manifest: '{evidence_id}'")
@@ -184,14 +156,6 @@ class CitizenEvidenceStorage:
             raise EvidenceStorageError(f"Filesystem error saving evidence manifest: {exc}")
 
     def get_manifest(self, evidence_id: str) -> Optional[EvidenceManifest]:
-        """Retrieves a stored manifest by its evidence ID.
-        
-        Args:
-            evidence_id: Canonical evidence ID.
-            
-        Returns:
-            EvidenceManifest instance, or None if not found.
-        """
         if not validate_safe_id(evidence_id):
             return None
 

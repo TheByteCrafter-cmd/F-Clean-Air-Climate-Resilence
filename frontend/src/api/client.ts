@@ -5,6 +5,8 @@ import {
   EvidenceSubmissionResponse,
   EvidenceAIAnalysis,
   EvidenceFusionResult,
+  HotspotDetectionResult,
+  HotspotCollectionResponse,
   HealthResponse,
 } from '../types/api';
 
@@ -80,4 +82,13 @@ export const apiClient = {
     }),
   getFusionResult: (fusionId: string): Promise<EvidenceFusionResult> =>
     request<EvidenceFusionResult>(`/api/v1/fusion/${fusionId}`),
+  detectHotspots: (pollutant = 'PM2.5'): Promise<HotspotDetectionResult[]> =>
+    request<HotspotDetectionResult[]>('/api/v1/hotspots/detect', {
+      method: 'POST',
+      body: JSON.stringify({ pollutant }),
+    }),
+  getHotspots: (pollutant = 'PM2.5'): Promise<HotspotCollectionResponse> =>
+    request<HotspotCollectionResponse>(`/api/v1/hotspots${pollutant ? `?pollutant=${pollutant}` : ''}`),
+  getHotspotDetail: (hotspotId: string): Promise<HotspotDetectionResult> =>
+    request<HotspotDetectionResult>(`/api/v1/hotspots/${hotspotId}`),
 };

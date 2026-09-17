@@ -113,15 +113,24 @@ The VayuDrishti architecture defines **8 canonical data domains**. Each domain p
 - **Freshness Expectations:** Real-time event-driven intake and on-demand AI analysis.
 
 ### Domain F: Pollution Events & Hotspots
-- **Purpose:** Computed spatial-temporal clusters where air pollution significantly deviates from the regional baseline.
-- **Canonical ID:** `hotspot_{city_code}_{date}_{sequence_id}`
-- **Timestamp Standard:** ISO 8601 UTC detection timestamp.
-- **Location Standard:** Centroid coordinate + estimated impact polygon / radius.
-- **Essential Fields:** `hotspot_id`, `centroid`, `detected_at`, `severity_tier`, `confidence_score`, `contributing_evidence_ids`, `status`.
-- **Optional Fields:** `estimated_radius_m`, `primary_suspected_source`, `dispersion_corridor_polygon`.
-- **Source Attribution:** `VAYUDRISHTI_FUSION_ENGINE`.
-- **Validation Rules:** Confidence score bounded strictly $0.0 \le C \le 100.0$.
-- **Freshness Expectations:** Recomputed every 15 minutes.
+- **Purpose:** Computed hyper-local spatial clusters where air pollution significantly deviates from the regional baseline using Inverse Distance Weighting (IDW, $p=2.0$).
+- **Canonical ID:** `hs_{uuid4_hex}` (e.g., `hs_a1b2c3d4e5f67890123456789abcdef0`)
+- **Storage Paths:**
+  - Machine-Readable JSON Artifacts: `data/processed/hotspots/<hotspot_id>.json`
+  - Lightweight GeoJSON Collection: `data/processed/hotspots/delhi_hotspots.geojson`
+- **Timestamp Standard:** ISO 8601 UTC analysis timestamp (`analysis_timestamp`).
+- **Location Standard:** GeoJSON Polygon / MultiPolygon geometry + WGS84 centroid coordinate (`center`).
+- **Essential Fields:** `hotspot_id`, `pollutant`, `analysis_timestamp`, `geometry`, `center`, `support_score`, `confidence_tier`, `interpolated_value`, `local_baseline`, `anomaly_value`, `relative_anomaly`, `observation_count`, `spatial_coverage`, `supporting_source_families`, `linked_fusion_ids`, `nearby_context`, `uncertainty_notes`, `data_quality`, `provenance`, `config_version`, `schema_version`.
+- **Methodology & Safeguards:**
+  - Spatial interpolation via IDW ($p=2.0$) over $0.01^\circ \approx 1.1\text{ km}$ grid cells.
+  - Robust regional baseline calculated via median of valid station observations in time window ($\pm 60\text{ mins}$).
+  - Data density safeguard: minimum $\ge 3$ stations within search radius ($10\text{ km}$); returns `INSUFFICIENT_SPATIAL_DATA` if $<3$.
+  - 4-neighbor contiguous cell clustering for spatial polygon generation.
+  - Multi-source corroboration linking FIRMS thermal hotspots, Sentinel-5P NO2 signals, OpenStreetMap context, and `EvidenceFusionResult` artifacts.
+- **Source Attribution:** `VAYUDRISHTI_HOTSPOT_DETECTOR_V1`.
+- **Validation Rules:** Hotspot Support Score bounded strictly $0.0 \le S \le 100.0$. Non-causal terminology enforced.
+- **Freshness Expectations:** On-demand execution or recomputed per operational ingestion cycle.
+
 
 ### Domain G: Forecast Results
 - **Purpose:** Forward-looking concentration projections along critical economic transport and industrial corridors.

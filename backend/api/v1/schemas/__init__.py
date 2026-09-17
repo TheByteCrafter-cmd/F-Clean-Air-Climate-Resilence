@@ -29,7 +29,13 @@ from backend.api.v1.schemas.evidence import (
     EvidenceAIAnalysis,
 )
 from backend.api.v1.schemas.fusion import MatchedRecordRef, EvidenceFusionResult
-from backend.api.v1.schemas.hotspot import HotspotSummary
+from backend.api.v1.schemas.hotspot import (
+    HotspotDetectionRequest,
+    HotspotDetectionResult,
+    HotspotSummary,
+    HotspotCollectionResponse,
+    SpatialCoverageInfo,
+)
 from backend.api.v1.schemas.forecast import ForecastSummary
 from backend.api.v1.schemas.risk import RiskSummary
 from backend.api.v1.schemas.authority import AuthorityRecommendation
@@ -63,7 +69,11 @@ __all__ = [
     "EvidenceAIAnalysis",
     "MatchedRecordRef",
     "EvidenceFusionResult",
+    "HotspotDetectionRequest",
+    "HotspotDetectionResult",
     "HotspotSummary",
+    "HotspotCollectionResponse",
+    "SpatialCoverageInfo",
     "ForecastSummary",
     "RiskSummary",
     "AuthorityRecommendation",

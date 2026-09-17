@@ -2,7 +2,7 @@
 VayuDrishti - Ingestion Package
 Air Quality (OpenAQ), Meteorology (Open-Meteo), Satellite (FIRMS, Sentinel-5P),
 Geospatial Context (OpenStreetMap, Municipal Ward Boundaries), Citizen Evidence Intake,
-Gemini Multimodal Evidence Analysis, and Multi-Source Evidence Fusion engine.
+Gemini Multimodal Evidence Analysis, Multi-Source Evidence Fusion, and Hyper-Local Hotspot Detection engine.
 """
 
 from backend.ingestion.exceptions import (
@@ -29,7 +29,10 @@ from backend.ingestion.exceptions import (
     GeminiTimeoutError,
     GeospatialError,
     GeospatialValidationError,
+    HotspotDetectionError,
+    HotspotPersistenceError,
     IngestionError,
+    InsufficientSpatialDataError,
     LocationValidationError,
     MissingCredentialError,
     NetworkError,
@@ -166,6 +169,13 @@ from backend.ingestion.evidence_fusion_engine import (
     time_difference_minutes,
 )
 
+# Hyper-Local Hotspot Detection Components
+from backend.ingestion.hotspot_detector import (
+    HyperLocalHotspotDetector,
+    HotspotDetectorConfiguration,
+    haversine_spherical_distance_km,
+)
+
 __all__ = [
     # OpenAQ
     "OpenAQClient",
@@ -244,6 +254,10 @@ __all__ = [
     "FusionConfiguration",
     "haversine_distance_km",
     "time_difference_minutes",
+    # Hyper-Local Hotspot Detection
+    "HyperLocalHotspotDetector",
+    "HotspotDetectorConfiguration",
+    "haversine_spherical_distance_km",
     # Exceptions
     "IngestionError",
     "OpenAQError",
@@ -279,4 +293,7 @@ __all__ = [
     "EvidenceFusionError",
     "AnchorMetadataNotFoundError",
     "FusionPersistenceError",
+    "HotspotDetectionError",
+    "InsufficientSpatialDataError",
+    "HotspotPersistenceError",
 ]

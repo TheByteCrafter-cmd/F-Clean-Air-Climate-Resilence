@@ -6,6 +6,7 @@ import {
   ProbableCategoryItem,
   EvidenceFusionResult,
   MatchedRecordRef,
+  HotspotDetectionResult,
 } from '../types/api';
 
 export const CitizenIntake: React.FC = () => {
@@ -267,6 +268,11 @@ export const CitizenIntake: React.FC = () => {
   const [fusionLoading, setFusionLoading] = useState<boolean>(false);
   const [fusionError, setFusionError] = useState<string | null>(null);
 
+  // Hyper-Local Hotspot Detection states
+  const [hotspots, setHotspots] = useState<HotspotDetectionResult[] | null>(null);
+  const [hotspotLoading, setHotspotLoading] = useState<boolean>(false);
+  const [hotspotError, setHotspotError] = useState<string | null>(null);
+
   const handleAnalyzeEvidence = async (targetId?: string) => {
     const id = targetId || submissionResult?.evidence_id || lookupEvidenceId.trim();
     if (!id) return;
@@ -309,6 +315,25 @@ export const CitizenIntake: React.FC = () => {
     }
   };
 
+  const handleDetectHotspots = async () => {
+    setHotspotLoading(true);
+    setHotspotError(null);
+    try {
+      const res = await apiClient.detectHotspots('PM2.5');
+      setHotspots(res);
+    } catch (err: unknown) {
+      if (err instanceof ApiError) {
+        setHotspotError(`[${err.code}] ${err.message}`);
+      } else if (err instanceof Error) {
+        setHotspotError(err.message);
+      } else {
+        setHotspotError('Hotspot detection failed.');
+      }
+    } finally {
+      setHotspotLoading(false);
+    }
+  };
+
   const handleResetForm = () => {
     handleRemovePhoto();
     handleRemoveVoice();
@@ -322,6 +347,8 @@ export const CitizenIntake: React.FC = () => {
     setAiError(null);
     setFusionResult(null);
     setFusionError(null);
+    setHotspots(null);
+    setHotspotError(null);
   };
 
   // Success Confirmation Screen
@@ -797,19 +824,19 @@ export const CitizenIntake: React.FC = () => {
         </div>
       </form>
 
-      {/* Manual Evidence AI Analysis & Evidence Fusion Lookup Control */}
+      {/* Dev / Test Tool Controls */}
       <div style={{ marginTop: '24px', borderTop: '1px solid #e5e7eb', paddingTop: '16px' }}>
         <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: '#374151', marginBottom: '8px' }}>
-          Dev / Test Tool: Trigger AI Analysis or Evidence Fusion by Evidence ID
+          Dev / Test Tools: AI Analysis, Fusion Engine & Hotspot Detector
         </h3>
-        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
           <input
             type="text"
             placeholder="ev_..."
             value={lookupEvidenceId}
             onChange={(e) => setLookupEvidenceId(e.target.value)}
             className="form-input-sm"
-            style={{ width: '260px', padding: '6px 10px', fontSize: '0.85rem' }}
+            style={{ width: '220px', padding: '6px 10px', fontSize: '0.85rem' }}
           />
           <button
             type="button"
@@ -829,7 +856,67 @@ export const CitizenIntake: React.FC = () => {
           >
             {fusionLoading ? 'Fusing...' : 'Run Fusion Engine'}
           </button>
+          <button
+            type="button"
+            className="btn-secondary-sm"
+            onClick={handleDetectHotspots}
+            disabled={hotspotLoading}
+            style={{ padding: '6px 12px', fontSize: '0.85rem', backgroundColor: '#f0fdf4', color: '#15803d' }}
+          >
+            {hotspotLoading ? 'Detecting Hotspots...' : 'Run Hotspot Detector (PM2.5)'}
+          </button>
         </div>
+
+        {/* Phase 1E-I Hotspot Inspection Results */}
+        {hotspotError && (
+          <div className="response-box" style={{ color: '#991b1b', backgroundColor: '#fef2f2', marginTop: '12px' }}>
+            {hotspotError}
+          </div>
+        )}
+
+        {hotspots && (
+          <div style={{ marginTop: '16px' }}>
+            <h4 style={{ fontSize: '0.9rem', fontWeight: 600, color: '#1e293b', marginBottom: '8px' }}>
+              Detected Potential Hyper-Local Hotspots ({hotspots.length})
+            </h4>
+            {hotspots.length === 0 ? (
+              <p style={{ fontSize: '0.85rem', color: '#64748b' }}>No candidate spatial hotspots met threshold or data density requirements.</p>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                {hotspots.map((hs) => (
+                  <div key={hs.hotspot_id} style={{ backgroundColor: '#f8fafc', border: '1px solid #cbd5e1', padding: '12px', borderRadius: '6px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                      <span style={{ fontWeight: 600, fontSize: '0.9rem', color: '#0f172a' }}>
+                        ID: {hs.hotspot_id} ({hs.pollutant})
+                      </span>
+                      <span className="badge-success" style={{
+                        backgroundColor: hs.confidence_tier === 'HIGH_SUPPORT' ? '#dcfce7' : hs.confidence_tier === 'MODERATE_SUPPORT' ? '#fef9c3' : '#fee2e2',
+                        color: hs.confidence_tier === 'HIGH_SUPPORT' ? '#166534' : hs.confidence_tier === 'MODERATE_SUPPORT' ? '#854d0e' : '#991b1b',
+                      }}>
+                        {hs.confidence_tier} ({hs.support_score}/100)
+                      </span>
+                    </div>
+
+                    <div style={{ fontSize: '0.825rem', color: '#334155', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px' }}>
+                      <div>Centroid: {hs.center.latitude}°, {hs.center.longitude}°</div>
+                      <div>Interpolated PM2.5: <strong>{hs.interpolated_value} µg/m³</strong></div>
+                      <div>Local Baseline: {hs.local_baseline} µg/m³</div>
+                      <div>Anomaly Above Baseline: +{hs.anomaly_value} µg/m³</div>
+                      <div>Station Count in Radius: {hs.observation_count}</div>
+                      <div>Corroborating Families: {hs.supporting_source_families.join(', ') || 'None'}</div>
+                    </div>
+
+                    {hs.uncertainty_notes.length > 0 && (
+                      <p style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '6px', fontStyle: 'italic' }}>
+                        * {hs.uncertainty_notes[1] || hs.uncertainty_notes[0]}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

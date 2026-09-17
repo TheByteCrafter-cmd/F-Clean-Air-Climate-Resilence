@@ -1,5 +1,5 @@
 /**
- * VayuDrishti - Phase 1B Shared API Contracts
+ * VayuDrishti - Shared API Contracts
  */
 
 export interface Location {
@@ -285,6 +285,57 @@ export interface EvidenceFusionResult {
   schema_version: string;
 }
 
+export interface SpatialCoverageInfo {
+  min_station_distance_km?: number | null;
+  max_station_distance_km?: number | null;
+  nearest_station_id?: string | null;
+}
+
+export interface HotspotDetectionResult {
+  hotspot_id: string;
+  pollutant: string;
+  analysis_timestamp: string;
+  geometry: Record<string, unknown>;
+  center: Location;
+  support_score: number;
+  confidence_tier: 'LOW_SUPPORT' | 'MODERATE_SUPPORT' | 'HIGH_SUPPORT' | string;
+  interpolated_value: number;
+  local_baseline: number;
+  anomaly_value: number;
+  relative_anomaly: number;
+  observation_count: number;
+  spatial_coverage: SpatialCoverageInfo;
+  supporting_source_families: string[];
+  linked_fusion_ids: string[];
+  nearby_context: Record<string, unknown>;
+  uncertainty_notes: string[];
+  data_quality: string;
+  provenance: string[];
+  config_version: string;
+  schema_version: string;
+}
+
+export interface HotspotSummary {
+  hotspot_id: string;
+  pollutant: string;
+  location: Location;
+  severity: string;
+  confidence: number;
+  confidence_tier: string;
+  detected_at: string;
+  interpolated_value: number;
+  anomaly_value: number;
+  observation_count: number;
+  radius_meters?: number | null;
+}
+
+export interface HotspotCollectionResponse {
+  total_count: number;
+  pollutant: string;
+  analysis_timestamp?: string | null;
+  hotspots: HotspotSummary[];
+}
+
 export interface CitizenEvidenceMetadata {
   evidence_id: string;
   timestamp: string;
@@ -293,15 +344,6 @@ export interface CitizenEvidenceMetadata {
   description?: string | null;
   source: string;
   category?: string | null;
-}
-
-export interface HotspotSummary {
-  hotspot_id: string;
-  location: Location;
-  severity: 'LOW' | 'MODERATE' | 'HIGH' | 'SEVERE' | string;
-  confidence: number;
-  detected_at: string;
-  radius_meters?: number | null;
 }
 
 export interface ForecastSummary {
