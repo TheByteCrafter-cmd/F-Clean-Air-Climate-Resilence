@@ -5,8 +5,16 @@ Provides dataset preparation, timestamp alignment, feature engineering, target c
 quality validation, readiness assessment, and temporal leakage verification.
 """
 
+from ml.src.forecasting.baseline import PersistenceForecaster
 from ml.src.forecasting.config import ForecastingConfig
 from ml.src.forecasting.dataset_builder import ForecastingDatasetBuilder
+from ml.src.forecasting.evaluation import (
+    BaselineEvaluator,
+    compute_mae,
+    compute_rmse,
+    compute_smape,
+    split_chronologically,
+)
 from ml.src.forecasting.historical_ingestion import HistoricalForecastingIngestionPipeline
 from ml.src.forecasting.readiness import ForecastingReadinessAssessor
 from ml.src.forecasting.validation import (
@@ -21,5 +29,11 @@ __all__ = [
     "ForecastingReadinessAssessor",
     "ForecastingDataValidator",
     "verify_zero_temporal_leakage",
+    "PersistenceForecaster",
+    "BaselineEvaluator",
+    "compute_mae",
+    "compute_rmse",
+    "compute_smape",
+    "split_chronologically",
 ]
 
