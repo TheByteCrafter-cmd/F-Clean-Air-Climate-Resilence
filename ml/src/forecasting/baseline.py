@@ -65,8 +65,15 @@ class PersistenceForecaster:
             if dt > prediction_timestamp_utc:
                 continue
 
-            val = obs.get("pm25_t0") if "pm25_t0" in obs else obs.get("value")
-            if val is None or math.isnan(val) or val < 0:
+            raw_val = obs.get("pm25_t0") if "pm25_t0" in obs else obs.get("value")
+            if raw_val is None or raw_val == "":
+                continue
+            try:
+                val = float(raw_val)
+            except (ValueError, TypeError):
+                continue
+
+            if math.isnan(val) or val < 0:
                 continue
 
             age_seconds = (prediction_timestamp_utc - dt).total_seconds()

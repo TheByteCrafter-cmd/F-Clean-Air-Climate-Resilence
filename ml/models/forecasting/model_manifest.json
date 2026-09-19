@@ -1,0 +1,67 @@
+{
+  "model_family": "LightGBM Regression",
+  "scope": "Anand Vihar 8118 Pilot Station Only",
+  "scope_statement": "Station-level pilot model trained and evaluated on real historical Anand Vihar data.",
+  "created_at": "2026-09-19T09:35:22.810562Z",
+  "lightgbm_version": "4.7.0",
+  "random_state": 42,
+  "feature_count": 27,
+  "feature_list": [
+    "latitude",
+    "longitude",
+    "pm25_lag_1h",
+    "pm25_lag_3h",
+    "pm25_lag_6h",
+    "pm25_lag_12h",
+    "pm25_lag_24h",
+    "pm25_roll_mean_3h",
+    "pm25_roll_median_3h",
+    "pm25_roll_mean_6h",
+    "pm25_roll_median_6h",
+    "pm25_roll_mean_24h",
+    "pm25_roll_median_24h",
+    "temperature_2m",
+    "relative_humidity_2m",
+    "wind_speed_10m",
+    "wind_direction_10m",
+    "wind_u",
+    "wind_v",
+    "surface_pressure",
+    "boundary_layer_height",
+    "hour_sin",
+    "hour_cos",
+    "day_of_week_sin",
+    "day_of_week_cos",
+    "month_sin",
+    "month_cos"
+  ],
+  "models": {
+    "+1h": {
+      "artifact_file": "lightgbm_pm25_1h.txt",
+      "artifact_path": "F:\\CLEAN AIR & CLIMATE RESILIENCE\\ml\\models\\forecasting\\lightgbm_pm25_1h.txt",
+      "target_column": "pm25_t_plus_1h",
+      "best_iteration": 84,
+      "test_rmse": 54.4452,
+      "test_mae": 38.347,
+      "mae_improvement_pct": -79.17
+    },
+    "+3h": {
+      "artifact_file": "lightgbm_pm25_3h.txt",
+      "artifact_path": "F:\\CLEAN AIR & CLIMATE RESILIENCE\\ml\\models\\forecasting\\lightgbm_pm25_3h.txt",
+      "target_column": "pm25_t_plus_3h",
+      "best_iteration": 205,
+      "test_rmse": 66.8675,
+      "test_mae": 46.4475,
+      "mae_improvement_pct": -2.78
+    },
+    "+6h": {
+      "artifact_file": "lightgbm_pm25_6h.txt",
+      "artifact_path": "F:\\CLEAN AIR & CLIMATE RESILIENCE\\ml\\models\\forecasting\\lightgbm_pm25_6h.txt",
+      "target_column": "pm25_t_plus_6h",
+      "best_iteration": 68,
+      "test_rmse": 79.0082,
+      "test_mae": 61.0273,
+      "mae_improvement_pct": 14.47
+    }
+  }
+}

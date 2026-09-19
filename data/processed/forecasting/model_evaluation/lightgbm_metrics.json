@@ -1,0 +1,163 @@
+{
+  "phase": "1E-J2C \u2014 LIGHTGBM PILOT MODEL TRAINING",
+  "scope_statement": "Station-level pilot result on real Anand Vihar historical data.",
+  "creation_timestamp": "2026-09-19T09:35:22.810562Z",
+  "lightgbm_version": "4.7.0",
+  "random_state": 42,
+  "dataset_reference": "data/processed/forecasting/forecast_dataset.csv",
+  "derived_feature_count": 27,
+  "feature_columns": [
+    "latitude",
+    "longitude",
+    "pm25_lag_1h",
+    "pm25_lag_3h",
+    "pm25_lag_6h",
+    "pm25_lag_12h",
+    "pm25_lag_24h",
+    "pm25_roll_mean_3h",
+    "pm25_roll_median_3h",
+    "pm25_roll_mean_6h",
+    "pm25_roll_median_6h",
+    "pm25_roll_mean_24h",
+    "pm25_roll_median_24h",
+    "temperature_2m",
+    "relative_humidity_2m",
+    "wind_speed_10m",
+    "wind_direction_10m",
+    "wind_u",
+    "wind_v",
+    "surface_pressure",
+    "boundary_layer_height",
+    "hour_sin",
+    "hour_cos",
+    "day_of_week_sin",
+    "day_of_week_cos",
+    "month_sin",
+    "month_cos"
+  ],
+  "horizon_models": {
+    "+1h": {
+      "model_filename": "lightgbm_pm25_1h.txt",
+      "best_iteration": 84,
+      "usable_rows": 105,
+      "split_counts": {
+        "train": 445,
+        "val": 95,
+        "test": 97
+      },
+      "test_metrics": {
+        "mae": 38.347,
+        "rmse": 54.4452,
+        "smape": 23.1821,
+        "sample_count": 97
+      },
+      "persistence_comparison": {
+        "persistence_mae": 21.4021,
+        "lightgbm_mae": 38.347,
+        "mae_improvement_pct": -79.17,
+        "persistence_rmse": 36.5161,
+        "lightgbm_rmse": 54.4452,
+        "rmse_improvement_pct": -49.1,
+        "persistence_smape": 13.9912,
+        "lightgbm_smape": 23.1821
+      },
+      "overfitting_diagnostic": {
+        "flagged": true,
+        "train_rmse": 20.2769,
+        "validation_rmse": 30.8239,
+        "test_rmse": 54.4452,
+        "ratio_test_train_rmse": 2.69
+      },
+      "sanity_check": {
+        "is_numeric": true,
+        "is_finite": true,
+        "has_nans": false,
+        "count": 97,
+        "expected_count": 97,
+        "negative_predictions_count": 0
+      }
+    },
+    "+3h": {
+      "model_filename": "lightgbm_pm25_3h.txt",
+      "best_iteration": 205,
+      "usable_rows": 103,
+      "split_counts": {
+        "train": 440,
+        "val": 94,
+        "test": 95
+      },
+      "test_metrics": {
+        "mae": 46.4475,
+        "rmse": 66.8675,
+        "smape": 25.0101,
+        "sample_count": 95
+      },
+      "persistence_comparison": {
+        "persistence_mae": 45.1895,
+        "lightgbm_mae": 46.4475,
+        "mae_improvement_pct": -2.78,
+        "persistence_rmse": 62.0386,
+        "lightgbm_rmse": 66.8675,
+        "rmse_improvement_pct": -7.78,
+        "persistence_smape": 27.8009,
+        "lightgbm_smape": 25.0101
+      },
+      "overfitting_diagnostic": {
+        "flagged": true,
+        "train_rmse": 10.3947,
+        "validation_rmse": 45.4083,
+        "test_rmse": 66.8675,
+        "ratio_test_train_rmse": 6.43
+      },
+      "sanity_check": {
+        "is_numeric": true,
+        "is_finite": true,
+        "has_nans": false,
+        "count": 95,
+        "expected_count": 95,
+        "negative_predictions_count": 0
+      }
+    },
+    "+6h": {
+      "model_filename": "lightgbm_pm25_6h.txt",
+      "best_iteration": 68,
+      "usable_rows": 102,
+      "split_counts": {
+        "train": 434,
+        "val": 93,
+        "test": 94
+      },
+      "test_metrics": {
+        "mae": 61.0273,
+        "rmse": 79.0082,
+        "smape": 34.8233,
+        "sample_count": 94
+      },
+      "persistence_comparison": {
+        "persistence_mae": 71.3511,
+        "lightgbm_mae": 61.0273,
+        "mae_improvement_pct": 14.47,
+        "persistence_rmse": 93.1168,
+        "lightgbm_rmse": 79.0082,
+        "rmse_improvement_pct": 15.15,
+        "persistence_smape": 43.0933,
+        "lightgbm_smape": 34.8233
+      },
+      "overfitting_diagnostic": {
+        "flagged": true,
+        "train_rmse": 24.3713,
+        "validation_rmse": 69.9347,
+        "test_rmse": 79.0082,
+        "ratio_test_train_rmse": 3.24
+      },
+      "sanity_check": {
+        "is_numeric": true,
+        "is_finite": true,
+        "has_nans": false,
+        "count": 94,
+        "expected_count": 94,
+        "negative_predictions_count": 0
+      }
+    }
+  }
+}
