@@ -1,0 +1,212 @@
+{
+  "status": "SUCCESS",
+  "decision_result_id": "dec_7184da4be2f7",
+  "station_id": "ANAND_VIHAR_8118",
+  "prediction_timestamp": "2026-03-30T12:00:00Z",
+  "created_timestamp": "2026-09-19T19:46:52.622208Z",
+  "expires_timestamp": "2026-03-30T13:00:00Z",
+  "forecast_status": "READY",
+  "risk_status": "READY",
+  "action_status": "READY",
+  "overall_data_quality_status": "READY",
+  "forecast_reference": {
+    "forecast_result_id": "fc_av_20260330_12",
+    "status": "READY",
+    "prediction_timestamp": "2026-03-30T12:00:00Z"
+  },
+  "risk_reference": {
+    "assessment_id": "risk_c1a62ee6bb06",
+    "risk_score": 88.14,
+    "risk_level": "VERY_HIGH",
+    "data_quality_status": "READY"
+  },
+  "action_reference": {
+    "result_id": "act_a4fbd76177a3",
+    "recommendation_count": 6,
+    "status": "READY"
+  },
+  "evidence_references": {
+    "forecast_result_id": "fc_av_20260330_12",
+    "assessment_id": "risk_c1a62ee6bb06",
+    "action_result_id": "act_a4fbd76177a3",
+    "hotspot_id": "hs_av_20260330_01",
+    "fusion_id": "fus_av_20260330_12",
+    "context_artifact_id": "ctx_av_20260330_01"
+  },
+  "risk_score": 88.14,
+  "risk_level": "VERY_HIGH",
+  "recommendation_count": 6,
+  "recommendations": [
+    {
+      "recommendation_id": "rec_5208fd8cb62b",
+      "action_type": "MONITOR_LOCAL_AIR_QUALITY",
+      "priority": "URGENT_REVIEW",
+      "title": "Local Air Quality Monitoring",
+      "description": "Routine or enhanced air quality monitoring recommended for station area to track PM2.5 forecast trend evolution.",
+      "expected_objective": "Maintain situational awareness and track forecast progression.",
+      "trigger_conditions": [
+        "Risk level is VERY_HIGH.",
+        "Persistent VERY_HIGH risk forecast across all horizons."
+      ],
+      "reason_codes": [
+        "ACTION_BASELINE_MONITORING",
+        "ACTION_PERSISTENT_FORECAST"
+      ],
+      "supporting_evidence": {
+        "forecast_result_id": "fc_av_20260330_12",
+        "hotspot_id": "hs_av_20260330_01",
+        "fusion_id": "fus_av_20260330_12",
+        "context_artifact_id": "ctx_av_20260330_01"
+      },
+      "station_id": "ANAND_VIHAR_8118",
+      "created_timestamp": "2026-03-30T12:00:00Z",
+      "expires_timestamp": "2026-03-30T14:00:00Z",
+      "requires_human_review": true,
+      "calculation_version": "1.0",
+      "non_medical_disclaimer": "VayuDrishti action recommendations are operational environmental decision-support suggestions for human authority review. They do NOT constitute medical advice, clinical diagnosis, or patient care recommendations.",
+      "non_causal_disclaimer": "Action recommendations identify environmental risk contexts for operational review. They do NOT establish legal liability or definitive source attribution."
+    },
+    {
+      "recommendation_id": "rec_314913d8d3bb",
+      "action_type": "INCREASE_INSPECTION_PRIORITY",
+      "priority": "URGENT_REVIEW",
+      "title": "Elevate Field Inspection Priority",
+      "description": "Increased inspection priority recommended for local enforcement teams given elevated forecast risk and corroborating hotspot evidence.",
+      "expected_objective": "Target field inspection resources toward corroborated high-risk zones.",
+      "trigger_conditions": [
+        "VERY_HIGH risk corroborated by thermal/PM hotspot evidence."
+      ],
+      "reason_codes": [
+        "ACTION_HOTSPOT_REVIEW"
+      ],
+      "supporting_evidence": {
+        "forecast_result_id": "fc_av_20260330_12",
+        "hotspot_id": "hs_av_20260330_01",
+        "fusion_id": "fus_av_20260330_12",
+        "context_artifact_id": "ctx_av_20260330_01"
+      },
+      "station_id": "ANAND_VIHAR_8118",
+      "created_timestamp": "2026-03-30T12:00:00Z",
+      "expires_timestamp": "2026-03-30T14:00:00Z",
+      "requires_human_review": true,
+      "calculation_version": "1.0",
+      "non_medical_disclaimer": "VayuDrishti action recommendations are operational environmental decision-support suggestions for human authority review. They do NOT constitute medical advice, clinical diagnosis, or patient care recommendations.",
+      "non_causal_disclaimer": "Action recommendations identify environmental risk contexts for operational review. They do NOT establish legal liability or definitive source attribution."
+    },
+    {
+      "recommendation_id": "rec_27e2f96a9a50",
+      "action_type": "REVIEW_INDUSTRIAL_ACTIVITY",
+      "priority": "PRIORITY",
+      "title": "Industrial-Context Activity Review",
+      "description": "Review of local industrial activity and emission compliance recommended given elevated forecast risk in an industrial-context area.",
+      "expected_objective": "Verify operational emission controls in industrial proximity.",
+      "trigger_conditions": [
+        "VERY_HIGH risk in designated industrial context area."
+      ],
+      "reason_codes": [
+        "ACTION_INDUSTRIAL_CONTEXT_REVIEW"
+      ],
+      "supporting_evidence": {
+        "forecast_result_id": "fc_av_20260330_12",
+        "hotspot_id": "hs_av_20260330_01",
+        "fusion_id": "fus_av_20260330_12",
+        "context_artifact_id": "ctx_av_20260330_01"
+      },
+      "station_id": "ANAND_VIHAR_8118",
+      "created_timestamp": "2026-03-30T12:00:00Z",
+      "expires_timestamp": "2026-03-30T14:00:00Z",
+      "requires_human_review": true,
+      "calculation_version": "1.0",
+      "non_medical_disclaimer": "VayuDrishti action recommendations are operational environmental decision-support suggestions for human authority review. They do NOT constitute medical advice, clinical diagnosis, or patient care recommendations.",
+      "non_causal_disclaimer": "Action recommendations identify environmental risk contexts for operational review. They do NOT establish legal liability or definitive source attribution."
+    },
+    {
+      "recommendation_id": "rec_c2704a463534",
+      "action_type": "REVIEW_MAJOR_ROAD_TRAFFIC_CONDITIONS",
+      "priority": "PRIORITY",
+      "title": "Major-Road Traffic Condition Review",
+      "description": "Review of arterial traffic congestion and dust suppression measures recommended given elevated forecast risk along major traffic corridors.",
+      "expected_objective": "Assess traffic corridor management and road dust control measures.",
+      "trigger_conditions": [
+        "VERY_HIGH risk along arterial transportation corridor."
+      ],
+      "reason_codes": [
+        "ACTION_TRAFFIC_CONTEXT_REVIEW"
+      ],
+      "supporting_evidence": {
+        "forecast_result_id": "fc_av_20260330_12",
+        "hotspot_id": "hs_av_20260330_01",
+        "fusion_id": "fus_av_20260330_12",
+        "context_artifact_id": "ctx_av_20260330_01"
+      },
+      "station_id": "ANAND_VIHAR_8118",
+      "created_timestamp": "2026-03-30T12:00:00Z",
+      "expires_timestamp": "2026-03-30T14:00:00Z",
+      "requires_human_review": true,
+      "calculation_version": "1.0",
+      "non_medical_disclaimer": "VayuDrishti action recommendations are operational environmental decision-support suggestions for human authority review. They do NOT constitute medical advice, clinical diagnosis, or patient care recommendations.",
+      "non_causal_disclaimer": "Action recommendations identify environmental risk contexts for operational review. They do NOT establish legal liability or definitive source attribution."
+    },
+    {
+      "recommendation_id": "rec_3c543922c6d2",
+      "action_type": "VERIFY_SENSITIVE_RECEPTOR_EXPOSURE_CONTEXT",
+      "priority": "URGENT_REVIEW",
+      "title": "Sensitive Receptor Exposure Verification",
+      "description": "Verification of exposure mitigation for sensitive receptors (schools, hospitals, care centers) recommended given elevated environmental risk.",
+      "expected_objective": "Confirm protective measures for vulnerable community populations.",
+      "trigger_conditions": [
+        "VERY_HIGH risk in proximity to sensitive receptors (schools/hospitals)."
+      ],
+      "reason_codes": [
+        "ACTION_SENSITIVE_RECEPTOR_MONITORING"
+      ],
+      "supporting_evidence": {
+        "forecast_result_id": "fc_av_20260330_12",
+        "hotspot_id": "hs_av_20260330_01",
+        "fusion_id": "fus_av_20260330_12",
+        "context_artifact_id": "ctx_av_20260330_01"
+      },
+      "station_id": "ANAND_VIHAR_8118",
+      "created_timestamp": "2026-03-30T12:00:00Z",
+      "expires_timestamp": "2026-03-30T14:00:00Z",
+      "requires_human_review": true,
+      "calculation_version": "1.0",
+      "non_medical_disclaimer": "VayuDrishti action recommendations are operational environmental decision-support suggestions for human authority review. They do NOT constitute medical advice, clinical diagnosis, or patient care recommendations.",
+      "non_causal_disclaimer": "Action recommendations identify environmental risk contexts for operational review. They do NOT establish legal liability or definitive source attribution."
+    },
+    {
+      "recommendation_id": "rec_7473de2ae71f",
+      "action_type": "ISSUE_PUBLIC_INFORMATION_ADVISORY",
+      "priority": "URGENT_REVIEW",
+      "title": "Public Environmental Information Advisory",
+      "description": "Issuance of public environmental information advisory recommended to provide community awareness regarding persistent high PM2.5 forecast levels.",
+      "expected_objective": "Inform local population to reduce outdoor physical exertion during peak hours.",
+      "trigger_conditions": [
+        "Persistent VERY_HIGH risk level warrants public awareness."
+      ],
+      "reason_codes": [
+        "ACTION_PUBLIC_ADVISORY_RECOMMENDED"
+      ],
+      "supporting_evidence": {
+        "forecast_result_id": "fc_av_20260330_12",
+        "hotspot_id": "hs_av_20260330_01",
+        "fusion_id": "fus_av_20260330_12",
+        "context_artifact_id": "ctx_av_20260330_01"
+      },
+      "station_id": "ANAND_VIHAR_8118",
+      "created_timestamp": "2026-03-30T12:00:00Z",
+      "expires_timestamp": "2026-03-30T14:00:00Z",
+      "requires_human_review": true,
+      "calculation_version": "1.0",
+      "non_medical_disclaimer": "VayuDrishti action recommendations are operational environmental decision-support suggestions for human authority review. They do NOT constitute medical advice, clinical diagnosis, or patient care recommendations.",
+      "non_causal_disclaimer": "Action recommendations identify environmental risk contexts for operational review. They do NOT establish legal liability or definitive source attribution."
+    }
+  ],
+  "missing_evidence": [],
+  "decision_summary": "Anand Vihar 8118 environmental decision intelligence assessment yields a risk score of 88.1 (VERY_HIGH risk level) based on multi-horizon PM2.5 forecasts. 6 operational decision-support recommendation(s) generated for human authority review. Primary assessment factors: [FORECAST_PM25_ELEVATED, FORECAST_PERSISTENT, HOTSPOT_CORROBORATED, INDUSTRIAL_CONTEXT_PRESENT]. Overall pipeline status: READY.",
+  "requires_human_review": true,
+  "model_scope": "Anand Vihar 8118 station-level pilot",
+  "calculation_version": "1.0",
+  "non_medical_disclaimer": "VayuDrishti decision intelligence outputs provide operational environmental decision support for human authority review. They do NOT constitute medical advice, clinical diagnosis, or patient care recommendations.",
+  "non_causal_disclaimer": "Decision intelligence outputs synthesize environmental forecast, risk, and action evidence for human authority review. They do NOT establish legal liability or definitive source attribution."
+}
