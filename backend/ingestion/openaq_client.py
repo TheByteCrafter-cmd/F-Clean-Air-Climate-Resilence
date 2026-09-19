@@ -222,6 +222,67 @@ class OpenAQClient:
             params["datetime_to"] = date_to
         return self._execute_request(f"/sensors/{sensors_id}/hours", params=params)
 
+    def discover_sensors(self, locations_id: int) -> List[Dict[str, Any]]:
+        """Discovers all sensors for a location and parses metadata (parameter, units, datetimeFirst, datetimeLast)."""
+        res = self.get_location_sensors(locations_id)
+        sensors = []
+        for item in res.get("results", []):
+            param = item.get("parameter", {})
+            dt_first = item.get("datetimeFirst", {}).get("utc") if isinstance(item.get("datetimeFirst"), dict) else item.get("datetimeFirst")
+            dt_last = item.get("datetimeLast", {}).get("utc") if isinstance(item.get("datetimeLast"), dict) else item.get("datetimeLast")
+            sensors.append({
+                "sensor_id": item.get("id"),
+                "location_id": locations_id,
+                "parameter": param.get("name") or param.get("displayName"),
+                "units": param.get("units"),
+                "datetimeFirst": dt_first,
+                "datetimeLast": dt_last,
+            })
+        return sensors
+
+    def generate_availability_matrix(
+        self,
+        stations: List[Dict[str, Any]],
+        start_iso: Optional[str] = None,
+        end_iso: Optional[str] = None,
+    ) -> List[Dict[str, Any]]:
+        """Generates diagnostic availability matrix for station PM2.5/PM10 sensors."""
+        matrix: List[Dict[str, Any]] = []
+        for st in stations:
+            loc_id = st["location_id"]
+            st_name = st["station_id"]
+            try:
+                sensors = self.discover_sensors(loc_id)
+                for s in sensors:
+                    pol = s.get("parameter")
+                    if str(pol).lower() in ["pm25", "pm2.5", "pm10"]:
+                        matrix.append({
+                            "station": st_name,
+                            "location_id": loc_id,
+                            "sensor_id": s["sensor_id"],
+                            "pollutant": pol,
+                            "units": s.get("units"),
+                            "first_available_utc": s.get("datetimeFirst"),
+                            "last_available_utc": s.get("datetimeLast"),
+                            "requested_window_overlap": True if start_iso and end_iso else False,
+                            "historical_data_available": bool(s.get("datetimeFirst") and s.get("datetimeLast")),
+                        })
+            except Exception as e:
+                logger.warning(f"Could not generate availability matrix for station {st_name}: {e}")
+                matrix.append({
+                    "station": st_name,
+                    "location_id": loc_id,
+                    "sensor_id": None,
+                    "pollutant": "PM2.5",
+                    "units": "µg/m³",
+                    "first_available_utc": None,
+                    "last_available_utc": None,
+                    "requested_window_overlap": False,
+                    "historical_data_available": False,
+                    "error": str(e),
+                })
+        return matrix
+
     def fetch_delhi_sample(self, location_limit: int = 3) -> Dict[str, Any]:
         """Controlled fetch workflow for Delhi pilot area.
         

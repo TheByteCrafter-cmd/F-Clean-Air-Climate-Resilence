@@ -233,7 +233,8 @@ class HistoricalForecastingIngestionPipeline:
         with open(manifest_path, "w", encoding="utf-8") as f:
             json.dump(manifest, f, indent=2)
 
-        # 9. Build Diagnostic & Quality Report (Step 2 requirement)
+        # Weather Coverage Check (Step 14 requirement)
+        weather_coverage = self.check_weather_coverage(normalized_aq, normalized_wx)
         diagnostic_mode_report = {
             "requested_stations": [s["station_id"] for s in pilot_stations],
             "location_ids": [s["location_id"] for s in pilot_stations],
@@ -559,6 +560,47 @@ class HistoricalForecastingIngestionPipeline:
             }
 
         return continuity_report
+
+    def check_weather_coverage(
+        self,
+        normalized_aq: List[Dict[str, Any]],
+        normalized_wx: List[Dict[str, Any]],
+    ) -> Dict[str, Any]:
+        """Calculates weather coverage overlap against air-quality observation timeline (Step 14)."""
+        if not normalized_aq or not normalized_wx:
+            return {
+                "weather_first_timestamp": normalized_wx[0]["timestamp"] if normalized_wx else None,
+                "weather_last_timestamp": normalized_wx[-1]["timestamp"] if normalized_wx else None,
+                "air_quality_first_timestamp": normalized_aq[0]["timestamp"] if normalized_aq else None,
+                "air_quality_last_timestamp": normalized_aq[-1]["timestamp"] if normalized_aq else None,
+                "overlap_duration_hours": 0.0,
+                "weather_coverage_sufficient": False,
+            }
+
+        aq_first = normalized_aq[0]["timestamp"]
+        aq_last = normalized_aq[-1]["timestamp"]
+        wx_first = normalized_wx[0]["timestamp"]
+        wx_last = normalized_wx[-1]["timestamp"]
+
+        aq_start_dt = parse_utc_timestamp(aq_first)
+        aq_end_dt = parse_utc_timestamp(aq_last)
+        wx_start_dt = parse_utc_timestamp(wx_first)
+        wx_end_dt = parse_utc_timestamp(wx_last)
+
+        overlap_start = max(aq_start_dt, wx_start_dt)
+        overlap_end = min(aq_end_dt, wx_end_dt)
+
+        overlap_sec = max(0.0, (overlap_end - overlap_start).total_seconds())
+        overlap_hours = round(overlap_sec / 3600.0, 2)
+
+        return {
+            "weather_first_timestamp": wx_first,
+            "weather_last_timestamp": wx_last,
+            "air_quality_first_timestamp": aq_first,
+            "air_quality_last_timestamp": aq_last,
+            "overlap_duration_hours": overlap_hours,
+            "weather_coverage_sufficient": overlap_hours >= 48.0 or (overlap_hours > 0.0 and overlap_hours >= (aq_end_dt - aq_start_dt).total_seconds() / 3600.0 * 0.8),
+        }
 
     def _write_csv(self, file_path: Path, rows: List[Dict[str, Any]]) -> None:
         """Helper to safely write dict rows to CSV file."""
