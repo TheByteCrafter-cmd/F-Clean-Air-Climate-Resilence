@@ -2,7 +2,7 @@
   "model_family": "LightGBM Regression",
   "scope": "Anand Vihar 8118 Pilot Station Only",
   "scope_statement": "Station-level pilot model trained and evaluated on real historical Anand Vihar data.",
-  "created_at": "2026-09-19T10:07:00.621738Z",
+  "created_at": "2026-09-19T10:19:43.516021Z",
   "lightgbm_version": "4.7.0",
   "random_state": 42,
   "feature_count": 27,

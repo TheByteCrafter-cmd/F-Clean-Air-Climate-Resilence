@@ -52,13 +52,23 @@ async def http_exception_handler(request: Request, exc: StarletteHTTPException):
 
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exc: RequestValidationError):
+    formatted_errors = []
+    for err in exc.errors():
+        err_copy = dict(err)
+        if "ctx" in err_copy and isinstance(err_copy["ctx"], dict):
+            ctx_copy = dict(err_copy["ctx"])
+            if "error" in ctx_copy:
+                ctx_copy["error"] = str(ctx_copy["error"])
+            err_copy["ctx"] = ctx_copy
+        formatted_errors.append(err_copy)
+
     return JSONResponse(
         status_code=422,
         content=ErrorResponse(
             error=ErrorDetail(
                 code="VALIDATION_ERROR",
                 message="Request payload validation failed.",
-                details=exc.errors(),
+                details=formatted_errors,
             )
         ).model_dump(),
     )
