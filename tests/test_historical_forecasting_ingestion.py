@@ -1,11 +1,12 @@
 """
-VayuDrishti — Historical Forecasting Data Ingestion Test Suite (Phase 1E-J2A)
+VayuDrishti — Historical Forecasting Data Ingestion Test Suite (Phase 1E-J2A.1)
 
-Tests OpenAQ API response normalization, pagination handling, deduplication by
+Tests OpenAQ API response normalization, sensor-level location traversal,
+diagnostic mode tracking, pagination handling, deduplication by
 (station_id, pollutant, timestamp), UTC timestamp normalization, unit normalization,
 pilot station filtering, station hourly continuity calculation, missing-hour detection,
 historical weather alignment (<= t), unauthenticated fallback, manifest generation,
-and readiness recalculation.
+credential masking, and readiness recalculation.
 """
 
 import json
@@ -67,7 +68,7 @@ MOCK_OPENAQ_RESULTS = [
 
 
 # ==============================================================================
-# 1. OPENAQ API RESPONSE NORMALIZATION & PAGINATION
+# 1. OPENAQ API RESPONSE NORMALIZATION & SENSOR TRAVERSAL
 # ==============================================================================
 def test_openaq_normalization_and_pagination(temp_data_root):
     """Verifies that OpenAQ v3 nested measurements are normalized properly."""
@@ -84,8 +85,68 @@ def test_openaq_normalization_and_pagination(temp_data_root):
         assert r["timestamp"].endswith("Z")
 
 
+def test_sensor_level_location_traversal():
+    """Step 5: Verifies location -> sensors -> hours traversal logic in OpenAQClient."""
+    mock_sensors_response = {
+        "results": [
+            {"id": 24151, "parameter": {"name": "pm25", "displayName": "PM2.5"}},
+            {"id": 24152, "parameter": {"name": "pm10", "displayName": "PM10"}},
+        ]
+    }
+    mock_hours_response = {
+        "results": [
+            {
+                "datetime": {"utc": "2026-03-01T00:00:00Z"},
+                "value": 142.5,
+            }
+        ],
+        "meta": {"found": 1, "page": 1, "limit": 1000},
+    }
+
+    pipeline = HistoricalForecastingIngestionPipeline()
+    with patch.object(pipeline.openaq_client, "get_location_sensors", return_value=mock_sensors_response), \
+         patch.object(pipeline.openaq_client, "get_sensor_measurements", return_value=mock_hours_response):
+
+        res = pipeline.openaq_client.get_location_measurements(
+            locations_id=8118,
+            date_from="2026-03-01T00:00:00Z",
+            date_to="2026-03-01T05:00:00Z",
+        )
+
+        assert len(res["results"]) == 2  # 1 reading per sensor (pm25 + pm10)
+        assert res["results"][0]["locationsId"] == 8118
+
+
 # ==============================================================================
-# 2. DEDUPLICATION & TIMESTAMP / UNIT NORMALIZATION
+# 2. DIAGNOSTIC MODE REPORTING
+# ==============================================================================
+def test_diagnostic_mode_reporting(temp_data_root):
+    """Step 2: Verifies explicit diagnostic mode metrics tracking and credential masking."""
+    pipeline = HistoricalForecastingIngestionPipeline(data_root=temp_data_root)
+
+    with patch.object(pipeline.openaq_client, "has_credentials", return_value=False), \
+         patch.object(pipeline.weather_client, "fetch_weather", return_value={}):
+        result = pipeline.fetch_and_process_history(history_days=7)
+
+        diag = result["diagnostic_report"]
+        assert "requested_stations" in diag
+        assert "location_ids" in diag
+        assert "api_endpoint" in diag
+        assert "raw_measurement_count" in diag
+        assert "pm25_measurement_count" in diag
+        assert "pm10_measurement_count" in diag
+        assert "normalized_record_count" in diag
+        assert "filtered_record_count" in diag
+        assert "duplicate_count" in diag
+
+        # Credential safety check: ensure key string is not exposed anywhere in diag
+        diag_str = json.dumps(diag)
+        assert "OPENAQ_API_KEY" not in diag_str
+        assert "X-API-Key" not in diag_str
+
+
+# ==============================================================================
+# 3. DEDUPLICATION & POLLUTANT NORMALIZATION
 # ==============================================================================
 def test_deduplication_and_unit_normalization(temp_data_root):
     """Verifies strict deduplication by (station_id, pollutant, timestamp) and unit standardizing."""
@@ -113,15 +174,28 @@ def test_deduplication_and_unit_normalization(temp_data_root):
     ]
 
     parsed = pipeline.normalize_air_quality(raw_records, DELHI_PILOT_STATIONS)
-    # Total unique records should be 2 (PM25 and PM10 at 01:00)
     assert len(parsed) == 2
     for r in parsed:
         assert r["unit"] == "µg/m³"
         assert "Z" in r["timestamp"]
 
 
+def test_pollutant_parameter_variants():
+    """Step 6: Verifies pm25, pm2.5, pm10 parameter normalization variants."""
+    pipeline = HistoricalForecastingIngestionPipeline()
+    records = [
+        {"timestamp": "2026-03-01T01:00:00Z", "parameter": {"name": "pm_25"}, "value": 100.0, "location_id": 8118},
+        {"timestamp": "2026-03-01T01:00:00Z", "parameter": {"name": "pm10"}, "value": 180.0, "location_id": 8118},
+    ]
+    normalized = pipeline.normalize_air_quality(records, DELHI_PILOT_STATIONS)
+    assert len(normalized) == 2
+    pols = [r["pollutant"] for r in normalized]
+    assert "PM2.5" in pols
+    assert "PM10" in pols
+
+
 # ==============================================================================
-# 3. STATION FILTERING
+# 4. STATION FILTERING & CONTINUITY AUDIT
 # ==============================================================================
 def test_pilot_station_filtering(temp_data_root):
     """Verifies that only defined pilot stations in Delhi are included in pipeline target list."""
@@ -132,9 +206,6 @@ def test_pilot_station_filtering(temp_data_root):
     assert len(DELHI_PILOT_STATIONS) == 6
 
 
-# ==============================================================================
-# 4. HOURLY CONTINUITY & MISSING-HOUR DETECTION
-# ==============================================================================
 def test_hourly_continuity_and_missing_hours(temp_data_root):
     """Verifies audit calculation of continuity score and detection of missing hour gaps."""
     pipeline = HistoricalForecastingIngestionPipeline(data_root=temp_data_root)

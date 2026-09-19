@@ -153,16 +153,55 @@ class OpenAQClient:
         limit: int = 1000,
         page: int = 1,
     ) -> Dict[str, Any]:
-        """Fetch historical measurements for a specific location ID."""
-        params: Dict[str, Any] = {
-            "limit": limit,
-            "page": page,
-        }
-        if date_from:
-            params["date_from"] = date_from
-        if date_to:
-            params["date_to"] = date_to
-        return self._execute_request(f"/locations/{locations_id}/measurements", params=params)
+        """Fetch historical measurements for a location by traversing location -> sensors -> hours."""
+        combined_results: List[Dict[str, Any]] = []
+        meta_info: Dict[str, Any] = {"found": 0, "page": page, "limit": limit}
+
+        try:
+            sensors_res = self.get_location_sensors(locations_id)
+            sensor_items = sensors_res.get("results", [])
+            target_sensors = [
+                s for s in sensor_items
+                if s.get("parameter", {}).get("name") in ["pm25", "pm2.5", "pm10", "pm_10"]
+            ]
+            if not target_sensors:
+                target_sensors = sensor_items  # Fallback to all sensors
+
+            for s in target_sensors:
+                s_id = s.get("id")
+                if not s_id:
+                    continue
+                try:
+                    s_res = self.get_sensor_measurements(
+                        sensors_id=s_id,
+                        date_from=date_from,
+                        date_to=date_to,
+                        limit=limit,
+                        page=page,
+                    )
+                    items = s_res.get("results", [])
+                    param_info = s.get("parameter", {})
+                    for item in items:
+                        if "parameter" not in item and param_info:
+                            item["parameter"] = param_info
+                        item["locationsId"] = locations_id
+                        item["sensorsId"] = s_id
+                        combined_results.append(item)
+                except OpenAQAPIError as err:
+                    logger.warning(f"Could not fetch measurements for sensor {s_id}: {err}")
+
+            meta_info["found"] = len(combined_results)
+            return {"results": combined_results, "meta": meta_info}
+
+        except Exception as e:
+            logger.warning(f"Sensor traversal failed for location {locations_id}: {e}")
+            # Direct fallback attempt if endpoint exists
+            params: Dict[str, Any] = {"limit": limit, "page": page}
+            if date_from:
+                params["datetime_from"] = date_from
+            if date_to:
+                params["datetime_to"] = date_to
+            return self._execute_request(f"/locations/{locations_id}/measurements", params=params)
 
     def get_sensor_measurements(
         self,
