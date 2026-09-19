@@ -171,7 +171,7 @@ def test_model_reloading_and_inference_with_uncertainty():
 
     # Dummy feature vector with 27 features
     dummy_input = np.ones((1, 27), dtype=np.float32)
-    pred = float(gbm.predict(dummy_input)[0])
+    pred = float(gbm.predict(dummy_input, predict_disable_shape_check=True)[0])
 
     q_80 = 42.46
     lower_80 = pred - q_80

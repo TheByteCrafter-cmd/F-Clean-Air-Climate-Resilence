@@ -136,8 +136,8 @@ class ForecastResidualEvaluator:
             X_val, y_val, val_rows = split_data["X_val"], split_data["y_val"], split_data["val_rows"]
             X_test, y_test, test_rows = split_data["X_test"], split_data["y_test"], split_data["test_rows"]
 
-            pred_val = gbm.predict(X_val)
-            pred_test = gbm.predict(X_test)
+            pred_val = gbm.predict(X_val, predict_disable_shape_check=True)
+            pred_test = gbm.predict(X_test, predict_disable_shape_check=True)
 
             # Residuals
             val_residuals = y_val - pred_val  # positive = under-prediction

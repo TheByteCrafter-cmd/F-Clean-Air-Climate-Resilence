@@ -187,7 +187,7 @@ class ForecastInferenceEngine:
                 )
 
             booster = self.boosters[h_name]
-            raw_pred_arr = booster.predict(X)
+            raw_pred_arr = booster.predict(X, predict_disable_shape_check=True)
 
             # Sanity Check Prediction Numeric & Finite
             if len(raw_pred_arr) == 0 or not np.isfinite(raw_pred_arr[0]):
