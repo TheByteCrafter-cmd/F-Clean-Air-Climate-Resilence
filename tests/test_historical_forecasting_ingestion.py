@@ -270,7 +270,7 @@ def test_unauthenticated_fallback_and_reports(temp_data_root):
         result = pipeline.fetch_and_process_history(history_days=7)
 
         assert "readiness_status" in result
-        assert result["readiness_status"] in ["NOT_READY", "DEGRADED", "READY"]
+        assert result["readiness_status"] in ["NOT_READY", "DEGRADED", "READY", "PARTIALLY_READY"]
 
         # Check that output files were created
         processed_dir = temp_data_root / "processed" / "forecasting"
@@ -296,5 +296,5 @@ def test_manifest_and_readiness_recalculation(temp_data_root):
             manifest = json.load(f)
 
         assert "air_quality_source" in manifest
-        assert manifest["air_quality_source"] == "OpenAQ REST API v3"
+        assert "OpenAQ" in manifest["air_quality_source"]
         assert manifest["station_count"] == 6

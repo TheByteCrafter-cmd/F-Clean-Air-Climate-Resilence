@@ -19,8 +19,10 @@ from statistics import median
 from typing import Any, Dict, List, Optional, Tuple, Union
 
 from backend.ingestion.exceptions import MissingCredentialError, OpenAQError
+from backend.ingestion.openaq_aws_archive import OpenAQAWSArchiveClient
 from backend.ingestion.openaq_client import OpenAQClient
 from backend.ingestion.weather_client import OpenMeteoClient
+from ml.src.forecasting.baseline import PersistenceForecaster
 from ml.src.forecasting.config import ForecastingConfig
 from ml.src.forecasting.dataset_builder import ForecastingDatasetBuilder
 from ml.src.forecasting.timestamp_utils import parse_utc_timestamp
@@ -46,18 +48,22 @@ class HistoricalForecastingIngestionPipeline:
         data_root: Optional[Union[str, Path]] = None,
         config: Optional[ForecastingConfig] = None,
         openaq_client: Optional[OpenAQClient] = None,
+        aws_archive_client: Optional[OpenAQAWSArchiveClient] = None,
         weather_client: Optional[OpenMeteoClient] = None,
     ):
         self.config = config or ForecastingConfig()
         self.data_root = Path(data_root) if data_root else Path(os.getcwd()) / "data"
 
         self.raw_dir = self.data_root / "raw" / "forecasting"
+        self.raw_aws_dir = self.raw_dir / "openaq_aws"
         self.processed_dir = self.data_root / "processed" / "forecasting"
         self.raw_dir.mkdir(parents=True, exist_ok=True)
+        self.raw_aws_dir.mkdir(parents=True, exist_ok=True)
         self.processed_dir.mkdir(parents=True, exist_ok=True)
 
         self.openaq_client = openaq_client or OpenAQClient()
-        self.weather_client = weather_client or OpenMeteoClient()
+        self.aws_archive_client = aws_archive_client or OpenAQAWSArchiveClient()
+        self.weather_client = weather_client or OpenMeteoClient(base_url="https://archive-api.open-meteo.com/v1/archive")
 
     def fetch_and_process_history(
         self,
@@ -92,6 +98,7 @@ class HistoricalForecastingIngestionPipeline:
         openaq_error_msg: Optional[str] = None
         pagination_count = 0
         http_status = 200
+        aws_archive_manifests: List[Dict[str, Any]] = []
 
         # 1. Fetch Historical OpenAQ Data
         if self.openaq_client.has_credentials():
@@ -118,11 +125,47 @@ class HistoricalForecastingIngestionPipeline:
                 http_status = 500
                 logger.warning(f"OpenAQ historical retrieval failed: {e}")
         else:
-            openaq_error_msg = "OPENAQ_API_KEY is not configured in the environment."
-            http_status = 401
-            logger.info("OPENAQ_API_KEY not configured. Falling back to local offline snapshot fixtures.")
+            logger.info("OPENAQ_API_KEY not configured. Initiating official OpenAQ AWS S3 Historical Archive acquisition.")
+            try:
+                # AWS Archive Path (Step 2: Validate 1 single object first)
+                valid_schema_found = False
+                for st in pilot_stations:
+                    loc_id = st["location_id"]
+                    # Step 2 single object validation check
+                    is_valid, validation_meta = self.aws_archive_client.validate_single_object(loc_id, start_dt)
+                    if is_valid:
+                        valid_schema_found = True
 
-        # Fallback to local raw snapshot fixtures if live fetch returned empty
+                    # Perform bounded date range acquisition from OpenAQ S3 Archive
+                    range_res = self.aws_archive_client.fetch_date_range(
+                        location_id=loc_id,
+                        start_date=start_dt,
+                        end_date=end_dt,
+                        pollutants=["pm25", "pm2.5", "pm10"],
+                    )
+                    aws_archive_manifests.extend(range_res.get("download_manifests", []))
+
+                    # Save raw downloaded CSV.gz files under data/raw/forecasting/openaq_aws/
+                    for fname, raw_bytes in range_res.get("raw_bytes_dict", {}).items():
+                        out_path = self.raw_aws_dir / fname
+                        with open(out_path, "wb") as f:
+                            f.write(raw_bytes)
+
+                    for r in range_res.get("raw_rows", []):
+                        r["_station_meta"] = st
+                        raw_aq_records.append(r)
+
+                openaq_success = len(raw_aq_records) > 0
+                if openaq_success:
+                    logger.info(f"Successfully acquired {len(raw_aq_records)} raw records from OpenAQ AWS S3 archive.")
+                else:
+                    openaq_error_msg = "No historical PM2.5/PM10 observations found in OpenAQ AWS S3 archive for requested period."
+            except Exception as e:
+                openaq_error_msg = f"OpenAQ AWS S3 archive acquisition failed: {e}"
+                http_status = 500
+                logger.warning(f"OpenAQ AWS S3 archive acquisition error: {e}")
+
+        # Fallback to local raw snapshot fixtures if live/archive fetch returned empty
         if not raw_aq_records:
             fallback_records = self._load_offline_fallback_fixtures(pilot_stations)
             if fallback_records:
@@ -130,12 +173,12 @@ class HistoricalForecastingIngestionPipeline:
                 openaq_success = True
                 logger.info(f"Loaded {len(raw_aq_records)} records from local raw snapshot fixtures.")
 
-        # Preserve Raw OpenAQ Snapshot
+        # Preserve Raw OpenAQ Snapshot Envelope
         aq_raw_filename = f"openaq_history_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}.json"
         aq_raw_path = self.raw_dir / aq_raw_filename
         raw_aq_envelope = {
             "metadata": {
-                "source": "OpenAQ REST API v3",
+                "source": "OpenAQ AWS S3 Archive (s3://openaq-data-archive/)" if not self.openaq_client.has_credentials() else "OpenAQ REST API v3",
                 "retrieved_at": retrieval_iso,
                 "start_utc": start_iso,
                 "end_utc": end_iso,
@@ -143,9 +186,11 @@ class HistoricalForecastingIngestionPipeline:
                 "stations": [s["station_id"] for s in pilot_stations],
                 "record_count": len(raw_aq_records),
                 "has_credentials": self.openaq_client.has_credentials(),
+                "aws_archive_manifests_count": len(aws_archive_manifests),
                 "error": openaq_error_msg,
             },
             "raw_records": raw_aq_records,
+            "aws_archive_manifests": aws_archive_manifests,
         }
         with open(aq_raw_path, "w", encoding="utf-8") as f:
             json.dump(raw_aq_envelope, f, indent=2)
@@ -254,6 +299,33 @@ class HistoricalForecastingIngestionPipeline:
             "final_persisted_record_count": len(normalized_aq),
         }
 
+        # Step 17: Run Persistence Baseline on real dataset
+        persistence_baseline_metrics: Dict[str, Any] = {"status": "BLOCKED", "reasons": ["Dataset incomplete or unbuilt"]}
+        ds_rows = dataset_summary.get("dataset_rows", [])
+        if ds_rows and dataset_summary["readiness_report"]["readiness_status"] in ["READY", "PARTIALLY_READY"]:
+            try:
+                forecaster = PersistenceForecaster(max_anchor_age_hours=3.0)
+                preds = forecaster.generate_predictions(ds_rows, horizons_hours=[1, 3, 6])
+                
+                h_metrics = {}
+                for h in [1, 3, 6]:
+                    h_preds = [p for p in preds if p["horizon"] == f"+{h}h" and p["absolute_error"] is not None]
+                    if h_preds:
+                        mae = round(sum(p["absolute_error"] for p in h_preds) / len(h_preds), 4)
+                        rmse = round((sum(p["squared_error"] for p in h_preds) / len(h_preds)) ** 0.5, 4)
+                    else:
+                        mae, rmse = None, None
+                    h_metrics[f"+{h}h"] = {"eval_count": len(h_preds), "mae": mae, "rmse": rmse}
+                
+                persistence_baseline_metrics = {
+                    "status": "EVALUATED",
+                    "total_predictions": len(preds),
+                    "horizons": h_metrics,
+                }
+            except Exception as b_err:
+                logger.warning(f"Persistence baseline evaluation failed: {b_err}")
+                persistence_baseline_metrics = {"status": "ERROR", "error": str(b_err)}
+
         quality_path = self.processed_dir / "forecasting_data_quality.json"
         quality_report = {
             "retrieval_timestamp": retrieval_iso,
@@ -262,6 +334,8 @@ class HistoricalForecastingIngestionPipeline:
             "total_normalized_aq_rows": len(normalized_aq),
             "total_normalized_weather_rows": len(normalized_wx),
             "station_continuity": station_quality,
+            "weather_coverage": weather_coverage,
+            "persistence_baseline_metrics": persistence_baseline_metrics,
             "overall_metrics": {
                 "openaq_success": openaq_success,
                 "openaq_error": openaq_error_msg,
@@ -278,6 +352,8 @@ class HistoricalForecastingIngestionPipeline:
             "air_quality_rows": len(normalized_aq),
             "weather_rows": len(normalized_wx),
             "station_continuity": station_quality,
+            "weather_coverage": weather_coverage,
+            "persistence_baseline_metrics": persistence_baseline_metrics,
             "diagnostic_report": diagnostic_mode_report,
             "dataset_summary": dataset_summary,
             "readiness_status": dataset_summary["readiness_report"]["readiness_status"],
@@ -341,7 +417,11 @@ class HistoricalForecastingIngestionPipeline:
         if not raw_records:
             return [], {"pm25_raw": 0, "pm10_raw": 0, "filtered": 0, "duplicates": 0}
 
-        st_map = {s["location_id"]: s for s in pilot_stations}
+        st_map = {}
+        for s in pilot_stations:
+            st_map[s["location_id"]] = s
+            st_map[str(s["location_id"])] = s
+
         normalized: List[Dict[str, Any]] = []
         seen_keys: set = set()
 
@@ -352,7 +432,7 @@ class HistoricalForecastingIngestionPipeline:
 
         for r in raw_records:
             loc_id = r.get("locationsId") or r.get("location_id") or (r.get("_station_meta", {}).get("location_id"))
-            meta = st_map.get(loc_id, r.get("_station_meta", {}))
+            meta = st_map.get(loc_id) or st_map.get(str(loc_id)) or r.get("_station_meta", {})
 
             st_id = meta.get("station_id") or f"STATION_{loc_id}"
             lat = meta.get("latitude") or (r.get("coordinates", {}).get("latitude"))
@@ -411,8 +491,23 @@ class HistoricalForecastingIngestionPipeline:
                 continue
             seen_keys.add(dedup_key)
 
+            s_id = r.get("sensorsId") or r.get("sensors_id") or r.get("sensor_id")
+            if s_id:
+                try:
+                    s_id = int(s_id)
+                except (ValueError, TypeError):
+                    pass
+            l_id = meta.get("location_id") or loc_id
+            if l_id:
+                try:
+                    l_id = int(l_id)
+                except (ValueError, TypeError):
+                    pass
+
             normalized.append({
                 "station_id": st_id,
+                "location_id": l_id,
+                "sensor_id": s_id,
                 "timestamp": iso_utc,
                 "parsed_timestamp": dt,
                 "latitude": round(float(lat), 4),
@@ -421,7 +516,7 @@ class HistoricalForecastingIngestionPipeline:
                 "pollutant": canon_pol,
                 "value": round(val, 2),
                 "unit": "µg/m³",
-                "source": "OpenAQ_v3",
+                "source": "OpenAQ",
             })
 
         normalized.sort(key=lambda x: (x["station_id"], x["pollutant"], x["parsed_timestamp"]))

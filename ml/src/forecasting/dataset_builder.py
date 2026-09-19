@@ -256,6 +256,7 @@ class ForecastingDatasetBuilder:
 
         return {
             "dataset_rows_count": len(dataset_rows),
+            "dataset_rows": dataset_rows,
             "quality_report": quality_report,
             "leakage_report": leakage_report,
             "readiness_report": readiness_report,
