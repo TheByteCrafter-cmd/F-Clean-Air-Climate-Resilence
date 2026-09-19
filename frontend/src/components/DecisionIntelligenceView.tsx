@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { apiClient, ApiError } from '../api/client';
 import { DecisionIntelligenceRequest, DecisionIntelligenceResponse } from '../types/api';
+import { HyperLocalEvidenceMap } from './HyperLocalEvidenceMap';
 
 export const DecisionIntelligenceView: React.FC = () => {
   const [data, setData] = useState<DecisionIntelligenceResponse | null>(null);
@@ -274,6 +275,9 @@ export const DecisionIntelligenceView: React.FC = () => {
               </div>
             </div>
           </div>
+
+          {/* Hyper-Local Hotspot & Spatial Context Evidence Map */}
+          <HyperLocalEvidenceMap decisionData={data} />
 
           {/* Risk Assessment Summary */}
           <div className="civic-fieldset" style={{ marginBottom: '20px' }}>
