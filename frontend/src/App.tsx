@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { apiClient, ApiError } from './api/client';
 import { ApiStatusResponse, HealthResponse } from './types/api';
 import { CitizenIntake } from './components/CitizenIntake';
+import { DecisionIntelligenceView } from './components/DecisionIntelligenceView';
 
 const App: React.FC = () => {
   const [healthData, setHealthData] = useState<HealthResponse | null>(null);
@@ -39,7 +40,8 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div style={{ maxWidth: '720px', margin: '0 auto', padding: '16px' }}>
+    <div style={{ maxWidth: '780px', margin: '0 auto', padding: '16px' }}>
+      <DecisionIntelligenceView />
       <CitizenIntake />
 
       <div className="card" style={{ marginTop: '24px' }}>

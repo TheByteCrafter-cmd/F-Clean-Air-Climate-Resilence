@@ -8,6 +8,8 @@ import {
   HotspotDetectionResult,
   HotspotCollectionResponse,
   HealthResponse,
+  DecisionIntelligenceRequest,
+  DecisionIntelligenceResponse,
 } from '../types/api';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
@@ -91,4 +93,10 @@ export const apiClient = {
     request<HotspotCollectionResponse>(`/api/v1/hotspots${pollutant ? `?pollutant=${pollutant}` : ''}`),
   getHotspotDetail: (hotspotId: string): Promise<HotspotDetectionResult> =>
     request<HotspotDetectionResult>(`/api/v1/hotspots/${hotspotId}`),
+  evaluateDecision: (payload: DecisionIntelligenceRequest): Promise<DecisionIntelligenceResponse> =>
+    request<DecisionIntelligenceResponse>('/api/v1/decision', {
+      method: 'POST',
+      body: JSON.stringify(payload),
+    }),
 };
+

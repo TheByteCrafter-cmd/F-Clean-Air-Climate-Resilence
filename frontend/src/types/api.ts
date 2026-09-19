@@ -370,3 +370,78 @@ export interface AuthorityRecommendation {
   reason: string;
   grap_stage?: string | null;
 }
+
+export interface DecisionIntelligenceRequest {
+  station_id: string;
+  prediction_timestamp: string;
+  assessment_timestamp?: string | null;
+  predicted_pm25_1h?: number | null;
+  pm25_1h_lower_90?: number | null;
+  pm25_1h_upper_90?: number | null;
+  predicted_pm25_3h?: number | null;
+  pm25_3h_lower_90?: number | null;
+  pm25_3h_upper_90?: number | null;
+  predicted_pm25_6h?: number | null;
+  pm25_6h_lower_90?: number | null;
+  pm25_6h_upper_90?: number | null;
+  hotspot_detected?: boolean | null;
+  hotspot_id?: string | null;
+  hotspot_support_score?: number | null;
+  hotspot_spatial_extent?: number | null;
+  hotspot_source_families?: string[] | null;
+  industrial_context?: boolean | null;
+  major_road_context?: boolean | null;
+  sensitive_receptor_context?: boolean | null;
+  forecast_result_id?: string | null;
+  fusion_id?: string | null;
+  context_artifact_id?: string | null;
+  forecast_result?: Record<string, unknown> | null;
+}
+
+export interface ActionRecommendation {
+  recommendation_id: string;
+  action_type: string;
+  priority: 'INFORMATIONAL' | 'WATCH' | 'PRIORITY' | 'URGENT_REVIEW' | string;
+  title: string;
+  description: string;
+  expected_objective: string;
+  trigger_conditions: string[];
+  reason_codes: string[];
+  supporting_evidence: Record<string, string | null>;
+  station_id: string;
+  created_timestamp: string;
+  expires_timestamp: string;
+  requires_human_review: boolean;
+  calculation_version: string;
+  non_medical_disclaimer: string;
+  non_causal_disclaimer: string;
+}
+
+export interface DecisionIntelligenceResponse {
+  status: string;
+  decision_result_id: string;
+  station_id: string;
+  prediction_timestamp: string;
+  created_timestamp: string;
+  expires_timestamp: string;
+  forecast_status: 'READY' | 'PARTIAL' | 'BLOCKED' | string;
+  risk_status: 'READY' | 'PARTIAL' | 'BLOCKED' | string;
+  action_status: 'READY' | 'PARTIAL' | 'BLOCKED' | string;
+  overall_data_quality_status: 'READY' | 'PARTIAL' | 'BLOCKED' | string;
+  forecast_reference?: Record<string, unknown> | null;
+  risk_reference?: Record<string, unknown> | null;
+  action_reference?: Record<string, unknown> | null;
+  evidence_references: Record<string, string | null>;
+  risk_score: number;
+  risk_level: 'LOW' | 'MODERATE' | 'HIGH' | 'VERY_HIGH' | 'UNSUPPORTED_STATION_SCOPE' | 'BLOCKED' | string;
+  recommendation_count: number;
+  recommendations: ActionRecommendation[];
+  missing_evidence: string[];
+  decision_summary: string;
+  requires_human_review: boolean;
+  model_scope: string;
+  calculation_version: string;
+  non_medical_disclaimer: string;
+  non_causal_disclaimer: string;
+}
+
