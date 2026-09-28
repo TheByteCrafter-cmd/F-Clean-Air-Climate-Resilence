@@ -134,7 +134,25 @@ class OpenMeteoClient:
                     continue
                 raise NetworkError(f"Open-Meteo connection failed after {self.max_retries + 1} attempts: {e}") from e
 
+    def parse_hourly_response(self, raw_res: Dict[str, Any]) -> List[Dict[str, Any]]:
+        """Parses raw Open-Meteo response into list of hourly dict steps."""
+        if not raw_res or "hourly" not in raw_res:
+            return []
+        hourly = raw_res["hourly"]
+        times = hourly.get("time", [])
+        steps = []
+        for i, t in enumerate(times):
+            step = {"timestamp": t}
+            for k, v in hourly.items():
+                if k == "time":
+                    continue
+                if isinstance(v, list) and i < len(v):
+                    step[k] = v[i]
+            steps.append(step)
+        return steps
+
     def fetch_delhi_sample(self, forecast_days: int = 1, past_days: int = 0) -> Dict[str, Any]:
+
         """Convenience controlled request for Delhi pilot center."""
         retrieval_timestamp = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
         raw_response = self.fetch_weather(

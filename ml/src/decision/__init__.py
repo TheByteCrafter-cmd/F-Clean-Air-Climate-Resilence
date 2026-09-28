@@ -9,6 +9,11 @@ from ml.src.decision.decision_schemas import (
     DecisionIntelligenceResult,
 )
 from ml.src.decision.decision_engine import DecisionIntelligenceEngine
+from ml.src.decision.live_pilot_orchestrator import (
+    ControlledLivePilotOrchestrator,
+    ControlledLivePilotResult,
+    FreshnessMetadata,
+)
 
 __all__ = [
     "DecisionConfig",
@@ -16,4 +21,8 @@ __all__ = [
     "DecisionIntelligenceInputModel",
     "DecisionIntelligenceResult",
     "DecisionIntelligenceEngine",
+    "ControlledLivePilotOrchestrator",
+    "ControlledLivePilotResult",
+    "FreshnessMetadata",
 ]
+
