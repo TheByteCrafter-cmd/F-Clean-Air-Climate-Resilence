@@ -1,0 +1,119 @@
+{
+  "phase": "PHASE 1E-J2E.5.0 \u2014 TEMPORAL MODEL VALIDATION & READINESS ASSESSMENT",
+  "station_id": "ANAND_VIHAR_8118",
+  "created_at": "2026-09-28T19:05:00.395966Z",
+  "readiness_status": "CANDIDATE_EVALUATED",
+  "production_validation_status": "NOT_PRODUCTION_VALIDATED",
+  "model_comparison": {
+    "+1h": {
+      "sample_count": 96,
+      "split_dates": {
+        "train_min": "2024-12-31T19:30:00Z",
+        "train_max": "2025-01-23T09:30:00Z",
+        "val_min": "2025-01-23T10:30:00Z",
+        "val_max": "2025-01-27T09:30:00Z",
+        "test_min": "2025-01-27T10:30:00Z",
+        "test_max": "2025-01-31T17:30:00Z"
+      },
+      "persistence_baseline": {
+        "mae": 21.5833,
+        "rmse": 36.7035,
+        "smape": 14.0697,
+        "sample_count": 96
+      },
+      "frozen_model": {
+        "mae": 67.2708,
+        "rmse": 93.2762,
+        "smape": 41.2948,
+        "sample_count": 96
+      },
+      "candidate_model": {
+        "mae": 35.9434,
+        "rmse": 53.7571,
+        "smape": 20.8644,
+        "sample_count": 96
+      }
+    },
+    "+3h": {
+      "sample_count": 95,
+      "split_dates": {
+        "train_min": "2024-12-31T19:30:00Z",
+        "train_max": "2025-01-23T09:30:00Z",
+        "val_min": "2025-01-23T10:30:00Z",
+        "val_max": "2025-01-27T07:30:00Z",
+        "test_min": "2025-01-27T08:30:00Z",
+        "test_max": "2025-01-31T15:30:00Z"
+      },
+      "persistence_baseline": {
+        "mae": 45.1895,
+        "rmse": 62.0386,
+        "smape": 27.8009,
+        "sample_count": 95
+      },
+      "frozen_model": {
+        "mae": 46.4475,
+        "rmse": 66.8675,
+        "smape": 25.0101,
+        "sample_count": 95
+      },
+      "candidate_model": {
+        "mae": 46.5477,
+        "rmse": 67.2219,
+        "smape": 25.2602,
+        "sample_count": 95
+      }
+    },
+    "+6h": {
+      "sample_count": 94,
+      "split_dates": {
+        "train_min": "2024-12-31T19:30:00Z",
+        "train_max": "2025-01-23T07:30:00Z",
+        "val_min": "2025-01-23T08:30:00Z",
+        "val_max": "2025-01-27T04:30:00Z",
+        "test_min": "2025-01-27T05:30:00Z",
+        "test_max": "2025-01-31T12:30:00Z"
+      },
+      "persistence_baseline": {
+        "mae": 71.3511,
+        "rmse": 93.1168,
+        "smape": 43.0933,
+        "sample_count": 94
+      },
+      "frozen_model": {
+        "mae": 61.0273,
+        "rmse": 79.0082,
+        "smape": 34.8233,
+        "sample_count": 94
+      },
+      "candidate_model": {
+        "mae": 58.5417,
+        "rmse": 78.3171,
+        "smape": 33.4779,
+        "sample_count": 94
+      }
+    }
+  },
+  "candidate_models": {
+    "+1h": {
+      "status": "TRAINED",
+      "candidate_path": "ml\\models\\forecasting\\candidates\\lightgbm_pm25_candidate_1h.txt",
+      "candidate_hash": "A6D4E6E8186AE3434EDD0225021CEB55F27D5AA4AD7F0F81803E741AAC03FF07",
+      "best_iteration": 150,
+      "feature_count": 27
+    },
+    "+3h": {
+      "status": "TRAINED",
+      "candidate_path": "ml\\models\\forecasting\\candidates\\lightgbm_pm25_candidate_3h.txt",
+      "candidate_hash": "D3C6F2F08DD850FF1C0955DDFF6E7B9693DE8EAE55BFA9F125DBCDBA28316B15",
+      "best_iteration": 144,
+      "feature_count": 27
+    },
+    "+6h": {
+      "status": "TRAINED",
+      "candidate_path": "ml\\models\\forecasting\\candidates\\lightgbm_pm25_candidate_6h.txt",
+      "candidate_hash": "2643649F34EF451BAE54FCD43BB7F4D6666593617B62DD9A5068299729056CDC",
+      "best_iteration": 122,
+      "feature_count": 27
+    }
+  }
+}

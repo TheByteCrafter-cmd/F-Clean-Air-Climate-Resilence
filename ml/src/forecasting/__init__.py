@@ -21,6 +21,8 @@ from ml.src.forecasting.validation import (
     ForecastingDataValidator,
     verify_zero_temporal_leakage,
 )
+from ml.src.forecasting.temporal_validation import TemporalModelValidator, compute_metrics
+
 
 __all__ = [
     "ForecastingConfig",
@@ -35,5 +37,8 @@ __all__ = [
     "compute_rmse",
     "compute_smape",
     "split_chronologically",
+    "TemporalModelValidator",
+    "compute_metrics",
 ]
+
 
