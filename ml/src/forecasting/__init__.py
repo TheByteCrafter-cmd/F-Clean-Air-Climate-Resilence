@@ -22,6 +22,10 @@ from ml.src.forecasting.validation import (
     verify_zero_temporal_leakage,
 )
 from ml.src.forecasting.temporal_validation import TemporalModelValidator, compute_metrics
+from ml.src.forecasting.robust_temporal_validation import (
+    RobustTemporalValidator,
+    PromotionGateEvaluator,
+)
 
 
 __all__ = [
@@ -39,6 +43,8 @@ __all__ = [
     "split_chronologically",
     "TemporalModelValidator",
     "compute_metrics",
+    "RobustTemporalValidator",
+    "PromotionGateEvaluator",
 ]
 
 

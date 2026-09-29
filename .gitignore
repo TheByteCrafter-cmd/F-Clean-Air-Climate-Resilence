@@ -50,3 +50,7 @@ data/processed/citizen_evidence/manifests/*
 data/processed/citizen_evidence/analysis/*
 !data/processed/citizen_evidence/analysis/.gitkeep
 
+# Validation & Candidate Run Artifacts
+ml/models/forecasting/validation_runs/*
+!ml/models/forecasting/validation_runs/.gitkeep
+
