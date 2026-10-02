@@ -26,6 +26,7 @@ from ml.src.forecasting.robust_temporal_validation import (
     RobustTemporalValidator,
     PromotionGateEvaluator,
 )
+from ml.src.forecasting.multi_station_validation import MultiStationDataExpander
 
 
 __all__ = [
@@ -45,6 +46,7 @@ __all__ = [
     "compute_metrics",
     "RobustTemporalValidator",
     "PromotionGateEvaluator",
+    "MultiStationDataExpander",
 ]
 
 
