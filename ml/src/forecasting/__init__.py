@@ -27,6 +27,7 @@ from ml.src.forecasting.robust_temporal_validation import (
     PromotionGateEvaluator,
 )
 from ml.src.forecasting.multi_station_validation import MultiStationDataExpander
+from ml.src.forecasting.historical_source_compatibility import HistoricalSourceCompatibilityAnalyzer
 
 
 __all__ = [
@@ -47,6 +48,7 @@ __all__ = [
     "RobustTemporalValidator",
     "PromotionGateEvaluator",
     "MultiStationDataExpander",
+    "HistoricalSourceCompatibilityAnalyzer",
 ]
 
 
